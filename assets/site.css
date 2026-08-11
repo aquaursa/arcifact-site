@@ -360,3 +360,26 @@ h1 .turn { color: var(--color-accent-ink); }
   white-space: nowrap; }
 .nav-cta:hover { background: var(--color-accent-pale); }
 @media (max-width: 46rem) { .nav-cta { display: none; } }
+
+/* ---------- the case: six claims, rank order ---------- */
+.case { border-top: 1px solid var(--color-rule); margin-top: 1.6rem; }
+.claim { display: grid; grid-template-columns: 3.2rem 1fr auto;
+  gap: 1.4rem; align-items: baseline; padding: 1.35rem 0;
+  border-bottom: 1px solid var(--color-rule); }
+.claim-n { font-family: var(--font-mono); font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-marquee); color: var(--color-ink-faint); }
+.claim-h { font-size: clamp(1.15rem, 2.3vw, 1.5rem); font-weight: 500;
+  letter-spacing: var(--tracking-display); line-height: var(--leading-snug);
+  color: var(--color-ink-strong); margin: 0 0 .35rem; }
+.claim-b { color: var(--color-ink-muted); font-size: var(--text-base);
+  max-width: 44rem; margin: 0; }
+.chip { font-family: var(--font-mono); font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-caption); text-transform: uppercase;
+  color: var(--color-accent-ink); border: 1px solid
+  var(--color-rule-accent-strong); padding: .3rem .55rem;
+  white-space: nowrap; align-self: start; }
+.chip.ok { color: var(--color-mint); border-color:
+  color-mix(in srgb, var(--color-mint) 45%, transparent); }
+@media (max-width: 46rem) {
+  .claim { grid-template-columns: 1fr; gap: .4rem; }
+  .chip { justify-self: start; } }
