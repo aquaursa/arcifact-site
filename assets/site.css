@@ -1,8 +1,13 @@
+@font-face { font-family: "Geist";
+  src: url("fonts/geist-var.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono";
+  src: url("fonts/geist-mono-var.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap; }
+
 /* Arcifact — shared stylesheet.
    Dark technical ground, cyan rule-work, editorial exhibit framing. */
 
-@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/geist@5/index.min.css");
-@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/geist-mono@5/index.min.css");
 
 :root {
   --font-sans: "Geist Variable", "Geist", system-ui, -apple-system,
@@ -442,3 +447,8 @@ h2, .claim-h { text-wrap: balance; }
 .nav-brand .wm-dot { color: var(--color-mint); margin-left: .04em;
   letter-spacing: 0; }
 .nav-brand:hover svg { color: var(--color-accent-bright); }
+
+/* ---------- reviewer pass: contrast, disclosure ---------- */
+.marquee, .sec-label, .stat .l, .stat-cap, .fig-head, .tbl th,
+.claim-n { color: var(--color-ink-muted); }
+.sec-label b, .fig-head b { color: var(--color-accent); }

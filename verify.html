@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security disclosure &middot; Arcifact</title>
-<meta name="description" content="How to report a vulnerability to Arcifact Ltd and what to expect from us.">
-<link rel="canonical" href="https://arcifact.io/security">
+<title>Verify a result &middot; Arcifact</title>
+<meta name="description" content="Machine-readable manifests for every published run: bank digests, scorer commit, raw counts, thresholds, and the root that binds them.">
+<link rel="canonical" href="https://arcifact.io/verify">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arcifact">
-<meta property="og:title" content="Security disclosure &middot; Arcifact">
-<meta property="og:description" content="How to report a vulnerability to Arcifact Ltd and what to expect from us.">
-<meta property="og:url" content="https://arcifact.io/security">
+<meta property="og:title" content="Verify a result &middot; Arcifact">
+<meta property="og:description" content="Machine-readable manifests for every published run: bank digests, scorer commit, raw counts, thresholds, and the root that binds them.">
+<meta property="og:url" content="https://arcifact.io/verify">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://arcifact.io/og.png">
 <meta property="og:image:width" content="1200">
@@ -49,30 +49,46 @@
   </div>
 
 <div class="hero">
-  <div class="hero-rule">Policy</div>
-  <h1>Security disclosure.</h1>
-  <p class="lede">Found something wrong in our instruments, our
-  scorer, our site or our conduct? Tell us directly and we will deal
-  with it directly.</p>
+  <div class="hero-rule">Machine-readable record</div>
+  <h1>Verify a result.</h1>
+  <p class="lede">Every published run has a manifest: bank digest,
+  scorer commit, sample size, raw counts, threshold provenance, and a
+  root that binds the set. Words above, hashes here.</p>
 </div>
-<section class="section legal">
-  <div class="sec-label">// <b>&sect; 01</b> &middot; reporting</div>
-  <h2>Write to security@arcifact.io.</h2>
-  <p>Include what you found, where, and how to reproduce it. For
-  scorer or bank issues, attach the output of
-  <span class="k" style="font-family:var(--font-mono)">tools/verify_hashes.py</span>
-  and a minimal responses file. We acknowledge within three working
-  days and keep you informed until resolution. A machine-readable
-  copy of this policy lives at
-  <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
+<section class="section">
+  <div class="sec-label">// <b>&sect; 01</b> &middot; manifests</div>
+  <h2>Three runs, fully described.</h2>
+  <div class="tblwrap"><table class="tbl">
+  <tr><th>Manifest</th><th>n</th><th>Raw</th><th>Result</th></tr>
+  <tr><td><a href="manifests/evalw_numeric.json">evalw_numeric.json</a></td>
+  <td class="n">150</td><td class="n ok">0 fabricated</td>
+  <td class="n ok">1.000 / 0.000</td></tr>
+  <tr><td><a href="manifests/evalw_temporal.json">evalw_temporal.json</a></td>
+  <td class="n">150</td><td class="n ok">0 fabricated</td>
+  <td class="n ok">1.000 / 0.000</td></tr>
+  <tr><td><a href="manifests/diamonds_zero_shot.json">diamonds_zero_shot.json</a></td>
+  <td class="n">270</td><td class="n ok">0 unwarranted</td>
+  <td class="n ok">0.963 / 0.000</td></tr>
+  </table></div>
+  <p class="muted" style="font-size:var(--text-sm);margin-top:.9rem">
+  Set root (sorted leaf hashes):
+  <a href="manifests/ROOT.txt">manifests/ROOT.txt</a>. Bank digests in
+  each manifest match the published banks byte for byte; the scorer
+  commit is the public kit head. Response files and the
+  preregistration ledger are private and opened under audit.</p>
 </section>
-<section class="section legal">
-  <div class="sec-label">// <b>&sect; 02</b> &middot; good faith</div>
-  <h2>Test honestly and we will treat you honestly.</h2>
-  <p>Good-faith research against our published surfaces is welcome.
-  Do not access data that is not yours, degrade service for others,
-  or publish before we have had a fair chance to fix. We do not run a
-  bounty programme yet; we do credit reporters who want credit.</p>
+<section class="section">
+  <div class="sec-label">// <b>&sect; 02</b> &middot; check it</div>
+  <h2>Three commands to catch us lying.</h2>
+  <div class="cmd">
+<b>$</b> curl -s https://arcifact.io/manifests/evalw_numeric.json | sha256sum<br>
+<b>$</b> sha256sum arcifact-kit/banks/evalw_numeric.jsonl<br>
+<b>$</b> python tools/grade_public.py banks/evalw_numeric.jsonl your_responses.jsonl --pretty</div>
+  <p>Compare the bank digest in the manifest with your own hash of the
+  published bank. Run your own model with the same scorer. If any
+  number on this site cannot survive that treatment, write to
+  <a href="mailto:security@arcifact.io">security@arcifact.io</a> and we
+  will correct it in public.</p>
 </section>
 
 </main>
