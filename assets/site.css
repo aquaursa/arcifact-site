@@ -400,3 +400,34 @@ h1 .turn { color: var(--color-accent-ink); }
   rotate(-6deg); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   .stat .v.settle, .stat .v.stamp { animation: none; } }
+
+/* ---------- metrical perfection ---------- */
+html { scroll-padding-top: 4.5rem; }
+section[id], .fig[id] { scroll-margin-top: 4.5rem; }
+.nav-inner { padding: .9rem 1.75rem; }
+.nav-brand { margin-right: -.16em; }
+.nav-links { gap: 1.5rem; align-items: center; }
+.nav-cta { margin-left: .35rem; padding: .5rem .9rem; }
+.hero { padding: 3.4rem 0 3rem; }
+h1 { margin-bottom: 1.15rem; text-wrap: balance; }
+h2, .claim-h { text-wrap: balance; }
+.lede { text-wrap: pretty; margin-bottom: 1rem; }
+.statrow { grid-template-columns: repeat(3, 1fr); margin-top: 2rem; }
+@media (max-width: 46rem) { .statrow { grid-template-columns: 1fr; } }
+.stat { padding: 1.05rem 1.15rem; }
+.stat .l { margin-top: .4rem; }
+.stat-cap { margin-top: .65rem; }
+.stat-cap + .actions { margin-top: 1.5rem; }
+.claim { align-items: start; }
+.claim-n { padding-top: .42rem; }
+.claim .chip { margin-top: .3rem; }
+.fig-head { display: flex; flex-wrap: wrap; align-items: baseline;
+  column-gap: .6rem; row-gap: .2rem; }
+.fig-body { padding-right: 6.75rem; }
+@media (max-width: 46rem) {
+  .fig-body { padding-right: 4.5rem; }
+  .figseal { width: 56px; height: 56px; right: .7rem; bottom: .6rem; } }
+.tbl td { vertical-align: top; line-height: 1.55; }
+.cmd { line-height: 1.85; }
+.step-d, .row dd, .claim-b { text-wrap: pretty; }
+.site-foot .muted { line-height: var(--leading-normal); }
