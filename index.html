@@ -28,7 +28,7 @@
 <circle cx="3.4" cy="7" r="2.1" fill="currentColor" stroke="none"/>
 </svg></span> ARCIFACT
     </a>
-    <nav class="nav-links" aria-label="Site"><a href="/#instruments">Instruments</a><a href="/#proof">Proof</a><a href="/#certification">Certification</a><a href="/#method">Method</a><a href="/#contact">Contact</a><a class="nav-cta" href="https://github.com/aquaursa/arcifact-kit">Run the check</a></nav>
+    <nav class="nav-links" aria-label="Site"><a href="/#case">Why</a><a href="evidence">Evidence</a><a href="/#proof">Proof</a><a href="/#certification">Certification</a><a href="/#contact">Contact</a><a class="nav-cta" href="https://github.com/arcifact/arcifact-kit">Run the check</a></nav>
   </div>
 </header>
 <main class="frame" id="main">
@@ -56,7 +56,7 @@
   </div>
   <p class="stat-cap">Same bank, same scorer. Run it yourself.</p>
   <div class="actions">
-    <a class="btn" href="https://github.com/aquaursa/arcifact-kit">Get your number &middot; 60s</a>
+    <a class="btn" href="https://github.com/arcifact/arcifact-kit">Get your number &middot; 60s</a>
     <a class="btn btn-quiet" href="#certification">Certification</a>
   </div>
 </div>
@@ -176,7 +176,7 @@ observation the menu never offered. Exact by construction.</p>
   </table></div>
   <p class="muted" style="font-size:var(--text-sm);margin-top:.9rem">
   Provenance for every number:
-  <a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/BASELINES.md">baselines</a>.</p>
+  <a href="https://github.com/arcifact/arcifact-kit/blob/main/docs/BASELINES.md">baselines</a>.</p>
 </section>
 
 <section class="section" id="agents">
@@ -215,7 +215,7 @@ observation the menu never offered. Exact by construction.</p>
   per release.</p>
   <div class="actions">
     <a class="btn" href="mailto:ben@arcifact.io?subject=Certification%20pilot">Start the conversation</a>
-    <a class="btn btn-quiet" href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">One-page brief</a>
+    <a class="btn btn-quiet" href="https://github.com/arcifact/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">One-page brief</a>
   </div>
 </section>
 
@@ -227,7 +227,7 @@ observation the menu never offered. Exact by construction.</p>
   passes. Banks ship only past screens for surface shortcuts,
   re-rendering and positional strategies, with chance floors stated.
   The policy is public in the
-  <a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PROTOCOL.md">protocol</a>.
+  <a href="https://github.com/arcifact/arcifact-kit/blob/main/docs/PROTOCOL.md">protocol</a>.
   Verification is public. Manufacture is not.</p>
 </section>
 
@@ -246,6 +246,14 @@ observation the menu never offered. Exact by construction.</p>
 
 <script>
 (function(){
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+var vs=document.querySelectorAll(".statrow .v");
+if(vs.length===3){vs[0].classList.add("settle");
+vs[1].style.opacity=0;vs[2].style.opacity=0;
+setTimeout(function(){vs[1].style.opacity=1;
+vs[1].classList.add("stamp")},420);
+setTimeout(function(){vs[2].style.opacity=1;
+vs[2].classList.add("settle")},700)}}
 var host=document.getElementById("tlines"),
 seal=document.getElementById("figseal");
 if(matchMedia("(prefers-reduced-motion: reduce)").matches)
@@ -281,10 +289,10 @@ setTimeout(step,i<3?260:170)})()},
       <div>
         <h4>Reference</h4>
         <ul>
-          <li><a href="https://github.com/aquaursa/arcifact-kit">Verification kit</a></li>
-          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PROTOCOL.md">Protocol</a></li>
-          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/BASELINES.md">Baselines</a></li>
-          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">Pilot brief</a></li>
+          <li><a href="https://github.com/arcifact/arcifact-kit">Verification kit</a></li>
+          <li><a href="https://github.com/arcifact/arcifact-kit/blob/main/docs/PROTOCOL.md">Protocol</a></li>
+          <li><a href="evidence">Evidence</a></li>
+          <li><a href="https://github.com/arcifact/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">Pilot brief</a></li>
         </ul>
       </div>
       <div>

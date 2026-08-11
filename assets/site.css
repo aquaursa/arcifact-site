@@ -383,3 +383,20 @@ h1 .turn { color: var(--color-accent-ink); }
 @media (max-width: 46rem) {
   .claim { grid-template-columns: 1fr; gap: .4rem; }
   .chip { justify-self: start; } }
+
+/* ---------- evidence page + hero settle ---------- */
+.cmd { background: var(--color-page-deep); border: 1px solid
+  var(--color-rule-strong); padding: 1rem 1.1rem; margin-top: 1.1rem;
+  font-family: var(--font-mono); font-size: var(--text-sm);
+  line-height: 1.7; color: #cfe0f0; overflow-x: auto; }
+.cmd b { color: var(--color-accent); font-weight: 400; }
+.tbl .na { color: var(--color-ink-faint); }
+.stat .v { display: inline-block; }
+.stat .v.settle { animation: settle .55s var(--ease-out) both; }
+.stat .v.stamp { animation: stamp2 .45s cubic-bezier(.2,1.5,.4,1) both; }
+@keyframes settle { from { opacity: 0; transform: translateY(.35rem); }
+  to { opacity: 1; transform: none; } }
+@keyframes stamp2 { from { opacity: 0; transform: scale(.55)
+  rotate(-6deg); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .stat .v.settle, .stat .v.stamp { animation: none; } }
