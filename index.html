@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcifact &middot; Evidence-gated AI</title>
+<meta name="description" content="Arcifact certifies AI systems against fabrication: frozen instruments, thresholds registered before any run, results you can reproduce on your own machine. Patent pending GB2618664.3.">
+<link rel="canonical" href="https://arcifact.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arcifact">
+<meta property="og:title" content="Arcifact &middot; Evidence-gated AI">
+<meta property="og:description" content="Arcifact certifies AI systems against fabrication: frozen instruments, thresholds registered before any run, results you can reproduce on your own machine. Patent pending GB2618664.3.">
+<meta property="og:url" content="https://arcifact.io">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#060914">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body style="background:#060914;color:#cdddee">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="nav-inner frame">
+    <a class="nav-brand" href="/" aria-label="Arcifact home">
+      <span aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="12" cy="12" r="10" opacity=".55"/>
+<path d="M 12,2 A 10 10 0 1 1 3.4,7"/>
+<circle cx="3.4" cy="7" r="2.1" fill="currentColor" stroke="none"/>
+</svg></span> ARCIFACT
+    </a>
+    <nav class="nav-links" aria-label="Site"><a href="/#instruments">Instruments</a><a href="/#proof">Proof</a><a href="/#certification">Certification</a><a href="/#method">Method</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+<main class="frame" id="main">
+  <div class="marquee">
+    <span>Exhibit 02 &middot; II</span>
+    <span>arcifact &middot; evidence-gated ai</span>
+    <span>ARCIFACT LTD &middot; MMXXVI</span>
+  </div>
+
+<div class="hero">
+  <div class="hero-rule"></div>
+  <h1>AI you can put in front of an auditor.</h1>
+  <p class="lede">Arcifact measures whether a system asserts past its
+  evidence, on frozen instruments it cannot game, and certifies the
+  result. The governed configuration holds the ceiling: score 1.000,
+  fabrication 0.000. The baselines sit next to it.</p>
+  <div class="actions">
+    <a class="btn" href="https://github.com/aquaursa/arcifact-kit">Run the check</a>
+    <a class="btn btn-quiet" href="#certification">How certification works</a>
+  </div>
+</div>
+
+<section class="section" id="problem">
+  <div class="sec-label">// <b>&sect; 01</b> &middot; the problem</div>
+  <h2>A confident answer is not evidence.</h2>
+  <p>Ask a model about a policy that was never written and you get a
+  paragraph anyway: fluent, cited, wrong. Fabricated citations have
+  reached courtrooms. Support bots have invented rules their own
+  companies had to retract. Agents have misreported their own actions.
+  Re-running the model answers none of this. Measuring it does.</p>
+</section>
+
+<section class="section" id="instruments">
+  <div class="sec-label">// <b>&sect; 02</b> &middot; the instruments</div>
+  <h2>Instruments the model cannot game, published so you can try.</h2>
+  <div class="grid">
+    <div class="cell"><div class="num">01</div><h3>Frozen</h3>
+    <p>Banks never change after publication. The digest is the
+    contract, and anyone can verify it.</p></div>
+    <div class="cell"><div class="num">02</div><h3>Hardened</h3>
+    <p>Domains ship only past adversarial screens. One failed and is
+    absent for that reason.</p></div>
+    <div class="cell"><div class="num">03</div><h3>Registered</h3>
+    <p>Every threshold is set before the run it judges. Misses are
+    kept, with mechanism analyses.</p></div>
+    <div class="cell"><div class="num">04</div><h3>Enveloped</h3>
+    <p>Scores carry the regime they were earned in. Declared
+    incapacity is scored apart from error.</p></div>
+  </div>
+  <p class="pull">Do not trust this page. Verify the digests, run your
+  own model, read the protocol, and check each number against the bar
+  registered before its run.</p>
+</section>
+
+<section class="section" id="proof">
+  <div class="sec-label">// <b>&sect; 03</b> &middot; proof</div>
+  <h2>Sixty seconds on your machine settles it.</h2>
+  <div class="fig" id="check">
+  <div class="fig-head"><b>FIG.&nbsp;01</b> &middot; the sixty-second
+  check <span class="dim" style="margin-left:auto">real
+  semantics</span></div>
+  <div class="fig-body" id="tlines" aria-hidden="true">
+<div><span class="dim">$</span> <span class="k">python tools/verify_hashes.py</span></div>
+<div><span class="ok">10 banks verified; no strays</span></div>
+<div><span class="dim">$</span> <span class="k">python tools/run_frontier.py banks/evalw_numeric.jsonl out/r.jsonl --limit 25</span></div>
+<div>25/25 &middot; responses written locally</div>
+<div><span class="dim">$</span> <span class="k">python tools/grade_public.py banks/evalw_numeric.jsonl out/r.jsonl --pretty</span></div>
+<div>{{</div><div>&nbsp;&nbsp;"n": 25,</div>
+<div>&nbsp;&nbsp;"score": 1.000,</div>
+<div>&nbsp;&nbsp;"fabrication_rate": <span class="ok">0.000</span></div>
+<div>}}</div>
+<svg class="figseal" id="figseal" viewBox="0 0 78 78" aria-hidden="true">
+<circle cx="39" cy="39" r="36" fill="none" stroke="#6cd8e8" stroke-width="2"/>
+<circle cx="39" cy="39" r="29" fill="none" stroke="#6cd8e8" stroke-width=".75"/>
+<text x="39" y="35" text-anchor="middle" fill="#6cd8e8"
+font-family="Geist Mono,monospace" font-size="9"
+letter-spacing="1">FAB</text>
+<text x="39" y="49" text-anchor="middle" fill="#5fdca3"
+font-family="Geist Mono,monospace" font-size="11">0.000</text>
+</svg>
+  </div>
+  <div class="fig-foot"><p><span class="vh">The check passes: banks
+  verified, twenty-five responses scored 1.000 with fabrication
+  0.000.</span>The runner calls the endpoint you configure.
+  Responses are written to your disk and scored locally. Nothing
+  reaches Arcifact.</p></div>
+</div>
+  <div class="tblwrap"><table class="tbl">
+  <tr><th>System</th><th>Rendered numeric, 150 items</th>
+  <th>Fabrication</th></tr>
+  <tr><td>Governed configuration, Arcifact</td>
+  <td class="n ok">1.000</td><td class="n ok">0.000</td></tr>
+  <tr><td>Unassisted frontier baseline</td>
+  <td class="n bad">0.000</td><td class="n bad">&asymp;1.000</td></tr>
+  <tr><td>Abstain-everything control</td>
+  <td class="n">0.500</td><td class="n">0.000</td></tr>
+  </table></div>
+  <p class="muted" style="font-size:var(--text-sm);margin-top:.9rem">
+  Provenance for every number:
+  <a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/BASELINES.md">baselines</a>.</p>
+</section>
+
+<section class="section" id="agents">
+  <div class="sec-label">// <b>&sect; 04</b> &middot; governed agents</div>
+  <h2>270 agent episodes. Zero unwarranted assertions.</h2>
+  <p>The costly failure is rarely the wrong action. It is the
+  confident false report afterward. A governed agent asserts, about
+  the world and about its own actions, only when the evidence in hand
+  settles the question; otherwise it refuses and states its grounds.
+  Recorded on a corpus the system had never seen in training.</p>
+  <p class="pull">Running coding or workflow agents? An agent that
+  misreports what it did is the exact class this closes.</p>
+</section>
+
+<section class="section" id="certification">
+  <div class="sec-label">// <b>&sect; 05</b> &middot; certification</div>
+  <h2>Three weeks from first run to a certificate.</h2>
+  <div class="steps">
+    <div class="step"><span class="step-n">W1</span>
+    <span class="step-t">Your run</span>
+    <span class="step-d">You run the kit on your own infrastructure.
+    Thresholds agreed in writing before anything is scored.</span></div>
+    <div class="step"><span class="step-n">W2</span>
+    <span class="step-t">Scored runs</span>
+    <span class="step-d">Frozen banks, including held-out items never
+    published.</span></div>
+    <div class="step"><span class="step-n">W3</span>
+    <span class="step-t">Certificate</span>
+    <span class="step-d">Banded scores, explicit envelope, fabrication
+    rate, provenance on every number, joint read-out.</span></div>
+  </div>
+  <p style="margin-top:1.5rem">Certificates publish only with your
+  approval. A missed bar is reported with a mechanism analysis, never
+  repositioned. Renewable per release.</p>
+  <div class="actions">
+    <a class="btn" href="mailto:ben@arcifact.io?subject=Certification%20pilot">Start the conversation</a>
+    <a class="btn btn-quiet" href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">One-page brief</a>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="sec-label">// <b>&sect; 06</b> &middot; method</div>
+  <h2>We publish what failed.</h2>
+  <p>Every number on this page was scored against a threshold
+  registered before its run. When an agent settlement bar was missed,
+  the miss shipped with its mechanism analysis and the bar did not
+  move. Banks pass screens for surface shortcuts, re-rendering and
+  positional strategies, with chance floors stated. The policy is
+  public in the
+  <a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PROTOCOL.md">protocol</a>.
+  Verification is public. Manufacture is not.</p>
+</section>
+
+<section class="section" id="contact">
+  <div class="sec-label">// <b>&sect; 07</b> &middot; status</div>
+  <h2>We are talking to a small number of teams.</h2>
+  <p>If fabricated citations, invented policies or misreported agent
+  actions are a live cost on your desk, we would like to hear how you
+  handle them today, including if the current answer is a regex and a
+  code review.</p>
+  <div class="actions">
+    <a class="btn" href="mailto:ben@arcifact.io">ben@arcifact.io</a>
+  </div>
+</section>
+
+<script>
+(function(){
+var host=document.getElementById("tlines"),
+seal=document.getElementById("figseal");
+if(matchMedia("(prefers-reduced-motion: reduce)").matches)
+{seal.classList.add("on");return}
+var rows=[].slice.call(host.children).filter(function(n)
+{return n.tagName==="DIV"});
+rows.forEach(function(r){r.style.visibility="hidden"});
+new IntersectionObserver(function(e,o){
+if(!e[0].isIntersecting)return;o.disconnect();
+var i=0;(function step(){
+if(i>=rows.length){seal.classList.add("on");return}
+rows[i++].style.visibility="visible";
+setTimeout(step,i<3?260:170)})()},
+{threshold:.35}).observe(host);
+})();
+</script>
+
+</main>
+<footer class="site-foot">
+  <div class="frame">
+    <div class="foot-grid">
+      <div>
+        <h4>Arcifact</h4>
+        <p class="muted" style="font-size:var(--text-sm);max-width:26rem">
+          Evidence-gated AI. Nothing asserted past evidence.
+          Built by ARCIFACT LTD, an independent research company
+          registered in England.
+        </p>
+        <p class="res-ipsa" style="margin-top:1rem">
+          &#9671; Res ipsa &middot; the thing speaks for itself.
+        </p>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="https://github.com/aquaursa/arcifact-kit">Verification kit</a></li>
+          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PROTOCOL.md">Protocol</a></li>
+          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/BASELINES.md">Baselines</a></li>
+          <li><a href="https://github.com/aquaursa/arcifact-kit/blob/main/docs/PILOT_BRIEF.md">Pilot brief</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Direct</h4>
+        <ul>
+          <li><a href="mailto:ben@arcifact.io">ben@arcifact.io</a></li>
+          <li><a href="mailto:hello@arcifact.io">hello@arcifact.io</a></li>
+          <li><a href="mailto:press@arcifact.io">press@arcifact.io</a></li>
+          <li><a href="security">Security disclosure</a></li>
+          <li><a href="privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-rule">
+      <span>&copy; 2026 ARCIFACT LTD &middot; arcifact.io</span>
+      <span>Registered in England &middot; Patent pending GB2618664.3</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
