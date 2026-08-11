@@ -431,3 +431,14 @@ h2, .claim-h { text-wrap: balance; }
 .cmd { line-height: 1.85; }
 .step-d, .row dd, .claim-b { text-wrap: pretty; }
 .site-foot .muted { line-height: var(--leading-normal); }
+
+/* ---------- identity recut: the ring, the seal, the name ---------- */
+.nav-brand { gap: .6rem; margin-right: 0; }
+.nav-brand svg { width: 21px; height: 21px; stroke: none;
+  color: var(--color-accent); transform: translateY(-.5px); }
+.nav-brand .wm { font-family: "Geist", var(--font-sans, system-ui);
+  font-weight: 650; font-size: 1.04rem; letter-spacing: .13em;
+  color: var(--color-ink-strong); }
+.nav-brand .wm-dot { color: var(--color-mint); margin-left: .04em;
+  letter-spacing: 0; }
+.nav-brand:hover svg { color: var(--color-accent-bright); }
