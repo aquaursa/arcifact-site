@@ -1,0 +1,275 @@
+<!doctype html><html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Oracle &middot; Arcifact</title>
+<meta name="description" content="PyTorch's real CI graph, fourteen dependencies concealed: 9.7 quintillion possible execution orders, interrogated to exact certainty in your browser.">
+<meta name="color-scheme" content="dark">
+<style>
+:root{--bg:#060914;--elev:#0b1120;--ink:#cdddee;--strong:#eef4fb;
+--mut:#7e93b0;--rule:#1d2940;--cy:#6cd8e8;--mint:#5fdca3;--amb:#e0a86b}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 ui-monospace,
+"Geist Mono",Menlo,monospace;padding:0 0 5rem}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.2rem}
+.plate{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:11px;
+letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+h1{font:600 clamp(2rem,6vw,3.4rem)/1.05 ui-sans-serif,Geist,system-ui;
+color:var(--strong);letter-spacing:-.02em;margin:2.2rem 0 .6rem}
+.sub{max-width:46rem;color:var(--ink)}
+.stats{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1px;
+background:var(--rule);border:1px solid var(--rule);margin:1.6rem 0}
+.stat{background:var(--elev);padding:.9rem 1rem}
+.stat .v{font-size:clamp(1rem,2.6vw,1.5rem);color:var(--cy);
+word-break:break-all}
+.stat .v.big{color:var(--amb)}
+.stat .l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--mut);margin-top:.3rem}
+.card{border:1px solid var(--rule);background:var(--elev);
+padding:1.1rem 1.2rem;margin:1rem 0}
+.card h2{font:600 1rem ui-sans-serif,system-ui;color:var(--strong);
+letter-spacing:.02em;margin-bottom:.7rem}
+select,button{font:inherit;background:#0e1526;color:var(--ink);
+border:1px solid var(--rule);padding:.55rem .7rem}
+button{cursor:pointer;border-color:var(--cy);color:var(--cy)}
+button:hover{background:#12305a}
+button.mint{border-color:var(--mint);color:var(--mint)}
+.p{font-size:clamp(1.6rem,5vw,2.6rem);color:var(--strong)}
+.frac{font-size:11px;color:var(--mut);word-break:break-all;
+margin-top:.35rem}
+.chip{display:inline-block;border:1px solid var(--cy);color:var(--cy);
+padding:.15rem .5rem;font-size:10px;letter-spacing:.14em;
+text-transform:uppercase;margin-left:.6rem;vertical-align:middle}
+.chip.cert{border-color:var(--mint);color:var(--mint)}
+.ledger div{border-top:1px solid var(--rule);padding:.5rem 0;
+font-size:13px}
+.ledger .yes{color:var(--mint)} .ledger .no{color:var(--amb)}
+.order{columns:2;font-size:12.5px;color:var(--ink)}
+.order li{margin:.15rem 0}
+.seal{width:86px;opacity:0;transform:rotate(-14deg) scale(.6);
+float:right}
+.seal.on{animation:st .5s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes st{to{opacity:1;transform:rotate(-7deg)}}
+.foot{margin-top:2rem;color:var(--mut);font-size:11.5px;
+border-top:1px solid var(--rule);padding-top:.8rem}
+a{color:var(--cy)}
+@media(prefers-reduced-motion:reduce){.seal{opacity:1;transform:none}
+.seal.on{animation:none}}
+@media(max-width:44rem){.stats{grid-template-columns:1fr}
+.order{columns:1}}
+</style></head><body>
+<div class="wrap">
+<div class="plate"><span>ARCIFACT &middot; live instrument</span>
+<span>Patent pending &middot; GB2618664.3</span></div>
+<h1>The Oracle.</h1>
+<p class="sub">This is PyTorch&rsquo;s real CI dependency graph, 24 jobs,
+with fourteen of its true dependencies concealed. What remains admits
+<b id="Nsub">9,695,011,635,313,804,800</b> possible execution orders.
+Ask which job runs first. The oracle answers with an exact count,
+names the observation that would settle it, and shrinks the universe
+in front of you. Nothing here is estimated.</p>
+<div class="stats">
+<div class="stat"><div class="v big" id="N">building&hellip;</div>
+<div class="l">possible worlds &middot; exact</div></div>
+<div class="stat"><div class="v" id="ideals">&ndash;</div>
+<div class="l">lattice ideals</div></div>
+<div class="stat"><div class="v" id="ms">&ndash;</div>
+<div class="l">engine build</div></div>
+</div>
+<div class="card"><h2>The question</h2>
+<div>Does <select id="selA"></select> run before
+<select id="selB"></select>?
+<button id="ask">Ask</button></div>
+<div style="margin-top:.9rem"><span class="p" id="pval">&ndash;</span>
+<span class="chip" id="chip">idle</span>
+<svg class="seal" id="seal" viewBox="0 0 78 78" aria-hidden="true">
+<path d="M 61.5,22.9 A 30 30 0 1 0 61.5,55.1" fill="none"
+stroke="#6cd8e8" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="69" cy="39" r="5" fill="#5fdca3"/>
+<text x="37" y="35" text-anchor="middle" fill="#6cd8e8"
+font-size="9" letter-spacing="1">EXACT</text>
+<text x="37" y="49" text-anchor="middle" fill="#5fdca3"
+font-size="10" id="sealp"></text></svg>
+<div class="frac" id="frac"></div></div></div>
+<div class="card"><h2>What would settle it</h2>
+<div id="probe">Ask a question first.</div>
+<div style="margin-top:.6rem"><button id="reveal" disabled>
+Reveal the truth</button></div></div>
+<div class="card"><h2>The record</h2>
+<div class="ledger" id="ledger"></div></div>
+<div class="card"><h2>One world, exactly uniform</h2>
+<div><button class="mint" id="draw">Draw a perfect world</button></div>
+<ol class="order" id="world" style="margin-top:.7rem"></ol></div>
+<div class="foot">Engine: two-pass counts over the ideal lattice of
+the revealed order; probabilities are ratios of exact integers;
+world draws are R-weighted lattice walks, exactly uniform. The
+Python and browser engines agree on the nineteen-digit world count
+digit for digit. Source graph: pytorch pull.yml. A demonstration by
+<a href="https://arcifact.io">Arcifact</a>: nothing asserted past
+evidence.</div>
+</div>
+<script>
+const DATA={"jobs": ["job-filter", "llm-td", "target-determination", "get-label-type", "linux-jammy-py3_10-gcc11-build", "linux-jammy-py3_10-gcc11-test", "linux-jammy-aarch64-py3_10-gcc13-build", "linux-jammy-aarch64-py3_10-gcc13-test", "linux-jammy-py3_14t-clang21-build", "linux-jammy-py3_14t-clang21-test", "linux-jammy-py3_10-gcc11-no-ops", "linux-jammy-py3_10-clang21-asan-build", "linux-jammy-py3_10-clang21-asan-test", "linux-jammy-py3_10-clang21-build", "linux-jammy-py3_10-clang21-test", "linux-jammy-py3_14-clang21-build", "linux-jammy-py3_14-clang21-test", "linux-jammy-cuda13_0-cudnn9-py3_10-clang20-build", "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build", "linux-jammy-py3_10-gcc11-mobile-lightweight-dispatch-build", "linux-jammy-rocm-py3_10-build", "linux-noble-xpu-n-py3_10-build", "dynamo-cpython-build", "dynamo-cpython-test"], "base": [["llm-td", "target-determination"], ["get-label-type", "linux-jammy-py3_10-gcc11-build"], ["job-filter", "linux-jammy-py3_10-gcc11-build"], ["linux-jammy-py3_10-gcc11-build", "linux-jammy-py3_10-gcc11-test"], ["target-determination", "linux-jammy-py3_10-gcc11-test"], ["job-filter", "linux-jammy-py3_10-gcc11-test"], ["get-label-type", "linux-jammy-py3_10-gcc11-test"], ["get-label-type", "linux-jammy-aarch64-py3_10-gcc13-build"], ["linux-jammy-aarch64-py3_10-gcc13-build", "linux-jammy-aarch64-py3_10-gcc13-test"], ["get-label-type", "linux-jammy-aarch64-py3_10-gcc13-test"], ["get-label-type", "linux-jammy-py3_14t-clang21-build"], ["get-label-type", "linux-jammy-py3_10-gcc11-no-ops"], ["job-filter", "linux-jammy-py3_10-gcc11-no-ops"], ["job-filter", "linux-jammy-py3_10-clang21-asan-build"], ["linux-jammy-py3_10-clang21-asan-build", "linux-jammy-py3_10-clang21-asan-test"], ["target-determination", "linux-jammy-py3_10-clang21-asan-test"], ["job-filter", "linux-jammy-py3_10-clang21-asan-test"], ["get-label-type", "linux-jammy-py3_10-clang21-build"], ["job-filter", "linux-jammy-py3_10-clang21-build"], ["linux-jammy-py3_10-clang21-build", "linux-jammy-py3_10-clang21-test"], ["target-determination", "linux-jammy-py3_10-clang21-test"], ["get-label-type", "linux-jammy-py3_10-clang21-test"], ["job-filter", "linux-jammy-py3_14-clang21-build"], ["linux-jammy-py3_14-clang21-build", "linux-jammy-py3_14-clang21-test"], ["job-filter", "linux-jammy-py3_14-clang21-test"], ["get-label-type", "linux-jammy-py3_14-clang21-test"], ["get-label-type", "linux-jammy-cuda13_0-cudnn9-py3_10-clang20-build"], ["job-filter", "linux-jammy-cuda13_0-cudnn9-py3_10-clang20-build"], ["get-label-type", "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build"], ["job-filter", "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build"], ["job-filter", "linux-jammy-py3_10-gcc11-mobile-lightweight-dispatch-build"], ["job-filter", "linux-jammy-rocm-py3_10-build"], ["get-label-type", "linux-noble-xpu-n-py3_10-build"], ["get-label-type", "dynamo-cpython-build"], ["dynamo-cpython-build", "dynamo-cpython-test"]], "deck": [{"e": ["get-label-type", "linux-jammy-py3_10-clang21-asan-test"], "exists": true}, {"e": ["get-label-type", "linux-jammy-rocm-py3_10-build"], "exists": true}, {"e": ["linux-jammy-py3_14t-clang21-build", "linux-jammy-py3_14t-clang21-test"], "exists": true}, {"e": ["target-determination", "linux-jammy-py3_14t-clang21-test"], "exists": true}, {"e": ["target-determination", "linux-jammy-aarch64-py3_10-gcc13-test"], "exists": true}, {"e": ["get-label-type", "dynamo-cpython-test"], "exists": true}, {"e": ["job-filter", "linux-jammy-aarch64-py3_10-gcc13-test"], "exists": true}, {"e": ["get-label-type", "linux-jammy-py3_14t-clang21-test"], "exists": true}, {"e": ["job-filter", "linux-noble-xpu-n-py3_10-build"], "exists": true}, {"e": ["get-label-type", "linux-jammy-py3_14-clang21-build"], "exists": true}, {"e": ["job-filter", "linux-jammy-py3_10-clang21-test"], "exists": true}, {"e": ["job-filter", "linux-jammy-aarch64-py3_10-gcc13-build"], "exists": true}, {"e": ["get-label-type", "linux-jammy-py3_10-gcc11-mobile-lightweight-dispatch-build"], "exists": true}, {"e": ["get-label-type", "linux-jammy-py3_10-clang21-asan-build"], "exists": true}, {"e": ["linux-jammy-cuda13_0-cudnn9-py3_10-clang20-build", "dynamo-cpython-build"], "exists": false}, {"e": ["target-determination", "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build"], "exists": false}, {"e": ["llm-td", "linux-jammy-py3_10-gcc11-mobile-lightweight-dispatch-build"], "exists": false}, {"e": ["linux-jammy-aarch64-py3_10-gcc13-build", "linux-jammy-py3_14-clang21-build"], "exists": false}, {"e": ["linux-noble-xpu-n-py3_10-build", "linux-jammy-cuda13_0-cudnn9-py3_10-clang20-build"], "exists": false}, {"e": ["linux-jammy-py3_10-clang21-build", "linux-jammy-py3_10-gcc11-no-ops"], "exists": false}, {"e": ["linux-jammy-py3_10-clang21-test", "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build"], "exists": false}, {"e": ["linux-jammy-py3_10-clang21-test", "linux-jammy-py3_10-clang21-asan-build"], "exists": false}], "dag_source": "pytorch pull.yml, 24 jobs, 49 true needs-edges", "N_start": "9695011635313804800", "ideals_start": 297550, "python_checks": [{"a": "linux-jammy-py3_14t-clang21-test", "b": "linux-jammy-aarch64-py3_10-gcc13-test", "p": "0.6936179630970728"}, {"a": "linux-jammy-aarch64-py3_10-gcc13-test", "b": "target-determination", "p": "0.1780725692773915"}, {"a": "linux-jammy-cuda13_2-cudnn9-py3_10-clang20-build", "b": "linux-jammy-py3_14t-clang21-test", "p": "0.4417765664107662"}]};
+// The exact engine, in the browser's tongue. Node-testable.
+function buildEngine(jobs, edges, cap){
+  const k=jobs.length, ix={}; jobs.forEach((j,i)=>ix[j]=i);
+  const pred=new Array(k).fill(0), succ=new Array(k).fill(0);
+  for(const [a,b] of edges){ pred[ix[b]]|=1<<ix[a]; succ[ix[a]]|=1<<ix[b]; }
+  const full=(1<<k)-1;
+  const seen=new Set([0]); let frontier=[0];
+  while(frontier.length){
+    const nf=[];
+    for(const S of frontier){
+      let T=(~S)&full;
+      while(T){ const xb=T&-T; T^=xb; const x=31-Math.clz32(xb);
+        if((pred[x]&S)===pred[x]){ const S2=S|xb;
+          if(!seen.has(S2)){ seen.add(S2); nf.push(S2);
+            if(cap&&seen.size>cap) return null; } } }
+    }
+    frontier=nf;
+  }
+  const ideals=Array.from(seen);
+  const pc=s=>{let c=0;while(s){s&=s-1;c++;}return c;};
+  ideals.sort((a,b)=>pc(a)-pc(b)||a-b);
+  const F=new Map([[0,1n]]);
+  for(let i=1;i<ideals.length;i++){ const S=ideals[i];
+    let s=0n, T=S;
+    while(T){ const xb=T&-T; T^=xb; const x=31-Math.clz32(xb);
+      if((succ[x]&S)===0) s+=F.get(S^xb); }
+    F.set(S,s);
+  }
+  const R=new Map([[full,1n]]);
+  for(let i=ideals.length-2;i>=0;i--){ const S=ideals[i];
+    let s=0n, T=(~S)&full;
+    while(T){ const xb=T&-T; T^=xb; const x=31-Math.clz32(xb);
+      if((pred[x]&S)===pred[x] && R.has(S|xb)) s+=R.get(S|xb); }
+    R.set(S,s);
+  }
+  return {k,ix,jobs,pred,succ,full,ideals,F,R,N:F.get(full)};
+}
+function reach(eng,s,t){
+  let seen=1<<s; const st=[s];
+  while(st.length){ const u=st.pop(); let m=eng.succ[u];
+    while(m){ const vb=m&-m; m^=vb; const v=31-Math.clz32(vb);
+      if(!((seen>>v)&1)){ seen|=1<<v; st.push(v); } } }
+  return ((seen>>t)&1)===1;
+}
+function pBefore(eng,a,b){
+  if(reach(eng,a,b)) return {num:eng.N, den:eng.N};
+  if(reach(eng,b,a)) return {num:0n, den:eng.N};
+  const ab=1<<a, bb=1<<b; let tot=0n;
+  for(const S of eng.ideals){
+    if((S&ab)||(S&bb)) continue;
+    if((eng.pred[a]&S)===eng.pred[a] && eng.R.has(S|ab))
+      tot+=eng.F.get(S)*eng.R.get(S|ab);
+  }
+  return {num:tot, den:eng.N};
+}
+function perfectDraw(eng, rand){
+  let S=0; const order=[];
+  for(let step=0; step<eng.k; step++){
+    const opts=[]; let T=(~S)&eng.full;
+    while(T){ const xb=T&-T; T^=xb; const x=31-Math.clz32(xb);
+      if((eng.pred[x]&S)===eng.pred[x] && eng.R.has(S|xb))
+        opts.push([x, eng.R.get(S|xb)]); }
+    let r=randBig(eng.R.get(S), rand);
+    let pick=opts[0][0];
+    for(const [x,w] of opts){ if(r<w){ pick=x; break; } r-=w; }
+    order.push(pick); S|=1<<pick;
+  }
+  return order;
+}
+function randBig(n, rand){
+  const bits=n.toString(2).length;
+  while(true){ let v=0n;
+    for(let i=0;i<bits;i+=30)
+      v=(v<<30n)|BigInt(Math.floor(rand()*1073741824));
+    v&=(1n<<BigInt(bits))-1n;
+    if(v<n) return v; }
+}
+function chooseProbe(eng, a, b, probes){
+  // bridge heuristic: prefer a probe edge that would chain a to b
+  let best=null, bestScore=-1;
+  for(const p of probes){ if(p.spent) continue;
+    const u=eng.ix[p.e[0]], v=eng.ix[p.e[1]];
+    let s=0;
+    if(reach(eng,a,u)&&reach(eng,v,b)) s=3;
+    else if(reach(eng,b,u)&&reach(eng,v,a)) s=3;
+    else if(u===a||v===b||u===b||v===a) s=2;
+    else if(reach(eng,a,u)||reach(eng,v,b)||reach(eng,b,u)||reach(eng,v,a)) s=1;
+    if(s>bestScore){ bestScore=s; best=p; }
+  }
+  return best;
+}
+
+
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+let edges=DATA.base.map(e=>e.slice());
+let probes=DATA.deck.map(h=>({e:h.e,exists:h.exists,spent:false}));
+let eng=null, cur=null, activeProbe=null;
+let seed=99; const rand=()=> (seed=(seed*1103515245+12345)&0x7fffffff)/0x80000000;
+function rebuild(){
+  $("N").textContent="rebuilding…"; $("chip").textContent="computing";
+  setTimeout(()=>{
+    const t0=performance.now();
+    eng=buildEngine(DATA.jobs, edges, 400000);
+    $("ms").textContent=Math.round(performance.now()-t0)+"ms";
+    $("N").textContent=fmt(eng.N);
+    $("ideals").textContent=fmt(BigInt(eng.ideals.length));
+    if(cur) answer();
+  },30);
+}
+function answer(){
+  const a=eng.ix[cur[0]], b=eng.ix[cur[1]];
+  const {num,den}=pBefore(eng,a,b);
+  const p=Number(num*1000000000000n/den)/1e12;
+  $("pval").textContent="P = "+p.toFixed(6);
+  $("frac").textContent="exactly "+fmt(num)+" / "+fmt(den);
+  const cert=(num===0n||num===den);
+  $("chip").textContent=cert?"CERTAIN":"POSSIBLE";
+  $("chip").className="chip"+(cert?" cert":"");
+  if(cert){ $("sealp").textContent="P = "+(num===0n?"0":"1");
+    $("seal").classList.add("on");
+    $("probe").textContent="Settled. The count is the proof.";
+    $("reveal").disabled=true; return; }
+  $("seal").classList.remove("on");
+  activeProbe=chooseProbe(eng,a,b,probes);
+  if(!activeProbe){ $("probe").textContent=
+    "No concealed dependencies remain relevant."; 
+    $("reveal").disabled=true; return; }
+  $("probe").innerHTML="Does <b>"+activeProbe.e[1]+
+    "</b> require <b>"+activeProbe.e[0]+"</b>?";
+  $("reveal").disabled=false;
+}
+$("ask").onclick=()=>{ cur=[$("selA").value,$("selB").value];
+  if(cur[0]===cur[1])return; answer(); };
+$("reveal").onclick=()=>{
+  const pb=activeProbe; pb.spent=true; $("reveal").disabled=true;
+  const before=eng.N;
+  if(pb.exists){ edges.push(pb.e);
+    const row=document.createElement("div");
+    row.innerHTML="<span class=yes>exists</span> &middot; "+pb.e[1]+
+      " requires "+pb.e[0]+" &middot; worlds "+fmt(before)+" → …";
+    $("ledger").prepend(row);
+    setTimeout(()=>{ rebuild();
+      setTimeout(()=>{ row.innerHTML=row.innerHTML.replace("…",
+        fmt(eng.N)); },400); },50);
+  } else {
+    const row=document.createElement("div");
+    row.innerHTML="<span class=no>no such dependency</span> &middot; "+
+      pb.e[1]+" does not require "+pb.e[0]+
+      " &middot; worlds unchanged: absence adds no constraint";
+    $("ledger").prepend(row); answer();
+  }
+};
+$("draw").onclick=()=>{
+  const d=perfectDraw(eng,rand);
+  $("world").innerHTML=d.map(i=>"<li>"+eng.jobs[i]+"</li>").join("");
+};
+DATA.jobs.forEach(j=>{ for(const s of ["selA","selB"]){
+  const o=document.createElement("option"); o.textContent=j;
+  $(s).appendChild(o); } });
+$("selA").value=DATA.python_checks[1].a;
+$("selB").value=DATA.python_checks[1].b;
+rebuild();
+</script></body></html>
