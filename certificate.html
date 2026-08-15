@@ -75,8 +75,11 @@
   </div>
   <div class="fig-foot"><p>Machine-readable schema:
   <a href="manifests/certificate.schema.json">certificate.schema.json</a>.
-  Certificates are signed statements by Arcifact Ltd; a public verifier
-  checks schema, hashes and revocation without contacting us.</p></div>
+  A certificate is a self-sealed statement by Arcifact Ltd. The public
+  verifier in the <a href="https://github.com/arcifact/arcifact-kit">kit</a>
+  (tools/verify_certificate.py) checks schema, self-seal, bank digests,
+  manifest root and revocation offline, without contacting us. Optional
+  Ed25519 signatures let third parties confirm issuance.</p></div>
   </div>
 </section>
 <section class="section">
