@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The method &middot; Arcifact</title>
+<meta name="description" content="One method for systems that cannot assert past their evidence, the criterion for where it applies, and the instruments built on it so far.">
+<link rel="canonical" href="https://arcifact.io/method">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arcifact">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="The method &middot; Arcifact">
+<meta property="og:description" content="One method for systems that cannot assert past their evidence, the criterion for where it applies, and the instruments built on it so far.">
+<meta property="og:url" content="https://arcifact.io/method">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://arcifact.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arcifact, evidence-gated AI">
+<meta name="twitter:image" content="https://arcifact.io/og.png">
+<meta name="theme-color" content="#060914">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org",
+"@type":"Organization","name":"Arcifact Ltd","url":"https://arcifact.io",
+"logo":"https://arcifact.io/og.png",
+"sameAs":["https://github.com/arcifact/arcifact-kit"],
+"contactPoint":{"@type":"ContactPoint","email":"ben@arcifact.io",
+"contactType":"sales"}}</script>
+</head>
+<body style="background:#060914;color:#cdddee">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="nav-inner frame">
+    <a class="nav-brand" href="./" aria-label="Arcifact home">
+      <span aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M 17.54,4.91 A 9 9 0 1 0 17.54,19.09"
+      fill="none" stroke="currentColor" stroke-width="2.3"
+      stroke-linecap="round"/>
+<circle cx="21" cy="12" r="2.7" fill="#5fdca3" stroke="none"/>
+</svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Site"><a href="./#case">Why</a><a href="method" aria-current="page">Method</a><a href="evidence">Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a href="./#contact">Contact</a><a class="nav-cta" href="https://github.com/arcifact/arcifact-kit">Run the check</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// the method</p>
+    <h1>One method. Several instruments.</h1>
+    <p class="muted" style="max-width:44rem">
+      Arcifact builds systems that cannot assert past their evidence.
+      That is one discipline, not one product. It was built for
+      language models, where the failure is obvious and expensive, but
+      nothing in it is specific to them. This page states the method,
+      the criterion for where it applies, and what has actually been
+      built on it so far.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 01 &middot; the four commitments</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">Bars before runs</p>
+        <p class="step-d">What counts as a pass is fixed in writing
+          before anything is scored. A threshold chosen after seeing
+          the result is not a threshold.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">Claims gated by what can be witnessed</p>
+        <p class="step-d">Nothing is asserted that is not backed by
+          something checkable. The gate is the same whether the claim
+          comes from a model or from a build system.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">03</p>
+        <p class="step-t">Certificates the recipient can check</p>
+        <p class="step-d">Every result ships bound to the exact bytes
+          it describes, with a verifier that recomputes it from your
+          copy. Checking us must not require trusting us.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">04</p>
+        <p class="step-t">Unknown stays unknown</p>
+        <p class="step-d">Where the evidence runs out, the system says
+          so and stops, rather than rounding a plausible answer up to a
+          confident one. Most of the engineering is here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 02 &middot; where it applies</p>
+    <p class="muted" style="max-width:44rem">
+      The method fits any domain with two properties. First, a claim is
+      being made about a constrained system. Second, those constraints
+      are declared somewhere that can be read. When both hold, the
+      claim can be checked against the declaration exactly, rather than
+      sampled, estimated or asserted.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      That is a wide criterion, and deliberately stated as a criterion
+      rather than a roadmap. A list of promised verticals would be the
+      exact failure this company exists to prevent.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 03 &middot; instruments so far</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">Language models</p>
+        <p class="step-d">Fabrication measured on frozen banks and
+          attack-hardened instruments, with an evidence gate that holds
+          generation to what can be supported. The deepest of the two,
+          and where the method was built.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">Continuous integration</p>
+        <p class="step-d">Merge gate closure computed from the declared
+          workflow: which jobs can fail without your required check
+          seeing it. The narrowest and most concrete application, and
+          the easiest to check in an afternoon.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="evidence">Instrument 01, the evidence</a>
+      <a class="btn btn-quiet" href="witness">Instrument 02, Witness</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 04 &middot; why two unrelated domains</p>
+    <p class="muted" style="max-width:44rem">
+      Because generality is itself a claim, and claims need evidence. A
+      method that only worked where it was invented would be a
+      technique. Measuring what a model fabricates and computing what a
+      merge gate fails to cover have nothing in common at the surface,
+      and the same four commitments produced both. That is the
+      beginning of evidence for generality. It is not proof, and it is
+      not described here as proof.
+    </p>
+    <div class="actions">
+      <a class="btn" href="./#contact">Start a conversation</a>
+      <a class="btn btn-quiet" href="pilot">See how a pilot runs</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="frame">
+    <div class="foot-grid">
+      <div>
+        <h4>Arcifact</h4>
+        <p class="muted" style="font-size:var(--text-sm);max-width:26rem">
+          Exact answers about constrained systems, with certificates
+          the recipient can check without trusting the sender.
+          Independent research company registered in England.
+        </p>
+        <p class="muted" style="font-size:var(--text-sm);margin-top:.6rem">Company no. 17367182 &middot; Registered office: 128 City Road, London EC1V 2NX, United Kingdom.</p>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="evidence">Evidence</a></li>
+          <li><a href="oracle">Oracle</a></li>
+          <li><a href="verify">Verify</a></li>
+          <li><a href="certificate">Certificate</a></li>
+          <li><a href="pilot">Pilot</a></li>
+          <li><a href="https://github.com/arcifact/arcifact-kit">Verification kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:ben@arcifact.io">ben@arcifact.io</a></li>
+          <li><a href="security">Security disclosure</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-rule">
+      <span>&copy; 2026 ARCIFACT LTD &middot; arcifact.io</span>
+      <span>Patents pending GB2618664.3 &middot; GB2619009.0</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
