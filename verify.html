@@ -84,7 +84,7 @@
   <div class="cmd">
 <b>$</b> curl -s https://arcifact.io/manifests/evalw_numeric.json | sha256sum<br>
 <b>$</b> sha256sum arcifact-kit/banks/evalw_numeric.jsonl<br>
-<b>$</b> python tools/grade_public.py banks/evalw_numeric.jsonl your_responses.jsonl --pretty</div>
+<b>$</b> python tools/grade_public.py banks/evalw_numeric.jsonl your_responses.jsonl --strict --pretty</div>
   <p>Compare the bank digest in the manifest with your own hash of the
   published bank. Run your own model with the same scorer. If any
   number on this site cannot survive that treatment, write to
@@ -92,6 +92,7 @@
   will correct it in public.</p>
 </section>
 
+<section style="margin-top:2rem"><h2>Issued certificates and revocation</h2><p class="muted">Current issuer key: <a href="/.well-known/arcifact-issuer-keys.json">arcifact-issuer-keys.json</a>. Revocation ledger (signed): <a href="/revocation.json">revocation.json</a>. Certificate schema v1: <a href="/manifests/certificate.schema.v1.json">certificate.schema.v1.json</a>. Manifest set: <a href="/manifests/manifest_set.json">manifest_set.json</a>. No certificates are currently revoked.</p></section>
 </main>
 <footer class="site-foot">
   <div class="frame">

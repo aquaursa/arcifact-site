@@ -1,0 +1,17 @@
+{
+ "schema": "arcifact-manifest-set/1",
+ "members": [
+  {
+   "path": "diamonds_zero_shot.json",
+   "sha256": "71f104235190f904ba634287da292a54ada5040e5a80172022d9ebec389a5641"
+  },
+  {
+   "path": "evalw_numeric.json",
+   "sha256": "4935f6f47792ba11195088ff29a5a277426e9bf01d656e4b86482630f059bf2f"
+  },
+  {
+   "path": "evalw_temporal.json",
+   "sha256": "21a31a7476c282dd413083be6b860d6592f30f8c37d544d24a92f10a683b3a9c"
+  }
+ ]
+}

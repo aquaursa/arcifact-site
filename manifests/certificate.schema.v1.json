@@ -158,6 +158,12 @@
     "manifest_root": {
      "type": "string",
      "pattern": "^[0-9a-f]{64}$"
+    },
+    "scorer_strict": {
+     "type": "boolean"
+    },
+    "canonicalization": {
+     "const": "arcifact-canon/1"
     }
    }
   },
@@ -208,6 +214,21 @@
     "report",
     "issued"
    ]
+  },
+  "bars": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "passed"
+   ],
+   "properties": {
+    "passed": {
+     "type": "boolean"
+    },
+    "details": {
+     "type": "string"
+    }
+   }
   }
  }
 }

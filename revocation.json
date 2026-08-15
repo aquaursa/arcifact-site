@@ -1,7 +1,15 @@
 {
- "schema": "arcifact-revocation/1",
- "issuer": "Arcifact Ltd",
- "updated": "2026-08-15",
- "revoked": [],
- "note": "Certificate sha256 values appear here when revoked. The public certificate verifier checks a supplied copy of this file with --revocation."
+ "schema": "arcifact-revocation/2",
+ "payload": {
+  "generated": "2026-08-15T13:27:00Z",
+  "next_update": "2026-09-14T13:27:00Z",
+  "issuer_key_id": "arcifact-issuer-2026-08",
+  "revoked": []
+ },
+ "signature": {
+  "alg": "ed25519",
+  "key_id": "arcifact-issuer-2026-08",
+  "public_key": "37c0226f44af6848cec7ce245e5640243e972583aba2642ab5e45b5c9f7fa2eb",
+  "sig": "94dcc09b1281f78be719a8c331167f660e765093655bc239e45aeea80e32f776069cbc3b441ed1aaf1743eaf496f157f6c7e2063270c908cd5a40383263dbe02"
+ }
 }

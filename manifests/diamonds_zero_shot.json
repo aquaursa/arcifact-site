@@ -23,7 +23,11 @@
   "value": 0.95
  },
  "bank_disclosure": "held_out",
- "bank_commitment": "sha256 committed before evaluation; released on audit",
+ "bank_commitment": {
+  "sha256": "4f39cab5f3922e292fd867e2e716c4a9805536590aa8e95f91ec7260b9364682",
+  "committed_at": "2026-08-09T00:00:00Z",
+  "note": "commitment over held-out bank bytes; bytes released on audit"
+ },
  "response_disclosure": "audit_only",
  "run_scorer_semantics": "grade_public/1.1 (byte-identical scorer; see kit)",
  "published_reference_commit": "f511d65"
