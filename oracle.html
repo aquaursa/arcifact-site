@@ -87,8 +87,10 @@ margin:.2rem .3rem 0 0;border-radius:2px}
 border-top:1px solid var(--rule);padding-top:.8rem}
 a{color:var(--cy)}
 @media(max-width:44rem){.order{columns:1}}
-</style></head><body>
-<div class="wrap">
+</style><style>.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;color:#000;padding:.5rem;z-index:99}.replay-control{display:inline-flex;gap:.5rem;align-items:center}:focus-visible{outline:2px solid #37e6b4;outline-offset:2px}</style>
+</head><body>
+<a href="#oracle-main" id="skip" class="skip">Skip to content</a>
+<main id="oracle-main" class="wrap">
 <div class="plate"><span>ARCIFACT &middot; live demonstration</span></div>
 <h1>Watch certainty<br>get earned.</h1>
 <p class="sub">This is a real software project (PyTorch&rsquo;s test
@@ -148,9 +150,12 @@ all 22 candidate facts (8 are deliberately fake)</summary>
 exactly uniformly among the quintillions, in about a millisecond.</p>
 <button class="mint" id="draw" style="border-color:var(--mint);
 color:var(--mint)">Uniform draw &middot; Web Crypto</button>
-<button class="ghost" id="replay">Replay &middot; seed
+<span class="replay-control">
+<label for="seed" style="font-size:13px">Replay &middot; seed</label>
 <input id="seed" value="99" size="4" aria-label="replay seed"
-style="width:4rem"></button>
+style="width:4rem">
+<button class="ghost" id="replay">Go</button>
+</span>
 <ol class="order" id="world"></ol>
 <p id="drawnote" style="font-size:12px;color:var(--mut)"></p></details>
 <details><summary>For sceptics: audit everything</summary>
@@ -168,7 +173,7 @@ fourteen hidden dependencies exist and all eight decoys do not.
 P here means the share of uniformly weighted valid orderings, not
 GitHub&rsquo;s scheduler odds.
 <button id="dl">Download the evidence</button>
-(sha256 <span class="num">c15e4803026fa3d776f93d0a&hellip;</span>)</p>
+(sha256 of the canonical payload, excluding the self-referential prov.data_sha256 field: <span class="num">c15e4803026fa3d776f93d0a&hellip;</span>. Recompute: <span class="mono" style="font-size:12px">shasum -a 256 oracle_data.json</span>)</p>
 <pre># extraction: pinned workflow -> edges
 import yaml, hashlib, urllib.request
 u=('https://raw.githubusercontent.com/pytorch/pytorch/'
@@ -403,7 +408,18 @@ function renderChips(){ const c=$("cons"); c.innerHTML="";
 $("draw").onclick=()=>W.postMessage({type:"draw",mode:"crypto"});
 $("replay").onclick=()=>W.postMessage({type:"draw",mode:"seed",
   seed:parseInt($("seed").value)||99});
-$("dl").onclick=()=>{ const b=new Blob([JSON.stringify(DATA)],
+$("dl").onclick=()=>{
+  // Emit the exact canonical payload the displayed sha256 covers:
+  // a stable-key-sorted copy with the self-referential
+  // prov.data_sha256 field removed, so hash(file) == displayed hash.
+  const canon=(o)=>{ if(Array.isArray(o)) return o.map(canon);
+    if(o&&typeof o==="object"){ const r={};
+      for(const k of Object.keys(o).sort()) r[k]=canon(o[k]);
+      return r;} return o; };
+  const clone=JSON.parse(JSON.stringify(DATA));
+  delete clone.prov.data_sha256;
+  const payload=JSON.stringify(canon(clone));
+  const b=new Blob([payload],
   {type:"application/json"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(b); a.download="oracle_data.json";
@@ -475,6 +491,6 @@ build();
       <span>&copy; 2026 ARCIFACT LTD &middot; arcifact.io</span>
       <span>Patents pending GB2618664.3 &middot; GB2619009.0</span>
     </div>
-  </div>
+  </main>
 </footer>
 </body></html>
