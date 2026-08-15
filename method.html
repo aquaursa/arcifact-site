@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://arcifact.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Arcifact, evidence-gated AI">
+<meta property="og:image:alt" content="Arcifact, nothing asserted past evidence">
 <meta name="twitter:image" content="https://arcifact.io/og.png">
 <meta name="theme-color" content="#060914">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -40,7 +40,7 @@
 <circle cx="21" cy="12" r="2.7" fill="#5fdca3" stroke="none"/>
 </svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
     </a>
-    <nav class="nav-links" aria-label="Site"><a href="./#case">Why</a><a href="method" aria-current="page">Method</a><a href="evidence">Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a href="./#contact">Contact</a><a class="nav-cta" href="https://github.com/arcifact/arcifact-kit">Run the check</a></nav>
+    <nav class="nav-links" aria-label="Site"><a href="method" aria-current="page">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
   </div>
 </header>
 <main id="main">
@@ -116,28 +116,36 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 03 &middot; instruments so far</p>
+    <p class="sec-label">// &sect; 03 &middot; instruments</p>
     <div class="steps">
       <div class="step">
-        <p class="step-n">01</p>
-        <p class="step-t">Language models</p>
-        <p class="step-d">Fabrication measured on frozen banks and
-          attack-hardened instruments, with an evidence gate that holds
-          generation to what can be supported. The deepest of the two,
-          and where the method was built.</p>
+        <p class="step-n">now</p>
+        <p class="step-t">Arcifact Gate</p>
+        <p class="step-d">Continuous integration. Merge gate closure
+          computed from the declared workflow: which jobs can fail
+          without your required check seeing them. The narrowest and
+          most concrete application, and the easiest to check in an
+          afternoon. The current commercial instrument.</p>
       </div>
       <div class="step">
-        <p class="step-n">02</p>
-        <p class="step-t">Continuous integration</p>
-        <p class="step-d">Merge gate closure computed from the declared
-          workflow: which jobs can fail without your required check
-          seeing it. The narrowest and most concrete application, and
-          the easiest to check in an afternoon.</p>
+        <p class="step-n">origin</p>
+        <p class="step-t">Model Evidence</p>
+        <p class="step-d">Language models. Fabrication measured on
+          frozen banks and attack-hardened instruments, with an
+          evidence gate that holds generation to what can be supported.
+          Where the method was built, and the deeper of the two.</p>
       </div>
     </div>
+    <p class="muted" style="max-width:44rem;margin-top:1rem">
+      Each instrument is a contract: a declared source, a claim type,
+      an explicit envelope, and a verifier the recipient runs
+      themselves. Gate reads a workflow and rules on merge closure.
+      Model Evidence reads a bank and rules on fabrication. The
+      envelope and the verifier are the same shape in both.
+    </p>
     <div class="actions">
-      <a class="btn" href="evidence">Instrument 01, the evidence</a>
-      <a class="btn btn-quiet" href="witness">Instrument 02, Witness</a>
+      <a class="btn" href="gate">Arcifact Gate</a>
+      <a class="btn btn-quiet" href="model-evidence">Model Evidence</a>
     </div>
   </div>
 </section>

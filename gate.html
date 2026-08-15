@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcifact Gate &middot; CI merge-gate assurance</title>
+<meta name="description" content="Static analysis of GitHub Actions merge gates. Finds jobs that can fail without your required check seeing it, and says plainly what it cannot prove.">
+<link rel="canonical" href="https://arcifact.io/gate">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arcifact">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Arcifact Gate &middot; Arcifact">
+<meta property="og:description" content="Static analysis of GitHub Actions merge gates. Finds jobs that can fail without your required check seeing it, and says plainly what it cannot prove.">
+<meta property="og:url" content="https://arcifact.io/gate">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://arcifact.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arcifact, nothing asserted past evidence">
+<meta name="twitter:image" content="https://arcifact.io/og.png">
+<meta name="theme-color" content="#060914">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org",
+"@type":"Organization","name":"Arcifact Ltd","url":"https://arcifact.io",
+"logo":"https://arcifact.io/og.png",
+"sameAs":["https://github.com/arcifact/arcifact-kit"],
+"contactPoint":{"@type":"ContactPoint","email":"ben@arcifact.io",
+"contactType":"sales"}}</script>
+</head>
+<body style="background:#060914;color:#cdddee">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="nav-inner frame">
+    <a class="nav-brand" href="./" aria-label="Arcifact home">
+      <span aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M 17.54,4.91 A 9 9 0 1 0 17.54,19.09"
+      fill="none" stroke="currentColor" stroke-width="2.3"
+      stroke-linecap="round"/>
+<circle cx="21" cy="12" r="2.7" fill="#5fdca3" stroke="none"/>
+</svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Site"><a href="method">Method</a><a href="gate" aria-current="page">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// arcifact gate &middot; ci assurance</p>
+    <h1>Your merge gate, checked against your own workflow.</h1>
+    <p class="muted" style="max-width:44rem">
+      A required status check is supposed to mean that the work you
+      care about passed. On a large workflow it quietly stops meaning
+      that: a job runs in parallel with the gate, or sits in its needs
+      while the gate never inspects its result, and its failure cannot
+      change the gate. Arcifact Gate reads the declared workflow and finds
+      those jobs before they matter.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      This is the narrowest application of a general
+      <a href="method">method</a>: claims gated by what can be
+      witnessed, bars fixed before the run, and certificates you can
+      check without trusting us. It is the easiest one to verify in an
+      afternoon, which is why it tends to come first.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 01 &middot; what it computes</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">Gate closure</p>
+        <p class="step-d">Which jobs can run on a pull request while
+          being outside the required check's closure: not in its needs,
+          not reachable to it through the needs graph, and never
+          inspected through a result reference.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">Ordering counts</p>
+        <p class="step-d">On graphs small enough to enumerate, the exact
+          number of valid topological orderings that place the gate
+          before a given job, and the number remaining once the missing
+          edge is added. Whole numbers, not estimates.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">03</p>
+        <p class="step-t">A certificate you can check</p>
+        <p class="step-d">Bound to the exact bytes of your workflow,
+          with a verifier that recomputes every number from your file
+          alone. No network access, and none of our code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 02 &middot; what it refuses to claim</p>
+    <p class="muted" style="max-width:44rem">
+      Most of the work in this instrument went into not overstating.
+      A finding is useless to you if you have to audit our confidence
+      before you can act on it, so every finding carries what it is
+      and what is still unknown.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">A</p>
+        <p class="step-t">Active or latent</p>
+        <p class="step-d">A job with no condition runs on every pull
+          request. A path-gated job is usually skipped, which a correct
+          gate allows. Those are different findings and are never
+          reported as the same one.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">B</p>
+        <p class="step-t">Enforced or unverified</p>
+        <p class="step-d">A job named like a gate is a naming
+          convention, not a fact about branch protection. Unless you
+          supply the required-check list, the tool says enforcement is
+          unverified rather than assuming it.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">C</p>
+        <p class="step-t">Structural, not policy</p>
+        <p class="step-d">That a validator sits outside your gate can
+          be proven from the file. Whether it ought to be inside is
+          your policy, and no static tool should assert it. A reply of
+          "that one is deliberately advisory" is a correct outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 04 &middot; what you get</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">A</p>
+        <p class="step-t">You hand over</p>
+        <p class="step-d">One workflow file, or a repository name if it
+          is public. Optionally your required-check list, which is the
+          only thing that settles whether a gate is actually enforced.
+          Static analysis only. Nothing is executed and no endpoint is
+          needed.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">B</p>
+        <p class="step-t">You receive</p>
+        <p class="step-d">The required-check closure, the jobs outside
+          it, each labelled active or latent and enforced or unverified,
+          exact ordering counts where the graph is small enough to
+          enumerate, a concrete counterexample ordering, the minimal
+          dependency change that closes the gap, and the limits of what
+          was checked.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">C</p>
+        <p class="step-t">You check it yourself</p>
+        <p class="step-d">A source-bound record and a verifier that
+          recomputes every claim from your copy of the file. No network
+          access, and none of our code in the loop.</p>
+      </div>
+    </div>
+    <p class="muted" style="max-width:44rem;margin-top:1rem">
+      For platform, CI and developer productivity teams maintaining
+      workflows whose green status carries organisational weight. A
+      first read is an afternoon, not a procurement cycle.
+    </p>
+  </div>
+</section>
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 03 &middot; why this sits here</p>
+    <p class="muted" style="max-width:44rem">
+      Arcifact exists to stop systems asserting past their evidence.
+      That problem is usually posed about language models, and most of
+      our work is there. It is the same problem in continuous
+      integration: a green required check is an assertion, and it is
+      worth exactly as much as the closure behind it. The discipline is
+      identical. State the bar before the run, compute what can be
+      computed, and label the rest as unknown rather than quietly
+      rounding it up.
+    </p>
+    <div class="actions">
+      <a class="btn" href="./#contact">Ask us to cold-read a workflow</a>
+      <a class="btn btn-quiet" href="method">See the method behind it</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="frame">
+    <div class="foot-grid">
+      <div>
+        <h4>Arcifact</h4>
+        <p class="muted" style="font-size:var(--text-sm);max-width:26rem">
+          Exact answers about constrained systems, with certificates
+          the recipient can check without trusting the sender.
+          Independent research company registered in England.
+        </p>
+        <p class="muted" style="font-size:var(--text-sm);margin-top:.6rem">Company no. 17367182 &middot; Registered office: 128 City Road, London EC1V 2NX, United Kingdom.</p>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="evidence">Evidence</a></li>
+          <li><a href="oracle">Oracle</a></li>
+          <li><a href="verify">Verify</a></li>
+          <li><a href="certificate">Certificate</a></li>
+          <li><a href="pilot">Pilot</a></li>
+          <li><a href="https://github.com/arcifact/arcifact-kit">Verification kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:ben@arcifact.io">ben@arcifact.io</a></li>
+          <li><a href="security">Security disclosure</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-rule">
+      <span>&copy; 2026 ARCIFACT LTD &middot; arcifact.io</span>
+      <span>Patents pending GB2618664.3 &middot; GB2619009.0</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
