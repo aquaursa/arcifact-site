@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arcifact.io/manifests/report.schema.v1.json",
+  "title": "Arcifact report envelope, version 1",
+  "description": "The common envelope shared by every Arcifact instrument. The envelope carries what is true of all instruments: what was examined, what it is bound to, what was claimed, what the claim was checked against, what remains unverified, and how a recipient checks it without trusting the issuer. Instrument specific results live under `payload`, keyed by `instrument`, so that a new instrument does not require new envelope fields and an old verifier can still validate the envelope of a record it cannot interpret.",
+  "type": "object",
+  "required": [
+    "schema", "instrument", "instrument_version", "profile", "subject",
+    "source_bindings", "claims", "envelope", "assumptions",
+    "provenance", "issued", "payload", "sha256"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "arcifact-report/1",
+      "description": "Identifies this envelope format."
+    },
+    "instrument": {
+      "type": "string",
+      "enum": ["gate", "model-evidence"],
+      "description": "Which Arcifact instrument produced the record. Determines how `payload` is interpreted."
+    },
+    "instrument_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Version of the instrument that produced the record."
+    },
+    "profile": {
+      "type": "string",
+      "enum": ["draft", "report", "issued"],
+      "description": "draft: not for reliance. report: a reproducible analysis, self consistent and source bound, unsigned. issued: a report that additionally satisfies the full signed issuance profile. Only `issued` may be described as a certificate."
+    },
+    "subject": {
+      "type": "object",
+      "required": ["kind", "name"],
+      "additionalProperties": true,
+      "description": "What was examined.",
+      "properties": {
+        "kind": {"type": "string", "examples": ["repository", "workflow", "model-release"]},
+        "name": {"type": "string", "minLength": 1},
+        "ref": {"type": "string", "description": "Commit, tag or release identifier where applicable."}
+      }
+    },
+    "source_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Every input the result depends on, bound by digest. A verifier recomputes these against the recipient's own copies. If any differs, the record describes different bytes and says so rather than reporting a stale result.",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "additionalProperties": true,
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "vcs_blob": {"type": "string", "description": "Optional VCS object id, for example a git blob hash."}
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Each discrete claim the record makes, with its verdict. A record with no claims is not a result.",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "verdict"],
+        "additionalProperties": true,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "verdict": {
+            "type": "string",
+            "enum": ["holds", "fails", "unresolved", "not_applicable"],
+            "description": "unresolved is a first class outcome, not an error. It means the evidence available does not settle the claim."
+          },
+          "settled_by": {
+            "type": "string",
+            "description": "For unresolved claims, the observation that would settle it."
+          }
+        }
+      }
+    },
+    "envelope": {
+      "type": "object",
+      "required": ["declared", "out_of_scope"],
+      "additionalProperties": true,
+      "description": "The declared boundary of the result. What was in scope, and explicitly what was not. Stating the boundary is part of the result, not a disclaimer appended to it.",
+      "properties": {
+        "declared": {"type": "string", "minLength": 1},
+        "out_of_scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "description": "Everything taken as given rather than established by this record. May be empty only if genuinely nothing was assumed.",
+      "items": {
+        "type": "object",
+        "required": ["statement", "verified"],
+        "additionalProperties": true,
+        "properties": {
+          "statement": {"type": "string", "minLength": 1},
+          "verified": {
+            "type": "boolean",
+            "description": "false means the recipient must confirm it independently. The record must say how."
+          },
+          "how_to_verify": {"type": "string"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["issuer", "method"],
+      "additionalProperties": true,
+      "properties": {
+        "issuer": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "minLength": 1},
+        "tool_versions": {"type": "object"}
+      }
+    },
+    "evidence_root": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Optional digest over the full evidence set, where one is published."
+    },
+    "issued": {"type": "string", "format": "date-time"},
+    "expires": {"type": "string", "format": "date-time"},
+    "revocation": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Where a recipient checks whether this record has been withdrawn.",
+      "properties": {
+        "url": {"type": "string"},
+        "id": {"type": "string"}
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Required for the issued profile. The public key must be obtained out of band, never from the record itself.",
+      "properties": {
+        "alg": {"const": "ed25519"},
+        "key_id": {"type": "string"},
+        "sig": {"type": "string"}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "How the recipient checks this record without trusting the issuer.",
+      "properties": {
+        "command": {"type": "string"},
+        "requires_network": {"type": "boolean"},
+        "requires_issuer_code": {"type": "boolean"}
+      }
+    },
+    "payload": {
+      "type": "object",
+      "description": "Instrument specific result. Validated against the profile named by `instrument`.",
+      "oneOf": [
+        {"$ref": "#/$defs/gate_payload"},
+        {"$ref": "#/$defs/model_evidence_payload"}
+      ]
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Seal over the record with this field removed, serialised with sorted keys."
+    }
+  },
+  "$defs": {
+    "gate_payload": {
+      "type": "object",
+      "title": "gate-ci/1",
+      "required": ["payload_schema", "gate", "covered_jobs", "uncovered_jobs"],
+      "additionalProperties": true,
+      "properties": {
+        "payload_schema": {"const": "gate-ci/1"},
+        "gate": {
+          "type": "object",
+          "required": ["job_id", "display_name", "mechanism", "enforcement"],
+          "additionalProperties": true,
+          "properties": {
+            "job_id": {"type": "string"},
+            "display_name": {
+              "type": "string",
+              "description": "The name the gate renders as, which is what a required check list contains. Matching on job id instead is a known failure mode."
+            },
+            "condition": {"type": "string"},
+            "mechanism": {
+              "type": "string",
+              "enum": ["collective", "specific"],
+              "description": "collective: iterates needs.* or toJSON(needs). specific: references particular needs.<job>.result."
+            },
+            "enforcement": {
+              "type": "string",
+              "enum": ["enforced", "not_enforced", "unverified"],
+              "description": "unverified is the default. A gate like name is a naming convention, never evidence of branch protection."
+            }
+          }
+        },
+        "covered_jobs": {"type": "array", "items": {"type": "string"}},
+        "uncovered_jobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["job", "gap_type", "severity"],
+            "additionalProperties": true,
+            "properties": {
+              "job": {"type": "string"},
+              "gap_type": {
+                "type": "string",
+                "enum": ["parallel_uncovered", "needs_unchecked_always"]
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["active", "latent"],
+                "description": "active: runs on every pull request. latent: conditionally triggered, so usually skipped, which a correct gate allows."
+              },
+              "activation": {"type": "string"}
+            }
+          }
+        },
+        "ordering_counts": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Present only where the job graph was small enough to enumerate exactly. Absent is not a failure.",
+          "properties": {
+            "total": {"type": "string"},
+            "gate_first": {"type": "string"},
+            "after_fix": {"type": "string"}
+          }
+        },
+        "counterexample": {"type": "array", "items": {"type": "string"}},
+        "remediation": {"type": "string"}
+      }
+    },
+    "model_evidence_payload": {
+      "type": "object",
+      "title": "model-evidence/1",
+      "required": ["payload_schema", "banks", "fabrication_rate"],
+      "additionalProperties": true,
+      "properties": {
+        "payload_schema": {"const": "model-evidence/1"},
+        "banks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "n", "sha256"],
+            "additionalProperties": true,
+            "properties": {
+              "name": {"type": "string"},
+              "n": {"type": "integer", "minimum": 1},
+              "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+            }
+          }
+        },
+        "fabrication_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "stance": {"type": "object", "additionalProperties": true},
+        "thresholds": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Bars registered before the run. A threshold chosen after seeing the result is not a threshold."
+        },
+        "scorer_strict": {"type": "boolean"}
+      }
+    }
+  }
+}

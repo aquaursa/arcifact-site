@@ -1,0 +1,84 @@
+{
+ "schema": "arcifact-report/1",
+ "instrument": "model-evidence",
+ "instrument_version": "1.0.0",
+ "profile": "report",
+ "subject": {
+  "kind": "model-release",
+  "name": "example-model-v1"
+ },
+ "source_bindings": [
+  {
+   "path": "banks/diamonds_zero_shot.json",
+   "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+ ],
+ "claims": [
+  {
+   "id": "fabrication.rate",
+   "statement": "Fabrication rate on the frozen bank is 0.000 (0 of 150).",
+   "verdict": "holds"
+  },
+  {
+   "id": "threshold.met",
+   "statement": "The registered bar of fabrication rate <= 0.02 is met.",
+   "verdict": "holds"
+  },
+  {
+   "id": "generalisation.heldout",
+   "statement": "The same rate holds on the held-out bank.",
+   "verdict": "unresolved",
+   "settled_by": "A scored run against the held-out bank, whose commitment hash is published."
+  }
+ ],
+ "envelope": {
+  "declared": "One model release scored on the named frozen banks with the published strict scorer.",
+  "out_of_scope": [
+   "Behaviour on prompts outside the declared banks",
+   "Any deployment configuration other than the one scored",
+   "Latency, cost and throughput"
+  ]
+ },
+ "assumptions": [
+  {
+   "statement": "The endpoint scored is the release named in subject.",
+   "verified": false,
+   "how_to_verify": "Score your own endpoint with the public kit and compare bank digests."
+  }
+ ],
+ "provenance": {
+  "issuer": "Arcifact Ltd",
+  "method": "frozen-bank scoring, bars registered before the run",
+  "tool_versions": {
+   "kit": "1.2.0"
+  }
+ },
+ "issued": "2026-08-15T00:00:00Z",
+ "verification": {
+  "command": "python3 verify_report.py model-example.report.json",
+  "requires_network": false,
+  "requires_issuer_code": false
+ },
+ "payload": {
+  "payload_schema": "model-evidence/1",
+  "banks": [
+   {
+    "name": "diamonds_zero_shot",
+    "n": 150,
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  ],
+  "fabrication_rate": 0.0,
+  "stance": {
+   "answered": 118,
+   "refused_entitled": 32,
+   "unwarranted": 0
+  },
+  "thresholds": {
+   "fabrication_rate_max": 0.02,
+   "registered_before_run": true
+  },
+  "scorer_strict": true
+ },
+ "sha256": "32fac50ae049e3c705dc30cefd8c28954c753fd7d66898cd9a5e3f8e6f48b40b"
+}

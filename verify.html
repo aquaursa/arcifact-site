@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Verify a result &middot; Arcifact</title>
-<meta name="description" content="Machine-readable manifests for every published run: bank digests, scorer commit, raw counts, thresholds, and the root that binds them.">
+<title>Verify a record &middot; Arcifact</title>
+<meta name="description" content="Every Arcifact instrument produces a record in one common envelope, with a verifier that recomputes it from your own copies. Checking us must not require trusting us.">
 <link rel="canonical" href="https://arcifact.io/verify">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arcifact">
@@ -43,56 +43,150 @@
     <nav class="nav-links" aria-label="Site"><a href="method">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify" aria-current="page">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
   </div>
 </header>
-<main class="frame" id="main">
-  <div class="marquee">
-    <span>arcifact &middot; nothing asserted past evidence</span>
-    <span>ARCIFACT LTD &middot; MMXXVI</span>
+<main id="main">
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// verify</p>
+    <h1>Verify a record.</h1>
+    <p class="muted" style="max-width:44rem">
+      Every instrument produces a record in the same envelope, and
+      every record ships with a way to check it that does not involve
+      us. Distrust is the intended first response. The material below
+      is what you need to act on it.
+    </p>
   </div>
-
-<div class="hero">
-  <div class="hero-rule">Machine-readable record</div>
-  <h1>Verify a result.</h1>
-  <p class="lede">Every published run has a manifest: bank digest,
-  scorer commit, sample size, raw counts, threshold provenance, and a
-  root that binds the set. Words above, hashes here.</p>
-</div>
-<section class="section">
-  <div class="sec-label">// <b>&sect; 01</b> &middot; manifests</div>
-  <h2>Three runs, fully described.</h2>
-  <div class="tblwrap"><table class="tbl">
-  <tr><th>Manifest</th><th>n</th><th>Raw</th><th>Result</th></tr>
-  <tr><td><a href="manifests/evalw_numeric.json">evalw_numeric.json</a></td>
-  <td class="n">150</td><td class="n ok">0 fabricated</td>
-  <td class="n ok">1.000 / 0.000</td></tr>
-  <tr><td><a href="manifests/evalw_temporal.json">evalw_temporal.json</a></td>
-  <td class="n">150</td><td class="n ok">0 fabricated</td>
-  <td class="n ok">1.000 / 0.000</td></tr>
-  <tr><td><a href="manifests/diamonds_zero_shot.json">diamonds_zero_shot.json</a></td>
-  <td class="n">270</td><td class="n ok">0 unwarranted</td>
-  <td class="n ok">0.963 / 0.000</td></tr>
-  </table></div>
-  <p class="muted" style="font-size:var(--text-sm);margin-top:.9rem">
-  Set root (sorted leaf hashes):
-  <a href="manifests/ROOT.txt">manifests/ROOT.txt</a>. Bank digests in
-  each PUBLISHED bank matches its manifest digest byte for byte (held-out banks carry a pre-registered commitment, released on audit); the scorer
-  commit is the public kit head. Response files and the
-  preregistration ledger are private and opened under audit.</p>
-</section>
-<section class="section">
-  <div class="sec-label">// <b>&sect; 02</b> &middot; check it</div>
-  <h2>Three commands to catch us lying.</h2>
-  <div class="cmd">
-<b>$</b> curl -s https://arcifact.io/manifests/evalw_numeric.json | sha256sum<br>
-<b>$</b> sha256sum arcifact-kit/banks/evalw_numeric.jsonl<br>
-<b>$</b> python tools/grade_public.py banks/evalw_numeric.jsonl your_responses.jsonl --strict --pretty</div>
-  <p>Compare the bank digest in the manifest with your own hash of the
-  published bank. Run your own model with the same scorer. If any
-  number on this site cannot survive that treatment, write to
-  <a href="mailto:security@arcifact.io">security@arcifact.io</a> and we
-  will correct it in public.</p>
 </section>
 
-<section style="margin-top:2rem"><h2>Issued certificates and revocation</h2><p class="muted">Current issuer key: <a href="/.well-known/arcifact-issuer-keys.json">arcifact-issuer-keys.json</a>. Revocation ledger (signed): <a href="/revocation.json">revocation.json</a>. Certificate schema v1: <a href="/manifests/certificate.schema.v1.json">certificate.schema.v1.json</a>. Manifest set: <a href="/manifests/manifest_set.json">manifest_set.json</a>. No certificates are currently revoked.</p></section>
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 01 &middot; the common envelope</p>
+    <h2>One envelope. Instrument-specific payloads.</h2>
+    <p class="muted" style="max-width:44rem">
+      A Gate record and a Model Evidence record answer different
+      questions, so forcing both through one flat schema would mean a
+      field set that is mostly empty and mostly meaningless. Instead
+      the envelope carries what is true of every result, and the
+      instrument payload carries the rest.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">env</p>
+        <p class="step-t">arcifact-report/1</p>
+        <p class="step-d">Instrument and version, profile, subject,
+          source bindings by digest, the claims and their verdicts, the
+          declared envelope with what was out of scope, assumptions
+          marked verified or not, provenance, issue and expiry,
+          revocation, signature and seal.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">gate-ci/1</p>
+        <p class="step-d">The gate and how it aggregates, its
+          enforcement status, covered jobs, uncovered jobs with gap
+          type and severity, exact ordering counts where enumerable, a
+          counterexample and the remediation.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">model-evidence/1</p>
+        <p class="step-d">Banks with digests and item counts, the
+          fabrication rate, stance decomposition, the thresholds
+          registered before the run, and whether strict scoring was
+          used.</p>
+      </div>
+    </div>
+    <p class="muted" style="max-width:44rem;margin-top:1rem">
+      A verifier that does not recognise an instrument still validates
+      the envelope and says plainly that it did not interpret the
+      payload, rather than passing it silently.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 02 &middot; check it</p>
+    <h2>Four verdicts, deliberately distinct.</h2>
+    <p class="muted" style="max-width:44rem">
+      The distinction that matters most is between a record being
+      self-consistent and a record being authentic. Most of the value
+      is in refusing to collapse them.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">A</p>
+        <p class="step-t">VALID</p>
+        <p class="step-d">Issued profile. Every check passed, including
+          a signature verified against a key you obtained out of band,
+          an expiry that has not passed and a revocation pointer.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">B</p>
+        <p class="step-t">SELF_CONSISTENT_REPORT</p>
+        <p class="step-d">Internally consistent and bound to the
+          sources you supplied. This is not a claim of authenticity or
+          issuance, and the verifier says so on the same line.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">C</p>
+        <p class="step-t">INCOMPLETE</p>
+        <p class="step-d">Nothing contradicts the record, but a check
+          could not be performed here. It names which one, so you can
+          decide whether it matters.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">D</p>
+        <p class="step-t">INVALID</p>
+        <p class="step-d">A check failed. It names which. Editing a
+          payload, re-sealing it, pointing it at different bytes or
+          claiming a profile the record does not meet all land here.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-quiet" href="https://github.com/arcifact/arcifact-kit">The verifier source</a>
+      <a class="btn btn-quiet" href="certificate">Report or certificate</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 03 &middot; trust material</p>
+    <h2>Everything you need to check us, in one place.</h2>
+    <p class="muted" style="max-width:44rem">
+      Issuer public keys are published here and must be taken from here
+      or another channel you trust, never from inside a record. A key
+      carried by the document it signs proves nothing. The revocation
+      ledger is signed and carries its own next-update time, so a stale
+      ledger is detectable rather than silently trusted.
+    </p>
+    <div class="actions">
+      <a class="btn btn-quiet" href="/.well-known/arcifact-issuer-keys.json">Issuer keys</a>
+      <a class="btn btn-quiet" href="/revocation.json">Revocation ledger</a>
+      <a class="btn btn-quiet" href="/manifests/report.schema.v1.json">Envelope schema</a>
+      <a class="btn btn-quiet" href="/manifests/certificate.schema.v1.json">Model certificate schema</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 04 &middot; published records</p>
+    <p class="muted" style="max-width:44rem">
+      Model Evidence runs are published with their manifests and bank
+      digests on the evidence page. Gate findings are disclosed
+      privately to the repository owner and are published only with
+      their written approval, so the absence of public Gate records
+      here is deliberate rather than an oversight.
+    </p>
+    <div class="actions">
+      <a class="btn btn-quiet" href="evidence">Published model runs</a>
+      <a class="btn btn-quiet" href="oracle">The method, live</a>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer class="site-foot">
   <div class="frame">
@@ -109,11 +203,14 @@
       <div>
         <h4>Reference</h4>
         <ul>
-          <li><a href="evidence">Evidence</a></li>
-          <li><a href="oracle">Oracle</a></li>
-          <li><a href="verify">Verify</a></li>
-          <li><a href="certificate">Certificate</a></li>
-          <li><a href="pilot">Pilot</a></li>
+          <li><a href="gate">Arcifact Gate</a></li>
+        <li><a href="model-evidence">Model Evidence</a></li>
+        <li><a href="method">Method</a></li>
+        <li><a href="oracle">Oracle</a></li>
+        <li><a href="verify">Verify a record</a></li>
+        <li><a href="certificate">Reports and certificates</a></li>
+        <li><a href="evidence">Published results</a></li>
+        <li><a href="pilot">Begin</a></li>
           <li><a href="https://github.com/arcifact/arcifact-kit">Verification kit</a></li>
         </ul>
       </div>

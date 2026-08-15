@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Evidence Certificate &middot; Arcifact</title>
-<meta name="description" content="A sample certificate, the machine-readable schema, and plain statements of what it is, what it is not, and how it renews.">
+<title>Reports and certificates &middot; Arcifact</title>
+<meta name="description" content="An evidence report is a reproducible, source-bound analysis. An issued certificate is a report that additionally meets the full signed issuance profile. The difference is deliberate.">
 <link rel="canonical" href="https://arcifact.io/certificate">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arcifact">
@@ -43,67 +43,170 @@
     <nav class="nav-links" aria-label="Site"><a href="method">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
   </div>
 </header>
-<main class="frame" id="main">
-  <div class="marquee">
-    <span>arcifact &middot; nothing asserted past evidence</span>
-    <span>ARCIFACT LTD &middot; MMXXVI</span>
-  </div>
+<main id="main">
 
-<div class="hero">
-  <div class="hero-rule">The instrument of record</div>
-  <h1>The Evidence Certificate.</h1>
-  <p class="lede">A release-specific, renewable statement of measured
-  epistemic conduct: what was tested, in which envelope, against which
-  preregistered bars, with provenance that binds every number.</p>
-</div>
 <section class="section">
-  <div class="sec-label">// <b>FIG. 04</b> &middot; sample</div>
-  <h2>What a certificate looks like.</h2>
-  <div class="fig"><div class="fig-head"><b>ARCIFACT EVIDENCE
-  CERTIFICATE</b> <span class="dim" style="margin-left:auto">sample
-  &middot; illustrative subject</span></div>
-  <div class="fig-body" style="min-height:0;padding-right:1rem">
-<div><span class="dim">subject</span>&nbsp;&nbsp;&nbsp;&nbsp;acme-support-agent</div>
-<div><span class="dim">release</span>&nbsp;&nbsp;&nbsp;&nbsp;2026.31</div>
-<div><span class="dim">envelope</span>&nbsp;&nbsp;&nbsp;offered-observation instruments; H&le;12</div>
-<div><span class="dim">banks</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evalw_numeric 150/150 &middot; <span class="ok">fab 0.000</span> &middot; held-out 148/150 &middot; <span class="ok">fab 0.000</span></div>
-<div><span class="dim">stance</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answers 287 &middot; entitled refusals 11 &middot; errors 2</div>
-<div><span class="dim">bars</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;registered 2026-08-01, hashes in manifest</div>
-<div><span class="dim">provenance</span>&nbsp;scorer grade_public/1.1 &middot; manifest-set root (versioned)</div>
-<div><span class="dim">issued</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-08-20 &middot; <span class="dim">expires</span> next release or 2027-08-20</div>
-<div><span class="dim">revocation</span>&nbsp;arcifact.io/verify</div>
-  </div>
-  <div class="fig-foot"><p>Machine-readable schema:
-  <a href="manifests/certificate.schema.v1.json">certificate.schema.v1.json</a>.
-  A certificate is a self-sealed statement by Arcifact Ltd. The public
-  verifier in the <a href="https://github.com/arcifact/arcifact-kit">kit</a>
-  (tools/verify_certificate.py) checks schema, self-seal, bank digests,
-  manifest root and revocation offline, without contacting us.
-  Issued certificates carry an Ed25519 signature verifiable against Arcifact's independently published issuer key. Unsigned documents are reports, not issued certificates.</p></div>
+  <div class="frame">
+    <p class="sec-label">// outputs</p>
+    <h1>Reports and certificates.</h1>
+    <p class="muted" style="max-width:44rem">
+      Not every analysis is a certificate, and treating them as the
+      same thing would empty the word. Arcifact issues two things, and
+      keeps them apart on purpose.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">Evidence report</p>
+        <p class="step-d">A reproducible analysis bound to exact source
+          bytes, with a verifier that recomputes it. Unsigned. The
+          honest description of most work, including every Gate finding
+          disclosed so far.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">Issued certificate</p>
+        <p class="step-d">A report that additionally meets the full
+          signed issuance profile: an out-of-band issuer signature, a
+          live expiry, a signed revocation entry and a complete
+          manifest set with member bytes verified.</p>
+      </div>
+    </div>
+    <p class="muted" style="max-width:44rem;margin-top:1rem">
+      A verifier told to require the issued profile treats it as a
+      floor, never a downgrade: an unsigned report asked to meet it
+      fails rather than quietly passing at a weaker grade.
+    </p>
   </div>
 </section>
+
 <section class="section">
-  <div class="sec-label">// <b>&sect; 02</b> &middot; plainly</div>
-  <h2>What it is. What it is not.</h2>
-  <dl class="ledger">
-  <div><dt>It is</dt><dd>A proprietary evidence statement: measured
-  conduct on frozen instruments, in a declared envelope, against bars
-  set before the runs, renewable per release, revocable in public.</dd></div>
-  <div><dt>It is not</dt><dd>A government accreditation, a legal
-  warranty, or a claim about conduct outside the declared envelope.
-  Anyone selling you the latter is selling something no measurement
-  supports.</dd></div>
-  <div><dt>Independence</dt><dd>Arcifact certifies systems it did not
-  build. For our own governed configuration, the same instruments,
-  manifests and bars are published so the referee is you.</dd></div>
-  <div><dt>Renewal</dt><dd>A certificate names the release it measured.
-  New release, new run, new certificate; expiry is automatic at twelve
-  months regardless.</dd></div>
-  <div><dt>Corrections</dt><dd>Errors found in issued certificates are
-  corrected and listed at arcifact.io/verify; disputes go to
-  <a href="mailto:legal@arcifact.io">legal@arcifact.io</a> and are
-  answered by the founder in writing.</dd></div>
-  </dl>
+  <div class="frame">
+    <p class="sec-label">// &sect; 01 &middot; one envelope</p>
+    <h2>The same structure, whichever instrument produced it.</h2>
+    <p class="muted" style="max-width:44rem">
+      Every record carries the fields below. They are the ones a
+      recipient needs in order to disbelieve it efficiently: what was
+      examined, what it is bound to, what was claimed, what was
+      excluded, what was assumed, and how to check the lot without
+      trusting the issuer.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">A</p>
+        <p class="step-t">Bound</p>
+        <p class="step-d">Every input digested. If your copy differs,
+          the verifier reports a source mismatch instead of a stale
+          result.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">B</p>
+        <p class="step-t">Bounded</p>
+        <p class="step-d">The envelope must name what was out of scope.
+          A record that declares nothing out of scope is rejected by
+          the schema, because every result has a boundary.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">C</p>
+        <p class="step-t">Unresolved is a verdict</p>
+        <p class="step-d">A claim the evidence does not settle is
+          marked unresolved and must name the observation that would
+          settle it. Omitting that is a validation failure, not a
+          stylistic lapse.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">D</p>
+        <p class="step-t">Assumed, and said so</p>
+        <p class="step-d">Anything taken as given is listed. If it is
+          unverified, the record must say how you would verify it
+          yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// FIG. 04 &middot; sample &middot; gate-ci/1</p>
+    <h2>A Gate record.</h2>
+    <p class="muted" style="max-width:44rem">
+      The payload for a merge-gate finding. Note that enforcement is a
+      separate field from the gate's name: a job called
+      <span style="font-family:var(--mono,monospace)">required</span> is
+      a naming convention, and only a required-check list settles
+      whether it is enforced.
+    </p>
+    <pre class="code" style="overflow-x:auto"><code>"instrument": "gate",
+"profile": "report",
+"source_bindings": [
+  { "path": ".github/workflows/pr.yaml",
+    "sha256": "f3295ba8...d23d5" } ],
+"claims": [
+  { "id": "closure.action_tests", "verdict": "holds" },
+  { "id": "policy.should_block",  "verdict": "unresolved",
+    "settled_by": "a statement of intent, or the job being
+                   made a required context" } ],
+"payload": {
+  "payload_schema": "gate-ci/1",
+  "gate": { "display_name": "Aggregate Test Results",
+            "mechanism": "specific",
+            "enforcement": "enforced" },
+  "uncovered_jobs": [
+    { "job": "action_tests",
+      "gap_type": "parallel_uncovered",
+      "severity": "latent" } ],
+  "ordering_counts": { "total": "11340",
+                       "gate_first": "2268",
+                       "after_fix": "9072" } }</code></pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// FIG. 05 &middot; sample &middot; model-evidence/1</p>
+    <h2>A Model Evidence record.</h2>
+    <p class="muted" style="max-width:44rem">
+      Same envelope, different payload. The thresholds field records
+      that the bar was registered before the run, which is the claim
+      that makes the rate meaningful.
+    </p>
+    <pre class="code" style="overflow-x:auto"><code>"instrument": "model-evidence",
+"profile": "report",
+"claims": [
+  { "id": "fabrication.rate",       "verdict": "holds" },
+  { "id": "generalisation.heldout", "verdict": "unresolved",
+    "settled_by": "a scored run against the held-out bank" } ],
+"payload": {
+  "payload_schema": "model-evidence/1",
+  "banks": [ { "name": "diamonds_zero_shot", "n": 150,
+               "sha256": "..." } ],
+  "fabrication_rate": 0.0,
+  "stance": { "answered": 118, "refused_entitled": 32,
+              "unwarranted": 0 },
+  "thresholds": { "fabrication_rate_max": 0.02,
+                  "registered_before_run": true },
+  "scorer_strict": true }</code></pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 02 &middot; what it is not</p>
+    <p class="muted" style="max-width:44rem">
+      A record is a statement about specific bytes under a declared
+      boundary. It is not a warranty, not a safety guarantee, and not a
+      claim about behaviour outside the envelope it names. A Gate
+      record proves a job sits outside a gate's closure; it does not
+      decide whether it ought to. A Model Evidence record reports a
+      rate on named banks; it says nothing about prompts those banks do
+      not contain. Where a record cannot establish something, it is
+      required to say so, and the verifier fails records that do not.
+    </p>
+    <div class="actions">
+      <a class="btn btn-quiet" href="verify">Verify a record</a>
+      <a class="btn btn-quiet" href="/manifests/report.schema.v1.json">The envelope schema</a>
+    </div>
+  </div>
 </section>
 
 </main>
@@ -122,11 +225,14 @@
       <div>
         <h4>Reference</h4>
         <ul>
-          <li><a href="evidence">Evidence</a></li>
-          <li><a href="oracle">Oracle</a></li>
-          <li><a href="verify">Verify</a></li>
-          <li><a href="certificate">Certificate</a></li>
-          <li><a href="pilot">Pilot</a></li>
+          <li><a href="gate">Arcifact Gate</a></li>
+        <li><a href="model-evidence">Model Evidence</a></li>
+        <li><a href="method">Method</a></li>
+        <li><a href="oracle">Oracle</a></li>
+        <li><a href="verify">Verify a record</a></li>
+        <li><a href="certificate">Reports and certificates</a></li>
+        <li><a href="evidence">Published results</a></li>
+        <li><a href="pilot">Begin</a></li>
           <li><a href="https://github.com/arcifact/arcifact-kit">Verification kit</a></li>
         </ul>
       </div>
