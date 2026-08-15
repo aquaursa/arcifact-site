@@ -1,0 +1,13 @@
+{
+ "schema": "arcifact-issuer-keys/1",
+ "issuer": "Arcifact Ltd",
+ "keys": [
+  {
+   "key_id": "arcifact-issuer-2026-08",
+   "alg": "ed25519",
+   "public_key": "37c0226f44af6848cec7ce245e5640243e972583aba2642ab5e45b5c9f7fa2eb",
+   "created": "2026-08-15",
+   "status": "active"
+  }
+ ]
+}

@@ -1,1 +1,30 @@
-{"bank":"diamonds_zero_shot","bank_sha256":"held-out:not-published","date":"2026-08-09","model":"arcifact-governed-1 (private configuration)","n":270,"notes":"never-seen corpus, first contact, in-envelope; 270 episodes, 0 unwarranted assertions","provider":"self-hosted","raw":{"fabricated_observations":0,"pass":260},"response_file_sha256":"available-under-audit","result":{"fabrication_rate":0.0,"score":0.963},"runner":"tools/run_frontier.py","schema":"arcifact-manifest/1","scorer_commit":"f511d65","threshold":{"record":"private preregistration ledger; entry hash on request","registered":"before run","value":0.95}}
+{
+ "bank": "diamonds_zero_shot",
+ "bank_sha256": null,
+ "date": "2026-08-09",
+ "model": "arcifact-governed-1 (private configuration)",
+ "n": 270,
+ "notes": "never-seen corpus, first contact, in-envelope; 270 episodes, 0 unwarranted assertions",
+ "provider": "self-hosted",
+ "raw": {
+  "fabricated_observations": 0,
+  "pass": 260
+ },
+ "response_file_sha256": null,
+ "result": {
+  "fabrication_rate": 0.0,
+  "score": 0.963
+ },
+ "runner": "tools/run_frontier.py",
+ "schema": "arcifact-manifest/1",
+ "threshold": {
+  "record": "private preregistration ledger; entry hash on request",
+  "registered": "before run",
+  "value": 0.95
+ },
+ "bank_disclosure": "held_out",
+ "bank_commitment": "sha256 committed before evaluation; released on audit",
+ "response_disclosure": "audit_only",
+ "run_scorer_semantics": "grade_public/1.1 (byte-identical scorer; see kit)",
+ "published_reference_commit": "f511d65"
+}

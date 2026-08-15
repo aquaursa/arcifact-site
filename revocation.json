@@ -1,0 +1,7 @@
+{
+ "schema": "arcifact-revocation/1",
+ "issuer": "Arcifact Ltd",
+ "updated": "2026-08-15",
+ "revoked": [],
+ "note": "Certificate sha256 values appear here when revoked. The public certificate verifier checks a supplied copy of this file with --revocation."
+}

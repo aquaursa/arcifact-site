@@ -1,0 +1,213 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://arcifact.io/manifests/certificate.schema.v1.json",
+ "title": "Arcifact Evidence Certificate",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema_version",
+  "subject",
+  "release",
+  "banks",
+  "envelope",
+  "stance",
+  "fabrication_rate",
+  "thresholds",
+  "provenance",
+  "issued",
+  "expires",
+  "sha256"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "arcifact-certificate/1"
+  },
+  "subject": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 200
+  },
+  "release": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 200
+  },
+  "banks": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "bank",
+     "bank_sha256",
+     "score",
+     "fabrication_rate",
+     "n",
+     "coverage",
+     "raw"
+    ],
+    "properties": {
+     "bank": {
+      "type": "string",
+      "minLength": 1
+     },
+     "bank_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+     },
+     "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "fabrication_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "n": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "raw": {
+      "type": "object"
+     }
+    }
+   }
+  },
+  "envelope": {
+   "type": "string",
+   "minLength": 1,
+   "description": "the declared regime in which results hold"
+  },
+  "stance": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "answers",
+    "entitled_refusals",
+    "errors"
+   ],
+   "properties": {
+    "answers": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "entitled_refusals": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "errors": {
+     "type": "integer",
+     "minimum": 0
+    }
+   }
+  },
+  "fabrication_rate": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "thresholds": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "metric",
+     "bar",
+     "registered_at"
+    ],
+    "properties": {
+     "metric": {
+      "type": "string"
+     },
+     "bar": {
+      "type": "number"
+     },
+     "registered_at": {
+      "type": "string",
+      "format": "date-time"
+     }
+    }
+   }
+  },
+  "provenance": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "scorer_version",
+    "scorer_commit",
+    "manifest_root"
+   ],
+   "properties": {
+    "scorer_version": {
+     "type": "string"
+    },
+    "scorer_commit": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{7,40}$"
+    },
+    "manifest_root": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{64}$"
+    }
+   }
+  },
+  "issued": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "expires": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "revocation": {
+   "type": "string",
+   "format": "uri"
+  },
+  "signature": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "alg",
+    "key_id",
+    "public_key",
+    "sig"
+   ],
+   "properties": {
+    "alg": {
+     "const": "ed25519"
+    },
+    "public_key": {
+     "type": "string"
+    },
+    "sig": {
+     "type": "string"
+    },
+    "key_id": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "profile": {
+   "enum": [
+    "draft",
+    "report",
+    "issued"
+   ]
+  }
+ }
+}

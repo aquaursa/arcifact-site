@@ -74,7 +74,7 @@
   <p class="muted" style="font-size:var(--text-sm);margin-top:.9rem">
   Set root (sorted leaf hashes):
   <a href="manifests/ROOT.txt">manifests/ROOT.txt</a>. Bank digests in
-  each manifest match the published banks byte for byte; the scorer
+  each PUBLISHED bank matches its manifest digest byte for byte (held-out banks carry a pre-registered commitment, released on audit); the scorer
   commit is the public kit head. Response files and the
   preregistration ledger are private and opened under audit.</p>
 </section>
