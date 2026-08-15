@@ -130,7 +130,7 @@
     <p class="sec-label">// FIG. 04 &middot; sample &middot; gate-ci/1</p>
     <h2>A Gate record.</h2>
     <p class="muted" style="max-width:44rem">
-      The payload for a merge-gate finding. Note that enforcement is a
+      A synthetic example. The payload for a merge-gate finding. Note that enforcement is a
       separate field from the gate's name: a job called
       <span style="font-family:var(--mono,monospace)">required</span> is
       a naming convention, and only a required-check list settles
@@ -139,25 +139,23 @@
     <pre class="code" style="overflow-x:auto"><code>"instrument": "gate",
 "profile": "report",
 "source_bindings": [
-  { "path": ".github/workflows/pr.yaml",
-    "sha256": "f3295ba8...d23d5" } ],
+  { "path": ".github/workflows/ci.yml",
+    "sha256": "9f2c...a41e" } ],
 "claims": [
-  { "id": "closure.action_tests", "verdict": "holds" },
-  { "id": "policy.should_block",  "verdict": "unresolved",
+  { "id": "closure.contract_tests", "verdict": "holds" },
+  { "id": "policy.should_block",    "verdict": "unresolved",
     "settled_by": "a statement of intent, or the job being
                    made a required context" } ],
 "payload": {
   "payload_schema": "gate-ci/1",
-  "gate": { "display_name": "Aggregate Test Results",
-            "mechanism": "specific",
-            "enforcement": "enforced" },
+  "gate": { "display_name": "all checks passed",
+            "mechanism": "collective",
+            "enforcement": "unverified" },
+  "covered_jobs": [ "unit-tests", "lint" ],
   "uncovered_jobs": [
-    { "job": "action_tests",
+    { "job": "contract-tests",
       "gap_type": "parallel_uncovered",
-      "severity": "latent" } ],
-  "ordering_counts": { "total": "11340",
-                       "gate_first": "2268",
-                       "after_fix": "9072" } }</code></pre>
+      "severity": "latent" } ] }</code></pre>
   </div>
 </section>
 

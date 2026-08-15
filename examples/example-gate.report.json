@@ -1,0 +1,87 @@
+{
+ "schema": "arcifact-report/1",
+ "instrument": "gate",
+ "instrument_version": "1.0.0",
+ "profile": "report",
+ "subject": {
+  "kind": "workflow",
+  "name": "example-org/example-service .github/workflows/ci.yml",
+  "ref": "0000000000000000000000000000000000000000"
+ },
+ "source_bindings": [
+  {
+   "path": ".github/workflows/ci.yml",
+   "sha256": "65252d82b9feaa9022f6c6116f5c651c85096556b13af19a628c2a4dbe87cbfb"
+  }
+ ],
+ "claims": [
+  {
+   "id": "closure.contract_tests",
+   "statement": "The required check 'all checks passed' does not close over contract-tests: it is neither in the gate's needs nor inspected via a result reference.",
+   "verdict": "holds"
+  },
+  {
+   "id": "policy.should_block",
+   "statement": "contract-tests is intended to block a merge when it fails.",
+   "verdict": "unresolved",
+   "settled_by": "A statement of intent from the repository owners, or the job being made a required context in branch protection."
+  }
+ ],
+ "envelope": {
+  "declared": "Static analysis of the declared job-ID dependency graph in one workflow file.",
+  "out_of_scope": [
+   "Runtime scheduling frequency on hosted runners",
+   "Job durations, runner availability and concurrency limits",
+   "Whether any excluded job ought to block a merge, which is repository policy"
+  ]
+ },
+ "assumptions": [
+  {
+   "statement": "This example is synthetic and describes no real repository.",
+   "verified": true
+  }
+ ],
+ "provenance": {
+  "issuer": "Arcifact Ltd",
+  "method": "Arcifact Gate closure analysis",
+  "tool_versions": {
+   "gate": "1.0.0"
+  }
+ },
+ "issued": "2026-08-15T00:00:00Z",
+ "verification": {
+  "command": "python3 verify_report.py example-gate.report.json --sources .",
+  "requires_network": false,
+  "requires_issuer_code": false
+ },
+ "payload": {
+  "payload_schema": "gate-ci/1",
+  "gate": {
+   "job_id": "all-green",
+   "display_name": "all checks passed",
+   "condition": "${{ always() }}",
+   "mechanism": "collective",
+   "enforcement": "unverified"
+  },
+  "covered_jobs": [
+   "unit-tests",
+   "lint"
+  ],
+  "uncovered_jobs": [
+   {
+    "job": "contract-tests",
+    "gap_type": "parallel_uncovered",
+    "severity": "latent",
+    "activation": "needs.changes.outputs.api == 'true'"
+   }
+  ],
+  "counterexample": [
+   "lint",
+   "unit-tests",
+   "all-green",
+   "contract-tests"
+  ],
+  "remediation": "Add contract-tests to all-green.needs so it enters toJSON(needs)."
+ },
+ "sha256": "bf0fc1b219b626684393d59ad2b7ea053c7f8a749c5f07941d86aea842dc6efe"
+}

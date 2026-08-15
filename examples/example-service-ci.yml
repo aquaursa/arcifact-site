@@ -1,0 +1,15 @@
+name: ci
+on: [pull_request]
+jobs:
+  unit-tests: {runs-on: ubuntu-latest, steps: [{run: make test}]}
+  lint: {runs-on: ubuntu-latest, steps: [{run: make lint}]}
+  contract-tests:
+    if: needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    steps: [{run: make contract}]
+  all-green:
+    name: all checks passed
+    needs: [unit-tests, lint]
+    if: always()
+    runs-on: ubuntu-latest
+    steps: [{run: 'echo "${{ toJSON(needs) }}" | jq -e ...'}]
