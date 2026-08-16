@@ -101,10 +101,60 @@ p { max-width: 42rem; }
   font-size: var(--text-sm); flex-wrap: wrap; }
 .nav-links a { color: var(--color-ink-muted); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--color-accent); }
+/* menu toggle: hidden on wide viewports, shown when the row would wrap */
+.nav-toggle {
+  display: none; margin-left: auto; align-items: center; gap: .5rem;
+  background: none; border: 1px solid var(--color-rule);
+  color: var(--color-ink-muted); font-family: var(--font-mono);
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-marquee);
+  text-transform: uppercase; padding: .45rem .7rem; cursor: pointer;
+  transition: color .15s var(--ease-out), border-color .15s var(--ease-out);
+}
+.nav-toggle:hover { color: var(--color-accent);
+  border-color: var(--color-accent); }
+.nav-toggle:focus-visible { outline: 2px solid var(--color-accent);
+  outline-offset: 2px; }
+.nav-toggle .bars { display: inline-block; width: 14px; height: 10px;
+  position: relative; }
+.nav-toggle .bars::before, .nav-toggle .bars::after,
+.nav-toggle .bars span {
+  content: ""; position: absolute; left: 0; right: 0; height: 1px;
+  background: currentColor; transition: transform .2s var(--ease-out),
+  opacity .2s var(--ease-out); }
+.nav-toggle .bars::before { top: 0; }
+.nav-toggle .bars span { top: 4.5px; }
+.nav-toggle .bars::after { bottom: 0; }
+.nav[data-open="true"] .nav-toggle .bars::before {
+  transform: translateY(4.5px) rotate(45deg); }
+.nav[data-open="true"] .nav-toggle .bars::after {
+  transform: translateY(-4.5px) rotate(-45deg); }
+.nav[data-open="true"] .nav-toggle .bars span { opacity: 0; }
+
 @media (max-width: 46rem) {
   .nav-inner { flex-wrap: wrap; gap: .7rem; }
+  .nav-toggle { display: inline-flex; }
+  /* progressive enhancement: without JS the links stay visible, so the
+     site is never navigable only by script */
+  .nav.js .nav-links { display: none; }
+  .nav.js[data-open="true"] .nav-links {
+    display: flex; flex-direction: column; align-items: flex-start;
+    margin-left: 0; width: 100%; gap: 0;
+    font-size: var(--text-sm);
+    border-top: 1px solid var(--color-rule); padding-top: .4rem;
+  }
+  .nav.js[data-open="true"] .nav-links a {
+    display: block; width: 100%; padding: .72rem 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-rule-faint);
+  }
+  .nav.js[data-open="true"] .nav-links a:last-child { border-bottom: 0; }
   .nav-links { margin-left: 0; width: 100%; gap: 1rem;
     font-size: var(--text-xs); }
+  .nav-cta { margin-top: .5rem; }
+  .nav.js[data-open="true"] .nav-cta {
+    display: flex; width: 100%; box-sizing: border-box;
+    justify-content: center; margin: .65rem 0 .1rem;
+    padding: .75rem 0; border-bottom-width: 1px !important; }
 }
 
 /* ---------- exhibit marquee ---------- */
@@ -341,7 +391,8 @@ tbody tr:hover td { background: var(--color-page-elev); }
   letter-spacing: var(--tracking-marquee); text-transform: uppercase;
   color: var(--color-ink-faint); margin-bottom: 1.1rem; }
 .hero-kick b { color: var(--color-accent); font-weight: 400; }
-h1 .turn { color: var(--color-accent-ink); }
+h1 .turn, h2 .turn { color: var(--color-accent-ink); }
+h1 .turn { display: inline; }
 .statrow { display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 1px; background: var(--color-rule); border: 1px solid
@@ -364,7 +415,7 @@ h1 .turn { color: var(--color-accent-ink); }
   color: var(--color-accent-ink) !important; text-decoration: none;
   white-space: nowrap; }
 .nav-cta:hover { background: var(--color-accent-pale); }
-@media (max-width: 46rem) { .nav-cta { display: none; } }
+
 
 /* ---------- the case: six claims, rank order ---------- */
 .case { border-top: 1px solid var(--color-rule); margin-top: 1.6rem; }

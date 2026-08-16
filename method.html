@@ -40,7 +40,8 @@
 <circle cx="21" cy="12" r="2.7" fill="#5fdca3" stroke="none"/>
 </svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
     </a>
-    <nav class="nav-links" aria-label="Site"><a href="method" aria-current="page">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="bars"><span></span></span>Menu</button>
+<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method" aria-current="page">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
   </div>
 </header>
 <main id="main">
@@ -48,7 +49,7 @@
 <section class="section">
   <div class="frame">
     <p class="sec-label">// the method</p>
-    <h1>One method. Several instruments.</h1>
+    <h1>One method.<br><span class="turn">Several instruments.</span></h1>
     <p class="muted" style="max-width:44rem">
       Arcifact builds systems that cannot assert past their evidence.
       That is one discipline, not one product. It was built for
@@ -212,5 +213,34 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var nav=document.querySelector('.nav');
+  var btn=nav&&nav.querySelector('.nav-toggle');
+  var links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!btn||!links)return;
+  nav.classList.add('js');           /* collapse only once JS is present */
+  function set(open){
+    nav.setAttribute('data-open',open?'true':'false');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  set(false);
+  btn.addEventListener('click',function(){
+    set(nav.getAttribute('data-open')!=='true');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A')set(false);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')set(false);
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target))set(false);
+  });
+  var mq=window.matchMedia('(min-width: 46.01rem)');
+  (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(function(){set(false);});
+})();
+</script>
 </body>
 </html>
