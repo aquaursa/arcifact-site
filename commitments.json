@@ -1,0 +1,68 @@
+{
+ "schema": "arcifact-commitments/1",
+ "note": "Append-only. Each entry carries the hash of the one before it. The log proves nothing about events before entry 1.",
+ "anchor": {
+  "kind": "public-git",
+  "repository": "https://github.com/arcifact/arcifact-site",
+  "how_to_check": "Each head hash below is published in this file, which is committed to a public git repository. Find the commit that introduced a given head and read its server-side timestamp. That timestamp is not under the issuer's control."
+ },
+ "entries": [
+  {
+   "n": 1,
+   "utc": "2026-08-16T15:38:27Z",
+   "kind": "policy",
+   "subject": "commitment log opened",
+   "claim": "This log begins now. It proves nothing about any run, bar or bank that predates entry 1, and no past result should be read as strengthened by it.",
+   "digest": "",
+   "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+   "entry_hash": "0ed2157a180888197c3bb1a1e6872ae26e2d281f802f2d8d49425e1ab414154e"
+  },
+  {
+   "n": 2,
+   "utc": "2026-08-16T15:38:27Z",
+   "kind": "artifact",
+   "subject": "Arcifact Gate analyser cli.py",
+   "claim": "The exact analyser bytes used for every Gate finding issued from this date. A later finding claiming this version must recompute to this digest.",
+   "digest": "e7571cb70d8211be96d50bec28218d2a45ce0195b50f4cb826058610de17aead",
+   "prev": "0ed2157a180888197c3bb1a1e6872ae26e2d281f802f2d8d49425e1ab414154e",
+   "entry_hash": "31da12a64d0dc28421b5dab31bb8c311135817771ee167592d13d9ca1d1e1f7b"
+  },
+  {
+   "n": 3,
+   "utc": "2026-08-16T15:38:27Z",
+   "kind": "artifact",
+   "subject": "Gate expression engine gexpr.py",
+   "claim": "The expression evaluator that decides fail-open predicates. Committed separately because a change here changes what the analyser can conclude.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "31da12a64d0dc28421b5dab31bb8c311135817771ee167592d13d9ca1d1e1f7b",
+   "entry_hash": "1a4b9fbb7f5c1e9fb73205c0e71fe460fe15b4f39e053a04c7f2392c361a71a0"
+  },
+  {
+   "n": 4,
+   "utc": "2026-08-16T15:38:27Z",
+   "kind": "artifact",
+   "subject": "arcifact-report/1 envelope schema",
+   "claim": "The record format every instrument emits. Committed so a future record cannot claim conformance to a schema that was quietly altered.",
+   "digest": "06bc715a1470f070e114a0e77fc33dcef44fe118b48539e1dcbc44392029ed2f",
+   "prev": "1a4b9fbb7f5c1e9fb73205c0e71fe460fe15b4f39e053a04c7f2392c361a71a0",
+   "entry_hash": "ff518bbfbc23a931544e060cf521b17e8afa33ecba834a20b581bb8e90965eb1"
+  },
+  {
+   "n": 5,
+   "utc": "2026-08-16T15:38:27Z",
+   "kind": "bar",
+   "subject": "Gate finding bar, from this date",
+   "claim": "A Gate finding is only reported as a proven gap when: the gate is an enforced required check resolved from a supplied required-check list; the uncovered job is not in needs, not reachable to the gate, and has no inspected dependent; the job is not marked continue-on-error; and the finding reproduces in both exact and closure modes. Anything else is reported as advisory, unresolved, or not analysed.",
+   "digest": "",
+   "prev": "ff518bbfbc23a931544e060cf521b17e8afa33ecba834a20b581bb8e90965eb1",
+   "entry_hash": "91a7c86adda1f0f809b1415e9dc102514f2a44daaeeb96362769d829328026e9"
+  }
+ ],
+ "signature": {
+  "alg": "ed25519",
+  "key_id": "arcifact-issuer-2026-08",
+  "head": "91a7c86adda1f0f809b1415e9dc102514f2a44daaeeb96362769d829328026e9",
+  "count": 5,
+  "sig": "35941c5d0704c7011334399f0f4271f0a7743ac49acb2ea2a904027bf58f4000eafa07ea32cf3f7479506571600020cede0d5bdeaad3bfe5b814f3c6f4b18d0c"
+ }
+}

@@ -171,9 +171,61 @@ not involve me. Distrust is the intended first response. The material below
   </div>
 </section>
 
+
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 04 &middot; published records</p>
+    <p class="sec-label">// &sect; 04 &middot; the commitment log</p>
+    <h2>What was fixed before the run.</h2>
+    <p class="muted" style="max-width:44rem">
+      A sealed record proves it has not been altered. It cannot show
+      that a threshold was set before the run, or that a held-out bank
+      existed before evaluation. Those are properties of the process,
+      not of a document, and pretending otherwise would be the exact
+      failure this company exists to prevent.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      So there is an append-only log. Each entry commits to a fact
+      before the thing it constrains happens, and carries the hash of
+      the entry before it. Edit any past entry, recompute its hash,
+      remove one, or append after signing, and the chain or the
+      signature breaks. The verifier below detects all four.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">A</p>
+        <p class="step-t">It begins when it begins</p>
+        <p class="step-d">The log proves nothing about anything before
+          its first entry. No past result is strengthened by it, and no
+          claim on this site says otherwise.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">B</p>
+        <p class="step-t">The clock is not mine to trust</p>
+        <p class="step-d">A timestamp inside the log is my assertion.
+          What makes it hard to backdate is that each head hash is
+          committed to a public git repository, so it appears in a
+          third-party-hosted commit with a server-side date.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">C</p>
+        <p class="step-t">Check it without me</p>
+        <p class="step-d">Run the verifier for the chain and the
+          signature, then date any head against the public git history:
+          <span style="font-family:var(--mono,monospace)">git log -S&lt;head&gt;
+          -- commitments.json</span>. That step involves Arcifact not at
+          all, which is the point.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="/commitments.json">The log</a>
+      <a class="btn btn-quiet" href="downloads/verify_commitments.py">Its verifier</a>
+      <a class="btn btn-quiet" href="/.well-known/arcifact-issuer-keys.json">Issuer keys</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 05 &middot; published records</p>
     <p class="muted" style="max-width:44rem">
       Model Evidence runs are published with their manifests and bank
       digests on the evidence page. Gate findings are disclosed
