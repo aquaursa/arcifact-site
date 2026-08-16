@@ -13,11 +13,11 @@
 <meta property="og:description" content="Check what your required check actually proves. One workflow file, no repository access, and a verifier you run yourself.">
 <meta property="og:url" content="https://arcifact.io/gate">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://arcifact.io/og.png">
+<meta property="og:image" content="https://arcifact.io/og-gate.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Arcifact, nothing asserted past evidence">
-<meta name="twitter:image" content="https://arcifact.io/og.png">
+<meta property="og:image:alt" content="Arcifact Gate: a green gate is a claim, check what it proves">
+<meta name="twitter:image" content="https://arcifact.io/og-gate.png">
 <meta name="theme-color" content="#060914">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css?v=f5cf2acec1">
@@ -66,8 +66,8 @@
       This is the narrowest application of a general
       <a href="method">method</a>: claims gated by what can be
       witnessed, bars fixed before the run, and certificates you can
-      check without trusting me. It is the easiest one to verify in an
-      afternoon, which is why it tends to come first.
+      check without trusting me. It is also the easiest to check in an afternoon, so it is usually
+      where people start.
     </p>
   </div>
 </section>
@@ -94,13 +94,13 @@
         <p class="step-n">03</p>
         <p class="step-t">Conditional gap</p>
         <p class="step-d">A validator that runs only on certain paths
-          sits outside the required closure. Often deliberate, which is
-          why it is reported as a question rather than a defect.</p>
+          sits outside the required closure. Teams often do this on purpose, so it is raised as a question and
+          not called a defect.</p>
       </div>
       <div class="step">
         <p class="step-n">04</p>
         <p class="step-t">Fail-open predicate</p>
-        <p class="step-d">The subtlest. The dependency is present and
+        <p class="step-d">The subtlest of the four. The dependency is present and
           the results are inspected, but the gate's failure step is
           guarded by a condition an upstream job produces. When that job
           fails its outputs are unset, the guard cannot be satisfied,
@@ -165,8 +165,8 @@
         <p class="step-n">A</p>
         <p class="step-t">You hand over</p>
         <p class="step-d">One workflow file, or a repository name if it
-          is public. Optionally your required-check list, which is the
-          only thing that settles whether a gate is actually enforced.
+          is public. You can also send your required-check list. That is what settles
+          whether the gate is enforced; nothing in the file does.
           Static analysis only. Nothing is executed and no endpoint is
           needed.</p>
       </div>
@@ -230,8 +230,7 @@
         <p class="step-n">01</p>
         <p class="step-t">You send</p>
         <p class="step-d">One workflow file, or a repository name if it
-          is public. Optionally your required-check list, which is the
-          only thing that settles whether a gate is enforced.</p>
+          is public. Send your required-check list too if you have it. Without it I can show a job sits outside the gate, but not that the gate is enforced.</p>
       </div>
       <div class="step">
         <p class="step-n">02</p>
@@ -267,9 +266,7 @@
     <p class="muted" style="max-width:44rem">
       Arcifact exists to stop systems asserting past their evidence.
       That problem is usually posed about language models, and most
-of my work is there. It is the same problem in continuous
-      integration: a green required check is an assertion, and it is
-      worth exactly as much as the closure behind it. The discipline is
+of my work is there. Continuous integration has the same problem. A green required check is an assertion, and it is only as good as the closure behind it. The discipline is
       identical. State the bar before the run, compute what can be
       computed, and label the rest as unknown rather than quietly
       rounding it up.
