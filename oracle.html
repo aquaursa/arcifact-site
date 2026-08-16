@@ -105,7 +105,7 @@ h1 .turn{color:var(--cy)}
 </svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="bars"><span></span></span>Menu</button>
-<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle" aria-current="page">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
+<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle" aria-current="page">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a workflow review</a></nav>
   </div>
 </header>
 
@@ -114,10 +114,11 @@ h1 .turn{color:var(--cy)}
 <h1>Watch certainty<br><span class="turn">get earned.</span></h1>
 <p class="sub">This is a real software project (PyTorch&rsquo;s test
 pipeline) with fourteen facts hidden. Ask a question. The Oracle
-tells you exactly how unsettled it is, points at the one fact that
-would settle it, and when you reveal that fact, possibility
-collapses into proof, in front of you, with the count as the
-receipt.</p>
+tells you exactly how unsettled it is and, where one exists, names
+the single fact that would settle it. Sometimes none does, and it
+says so. Reveal that fact and possibility collapses into proof, in
+front of you, with the count as the receipt under the declared
+model.</p>
 <div class="tour" id="tour" hidden>
 <span id="tourtext"></span>
 <button id="tournext" style="margin-left:auto">Next</button>
@@ -163,7 +164,7 @@ all 22 candidate facts (8 are deliberately fake)</summary>
 <div id="probes" style="margin-top:.5rem"></div></details></div>
 <div class="card"><h2>3 &middot; Your investigation</h2>
 <div class="ledger" id="ledger" aria-live="polite">
-<div style="color:var(--mut)">Nothing revealed yet.</div></div></div>
+<div id="ledger-empty" style="color:var(--mut)">Nothing revealed yet.</div></div></div>
 <details><summary>Bonus: draw one random valid schedule</summary>
 <p style="font-size:13px;margin-top:.4rem">One schedule, chosen
 exactly uniformly among the quintillions, in about a millisecond.</p>
@@ -187,7 +188,7 @@ pytorch/pytorch @ <span class="num">05dab25851a8</span></a>.
 Workflow sha256 <span class="num">200cbb72cd21546e124fe349&hellip;</span>
 &middot; engine-input <span class="num">d78c3a40de5d25a80827d7b7&hellip;</span>
 &middot; truth-deck <span class="num">282aea556e888630dab61cc4&hellip;</span>.
-At build time we asserted, against that exact commit, that all
+At build time I asserted, against that exact commit, that all
 fourteen hidden dependencies exist and all eight decoys do not.
 P here means the share of uniformly weighted valid orderings, not
 GitHub&rsquo;s scheduler odds.
@@ -363,8 +364,7 @@ function renderProbes(){
 function reveal(q){
   q.spent=true; history.push(q);
   const before=curN;
-  if($("ledger").firstChild&&$("ledger").firstChild.style)
-    $("ledger").firstChild.remove?.();
+  $("ledger-empty")?.remove();
   if(q.exists){ edges.push(q.e);
     const row=document.createElement("div");
     row.innerHTML="<span class=yes>real</span> · "+AL(q.e[1])+
@@ -392,6 +392,7 @@ function reveal(q){
 $("undo").onclick=()=>{ const q=history.pop(); if(!q)return;
   q.spent=false;
   if(q.exists) edges=edges.filter(e=>!(e[0]===q.e[0]&&e[1]===q.e[1]));
+  $("ledger-empty")?.remove();
   const row=document.createElement("div");
   row.textContent="undo · "+AL(q.e[1])+" probe restored";
   $("ledger").prepend(row);
@@ -400,7 +401,7 @@ $("reset").onclick=()=>{ edges=DATA.base.map(e=>e.slice());
   probes.forEach(q=>q.spent=false); history=[]; joint=[];
   $("cons").innerHTML="";
   $("ledger").innerHTML=
-    "<div style='color:var(--mut)'>Nothing revealed yet.</div>";
+    "<div id='ledger-empty' style='color:var(--mut)'>Nothing revealed yet.</div>";
   $("world").innerHTML=""; $("drawnote").textContent="";
   $("narr").textContent=""; build(); };
 $("ask").onclick=()=>{ joint=[]; $("cons").innerHTML="";
@@ -461,7 +462,7 @@ const steps=[
  ["<b>Step 2.</b> The Oracle found ONE fact proven to settle it. "+
   "Press the big green button.",
   ()=>$("settlecard").scrollIntoView({behavior:"smooth"})],
- ["<b>Step 3.</b> That was it: proof, with the count as receipt. "+
+ ["<b>Step 3.</b> That was it: proof, with the count as the receipt under the declared model. "+
   "Everything on this page is now yours. Enjoy.",()=>{}]];
 let ts=0;
 function tourShow(){ $("tourtext").innerHTML=steps[ts][0];

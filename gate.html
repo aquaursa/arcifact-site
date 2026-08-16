@@ -41,7 +41,7 @@
 </svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="bars"><span></span></span>Menu</button>
-<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method">Method</a><a href="gate" aria-current="page">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
+<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method">Method</a><a href="gate" aria-current="page">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a workflow review</a></nav>
   </div>
 </header>
 <main id="main">
@@ -66,7 +66,7 @@
       This is the narrowest application of a general
       <a href="method">method</a>: claims gated by what can be
       witnessed, bars fixed before the run, and certificates you can
-      check without trusting us. It is the easiest one to verify in an
+      check without trusting me. It is the easiest one to verify in an
       afternoon, which is why it tends to come first.
     </p>
   </div>
@@ -123,7 +123,7 @@
     <p class="sec-label">// &sect; 02 &middot; what it refuses to claim</p>
     <p class="muted" style="max-width:44rem">
       Most of the work in this instrument went into not overstating.
-      A finding is useless to you if you have to audit our confidence
+      A finding is useless to you if you have to audit my confidence
       before you can act on it, so every finding carries what it is
       and what is still unknown.
     </p>
@@ -159,7 +159,7 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 04 &middot; what you get</p>
+    <p class="sec-label">// &sect; 03 &middot; what you get</p>
     <div class="steps">
       <div class="step">
         <p class="step-n">A</p>
@@ -185,7 +185,7 @@
         <p class="step-t">You check it yourself</p>
         <p class="step-d">A source-bound record and a verifier that
           recomputes every claim from your copy of the file. No network
-          access, and none of our code in the loop.</p>
+          access, and none of my code in the loop.</p>
       </div>
     </div>
     <p class="muted" style="max-width:44rem;margin-top:1rem">
@@ -195,13 +195,64 @@
     </p>
   </div>
 </section>
+
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 03 &middot; why this sits here</p>
+    <p class="sec-label">// &sect; 04 &middot; see it before you share anything</p>
+    <h2>The deliverable, downloadable now.</h2>
+    <p class="muted" style="max-width:44rem">
+      A complete sample review of a synthetic workflow: the one-page
+      report, the certificate bound to the file's bytes, the verifier,
+      the workflow itself, and the exact output the verifier should
+      print. Nothing in it describes a real repository.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      Unpack it and run
+      <span style="font-family:var(--mono,monospace)">python3 verify.py
+      ci.yml certificate.json</span>. It needs Python and pyyaml, no
+      network, and none of my code is trusted: it reads the workflow and
+      recomputes every claim. Then try to break it. Add the flagged job
+      to the gate's needs and it reports NOT CONFIRMED. Change one byte
+      of the workflow and it says the source no longer matches. A
+      verifier that always confirms is worthless.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-n">01</p>
+        <p class="step-t">You send</p>
+        <p class="step-d">One workflow file, or a repository name if it
+          is public. Optionally your required-check list, which is the
+          only thing that settles whether a gate is enforced.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">02</p>
+        <p class="step-t">Turnaround</p>
+        <p class="step-d">A first read is an afternoon. You get the same
+          five files as the sample, for your workflow.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">03</p>
+        <p class="step-t">After that</p>
+        <p class="step-d">Findings you judge to be intentional policy
+          are recorded as exactly that. Nothing is published, named or
+          referenced without your written agreement. If you want the
+          same read on more repositories, that is the next
+          conversation.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="downloads/arcifact-gate-sample-report.tar.gz">Download the sample report</a>
+      <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="frame">
+    <p class="sec-label">// &sect; 05 &middot; why this sits here</p>
     <p class="muted" style="max-width:44rem">
       Arcifact exists to stop systems asserting past their evidence.
-      That problem is usually posed about language models, and most of
-      our work is there. It is the same problem in continuous
+      That problem is usually posed about language models, and most
+of my work is there. It is the same problem in continuous
       integration: a green required check is an assertion, and it is
       worth exactly as much as the closure behind it. The discipline is
       identical. State the bar before the run, compute what can be
@@ -209,7 +260,8 @@
       rounding it up.
     </p>
     <div class="actions">
-      <a class="btn" href="./#contact">Ask us to cold-read a workflow</a>
+      <a class="btn" href="downloads/arcifact-gate-sample-report.tar.gz">See a sample report</a>
+      <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
       <a class="btn btn-quiet" href="method">See the method behind it</a>
     </div>
   </div>
