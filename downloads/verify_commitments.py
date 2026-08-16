@@ -12,6 +12,26 @@ Checks, in order:
   4. the head signature verifies against a key you supply OUT OF BAND.
      A key read from the log itself would prove nothing.
 
+VERDICTS
+
+  AUTHENTIC_CHAIN        the chain is intact AND the head signature
+                         verified against the key you supplied.
+  SELF_CONSISTENT_CHAIN  the chain is intact, but no signature check was
+                         requested. Nothing is claimed about who wrote
+                         it. Exit 0.
+  INCOMPLETE             a signature check WAS requested and could not be
+                         performed, for example because pynacl is not
+                         installed. Exit non-zero, because you asked a
+                         question this run could not answer.
+  INVALID                a check failed. Exit non-zero.
+
+The distinction matters more than it looks. An earlier version of this
+tool printed CHAIN INTACT and exited 0 when pynacl was missing, even
+with a corrupted signature, while asserting that the entries were the
+ones that had been signed. That is exactly the fail-open behaviour this
+project exists to catch, and it is why the verdict now separates
+integrity from authenticity.
+
 WHAT A VALID CHAIN DOES AND DOES NOT SHOW
 
 Does: that the entries you are reading are the entries that were
@@ -51,7 +71,7 @@ def main():
                     help="published key file, obtained out of band")
     a = ap.parse_args()
     log = json.load(open(a.log))
-    fails, notes = [], []
+    fails, notes, unchecked = [], [], []
 
     if log.get("schema") != "arcifact-commitments/1":
         fails.append(f"unexpected schema {log.get('schema')!r}")
@@ -84,7 +104,8 @@ def main():
                      "the entries present")
     elif not a.issuer_keys:
         notes.append("signature not checked: pass --issuer-keys with a "
-                     "key obtained out of band")
+                     "key obtained out of band. Integrity only is "
+                     "reported; authenticity is NOT claimed")
     else:
         try:
             from nacl.signing import VerifyKey
@@ -101,10 +122,14 @@ def main():
                 notes.append(f"head signature verified against "
                              f"{sig['key_id']}")
         except ImportError:
-            notes.append("pynacl not installed: signature not checked")
+            unchecked.append("pynacl not installed, so the signature you "
+                             "asked to verify could not be checked. "
+                             "Install it (pip install pynacl) and rerun; "
+                             "until then authenticity is unknown")
         except Exception as exc:
             fails.append(f"signature verification failed: {str(exc)[:80]}")
 
+    signature_verified = any("signature verified" in n for n in notes)
     print(f"entries            {len(entries)}")
     print(f"head               {prev[:32]}")
     anchor = log.get("anchor") or {}
@@ -113,17 +138,39 @@ def main():
               f"{anchor.get('repository','')}")
     for n in notes:
         print(f"  note             {n}")
+    for u in unchecked:
+        print(f"  NOT CHECKED      {u}")
     for f in fails:
         print(f"  FAILED           {f}")
-    print(f"VERDICT            {'CHAIN INTACT' if not fails else 'INVALID'}")
-    if not fails:
-        print("                   The entries you read are the entries that "
-              "were signed,")
-        print("                   in order, unaltered. Timestamps are the "
+
+    if fails:
+        verdict, code = "INVALID", 1
+    elif unchecked:
+        # a question was asked that this run could not answer
+        verdict, code = "INCOMPLETE", 2
+    elif signature_verified:
+        verdict, code = "AUTHENTIC_CHAIN", 0
+    else:
+        verdict, code = "SELF_CONSISTENT_CHAIN", 0
+    print(f"VERDICT            {verdict}")
+    if verdict == "AUTHENTIC_CHAIN":
+        print("                   The entries you read are the entries the "
+              "issuer signed, in")
+        print("                   order and unaltered. Timestamps remain the "
               "issuer's word:")
-        print("                   check the head against the public git "
-              "history to date it.")
-    return 0 if not fails else 1
+        print("                   date the head against public git history.")
+    elif verdict == "SELF_CONSISTENT_CHAIN":
+        print("                   The chain is internally consistent. NOTHING "
+              "is claimed about")
+        print("                   who produced it: no signature was checked. "
+              "Pass --issuer-keys")
+        print("                   with a key obtained out of band to "
+              "establish authenticity.")
+    elif verdict == "INCOMPLETE":
+        print("                   Integrity holds, authenticity is UNKNOWN. "
+              "Do not treat this")
+        print("                   as a verified log.")
+    return code
 
 
 if __name__ == "__main__":
