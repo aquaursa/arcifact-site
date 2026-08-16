@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arcifact Gate &middot; CI merge-gate assurance</title>
-<meta name="description" content="Static analysis of GitHub Actions merge gates. Finds jobs that can fail without your required check seeing it, and says plainly what it cannot prove.">
+<meta name="description" content="Arcifact Gate finds the ways a required GitHub check can turn green without the validation behind it succeeding: a missing dependency, an ignored result, a conditional gap, or a failure step suppressed by a predicate an upstream job never produced.">
 <link rel="canonical" href="https://arcifact.io/gate">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Arcifact">
 <meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Arcifact Gate &middot; Arcifact">
-<meta property="og:description" content="Static analysis of GitHub Actions merge gates. Finds jobs that can fail without your required check seeing it, and says plainly what it cannot prove.">
+<meta property="og:title" content="Arcifact Gate &middot; a green gate is a claim">
+<meta property="og:description" content="Check what your required check actually proves. One workflow file, no repository access, and a verifier you run yourself.">
 <meta property="og:url" content="https://arcifact.io/gate">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://arcifact.io/og.png">
@@ -249,8 +249,14 @@
           conversation.</p>
       </div>
     </div>
+    <p class="muted" style="max-width:44rem;font-size:var(--text-sm)">
+      arcifact-gate-sample-report-v1.1.0.tar.gz &middot; sha256
+      <span style="font-family:var(--mono,monospace);word-break:break-all">67d4c3e03d3d3ab13c1a8c2dee13daf57cf9eecb0cec8357fcde18ae7ca7b74d</span>
+      &middot; versioned, so a future sample never silently replaces the one
+      you checked.
+    </p>
     <div class="actions">
-      <a class="btn" href="downloads/arcifact-gate-sample-report.tar.gz">Download the sample report</a>
+      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.1.0.tar.gz">Download the sample report</a>
       <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
     </div>
   </div>
@@ -269,7 +275,7 @@ of my work is there. It is the same problem in continuous
       rounding it up.
     </p>
     <div class="actions">
-      <a class="btn" href="downloads/arcifact-gate-sample-report.tar.gz">See a sample report</a>
+      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.1.0.tar.gz">See a sample report</a>
       <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
       <a class="btn btn-quiet" href="method">See the method behind it</a>
     </div>
