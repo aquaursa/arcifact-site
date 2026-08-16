@@ -142,19 +142,37 @@ p { max-width: 42rem; }
     font-size: var(--text-sm);
     border-top: 1px solid var(--color-rule); padding-top: .4rem;
   }
-  .nav.js[data-open="true"] .nav-links a {
+  /* :not(.nav-cta) keeps the call to action out of the plain link
+     styling, which previously overrode its display and stripped its
+     bottom border as the last child, leaving an unclosed box */
+  .nav.js[data-open="true"] .nav-links a:not(.nav-cta) {
     display: block; width: 100%; padding: .72rem 0;
     box-sizing: border-box;
     border-bottom: 1px solid var(--color-rule-faint);
   }
-  .nav.js[data-open="true"] .nav-links a:last-child { border-bottom: 0; }
+  .nav.js[data-open="true"] .nav-links a:not(.nav-cta):last-of-type {
+    border-bottom: 0;
+  }
   .nav-links { margin-left: 0; width: 100%; gap: 1rem;
     font-size: var(--text-xs); }
-  .nav-cta { margin-top: .5rem; }
+  /* the primary action: a filled button, unmistakably not a text field */
   .nav.js[data-open="true"] .nav-cta {
-    display: flex; width: 100%; box-sizing: border-box;
-    justify-content: center; margin: .65rem 0 .1rem;
-    padding: .75rem 0; border-bottom-width: 1px !important; }
+    display: block; width: 100%; box-sizing: border-box;
+    margin: 1rem 0 .25rem; padding: .85rem 1rem;
+    text-align: center; white-space: normal;
+    /* matches the site's own primary .btn rather than inventing a
+       louder treatment: accent-pale fill, accent border, accent ink */
+    background: var(--color-accent-pale);
+    color: var(--color-accent-ink) !important;
+    border: 1px solid var(--color-rule-accent-strong);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-caption);
+  }
+  .nav.js[data-open="true"] .nav-cta:hover,
+  .nav.js[data-open="true"] .nav-cta:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright) !important;
+  }
 }
 
 /* ---------- exhibit marquee ---------- */
