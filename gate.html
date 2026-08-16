@@ -49,14 +49,18 @@
 <section class="section">
   <div class="frame">
     <p class="sec-label">// arcifact gate &middot; ci assurance</p>
-    <h1>Your merge gate,<br><span class="turn">checked against your own workflow.</span></h1>
+    <h1>A green gate is a claim.<br><span class="turn">Check what it actually proves.</span></h1>
     <p class="muted" style="max-width:44rem">
       A required status check is supposed to mean that the work you
       care about passed. On a large workflow it quietly stops meaning
-      that: a job runs in parallel with the gate, or sits in its needs
-      while the gate never inspects its result, and its failure cannot
-      change the gate. Arcifact Gate reads the declared workflow and finds
-      those jobs before they matter.
+      that. A job runs in parallel with the gate. Another sits in its
+      needs while the gate never inspects its result. Or the gate's own
+      failure step is guarded by a condition that an upstream job
+      produces, so when that job fails the guard cannot be satisfied,
+      the step is skipped, and the gate goes green with nothing having
+      run. Arcifact Gate reads the declared workflow and finds the ways
+      your gate can turn green without the validation behind its claim
+      succeeding.
     </p>
     <p class="muted" style="max-width:44rem">
       This is the narrowest application of a general
@@ -70,32 +74,47 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 01 &middot; what it computes</p>
+    <p class="sec-label">// &sect; 01 &middot; four ways a gate lies</p>
     <div class="steps">
       <div class="step">
         <p class="step-n">01</p>
-        <p class="step-t">Gate closure</p>
-        <p class="step-d">Which jobs can run on a pull request while
-          being outside the required check's closure: not in its needs,
-          not reachable to it through the needs graph, and never
-          inspected through a result reference.</p>
+        <p class="step-t">Missing dependency</p>
+        <p class="step-d">A job runs in parallel with the gate and is
+          not in its needs at all, so its failure cannot reach the
+          gate.</p>
       </div>
       <div class="step">
         <p class="step-n">02</p>
-        <p class="step-t">Ordering counts</p>
-        <p class="step-d">On graphs small enough to enumerate, the exact
-          number of valid topological orderings that place the gate
-          before a given job, and the number remaining once the missing
-          edge is added. Whole numbers, not estimates.</p>
+        <p class="step-t">Ignored result</p>
+        <p class="step-d">The job is in needs, but the gate runs under
+          always() and never inspects its result. GitHub does not block
+          an always() gate on a failed dependency, so nothing does.</p>
       </div>
       <div class="step">
         <p class="step-n">03</p>
-        <p class="step-t">A certificate you can check</p>
-        <p class="step-d">Bound to the exact bytes of your workflow,
-          with a verifier that recomputes every number from your file
-          alone. No network access, and none of our code.</p>
+        <p class="step-t">Conditional gap</p>
+        <p class="step-d">A validator that runs only on certain paths
+          sits outside the required closure. Often deliberate, which is
+          why it is reported as a question rather than a defect.</p>
+      </div>
+      <div class="step">
+        <p class="step-n">04</p>
+        <p class="step-t">Fail-open predicate</p>
+        <p class="step-d">The subtlest. The dependency is present and
+          the results are inspected, but the gate's failure step is
+          guarded by a condition an upstream job produces. When that job
+          fails its outputs are unset, the guard cannot be satisfied,
+          the step is skipped, and the gate reports success with the
+          suite unrun.</p>
       </div>
     </div>
+    <p class="muted" style="max-width:44rem;margin-top:1rem">
+      The fourth is decided by evaluating the condition, not by matching
+      it. A guard written with <span style="font-family:var(--mono,monospace)">!=</span>
+      rather than <span style="font-family:var(--mono,monospace)">==</span>
+      fails closed and is not reported. A condition the analyser does not
+      model is returned as not analysed rather than assumed safe.
+    </p>
   </div>
 </section>
 

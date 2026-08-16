@@ -82,14 +82,17 @@
 <section class="section" id="instruments">
   <div class="frame">
     <p class="sec-label">// &sect; 02 &middot; now &middot; arcifact gate</p>
-    <h2>A green merge gate is a claim. Check what it covers.</h2>
+    <h2>A green merge gate is a claim. Check what it proves.</h2>
     <p class="muted" style="max-width:44rem">
       GitHub Actions can run dozens of validations while branch
       protection requires one aggregate status. Arcifact Gate reads the
-      declared workflow and determines which jobs can fail without that
-      required check ever seeing them. Every finding is bound to your
-      exact file bytes and ships with a verifier that recomputes it
-      from your copy, with no network access and none of our code.
+      declared workflow and finds the ways that status can turn green
+      without the validation behind its claim succeeding: a missing
+      dependency, an ignored result, a conditional gap, or a failure
+      step suppressed by a predicate an upstream job never produced.
+      Every finding is bound to your exact file bytes and ships with a
+      verifier that recomputes it from your copy, with no network
+      access and none of our code.
     </p>
     <p class="muted" style="max-width:44rem">
       It proves whether a job sits inside the effective merge closure.
