@@ -56,13 +56,43 @@
    "digest": "",
    "prev": "ff518bbfbc23a931544e060cf521b17e8afa33ecba834a20b581bb8e90965eb1",
    "entry_hash": "91a7c86adda1f0f809b1415e9dc102514f2a44daaeeb96362769d829328026e9"
+  },
+  {
+   "n": 6,
+   "utc": "2026-08-16T16:28:07Z",
+   "kind": "artifact",
+   "subject": "Gate analyser cli.py (supersedes entry 2)",
+   "claim": "Analyser bytes in force from this entry. Findings issued earlier were produced by the digest at entry 2.",
+   "digest": "e7571cb70d8211be96d50bec28218d2a45ce0195b50f4cb826058610de17aead",
+   "prev": "91a7c86adda1f0f809b1415e9dc102514f2a44daaeeb96362769d829328026e9",
+   "entry_hash": "524a815e150f9e30bdb52ec04024ed1f15d8318e7a161be5efa4b00ea82d95cd"
+  },
+  {
+   "n": 7,
+   "utc": "2026-08-16T16:28:07Z",
+   "kind": "artifact",
+   "subject": "Gate core.py",
+   "claim": "Engine bytes, now emitting analyser self-binding in every certificate.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "524a815e150f9e30bdb52ec04024ed1f15d8318e7a161be5efa4b00ea82d95cd",
+   "entry_hash": "edaba81a4dc8e6ac31d2921c09c8af1ebf153debaf4a9fea18f3ddf82045277a"
+  },
+  {
+   "n": 8,
+   "utc": "2026-08-16T16:28:07Z",
+   "kind": "artifact",
+   "subject": "Gate gexpr.py (supersedes entry 3)",
+   "claim": "Expression engine bytes in force from this entry.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "edaba81a4dc8e6ac31d2921c09c8af1ebf153debaf4a9fea18f3ddf82045277a",
+   "entry_hash": "130ff051330df6736663f1e65f776bc75082209536f139b708d0c6bc48c2650a"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "91a7c86adda1f0f809b1415e9dc102514f2a44daaeeb96362769d829328026e9",
-  "count": 5,
-  "sig": "35941c5d0704c7011334399f0f4271f0a7743ac49acb2ea2a904027bf58f4000eafa07ea32cf3f7479506571600020cede0d5bdeaad3bfe5b814f3c6f4b18d0c"
+  "head": "130ff051330df6736663f1e65f776bc75082209536f139b708d0c6bc48c2650a",
+  "count": 8,
+  "sig": "36bea235ddde245a0ae0977245a5d06620448c1be999ab38bda2ea2a119803cf8c3536f4b9e78a828e9561989f4b7585d138d1f01a0eab5aa2ca76050d820909"
  }
 }

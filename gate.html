@@ -207,6 +207,15 @@
       print. Nothing in it describes a real repository.
     </p>
     <p class="muted" style="max-width:44rem">
+      It also names the exact bytes of the analyser that produced it,
+      and those bytes are committed to a public append-only log before
+      any finding is issued. A second verifier refuses the record if the
+      analyser was never committed, or was committed only after the
+      record claims to have been issued. The rule binds me: I cannot
+      quietly change what the analyser concludes and reissue under the
+      earlier reputation.
+    </p>
+    <p class="muted" style="max-width:44rem">
       Unpack it and run
       <span style="font-family:var(--mono,monospace)">python3 verify.py
       ci.yml certificate.json</span>. It needs Python and pyyaml, no
