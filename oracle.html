@@ -17,6 +17,7 @@
 <meta property="og:image:alt" content="Arcifact, nothing asserted past evidence">
 <meta name="twitter:image" content="https://arcifact.io/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"The Oracle","url":"https://arcifact.io/oracle","isPartOf":{"@type":"WebSite","name":"Arcifact","url":"https://arcifact.io"}}</script>
+<link rel="stylesheet" href="assets/site.css?v=4b02d03277">
 <style>
 :root{--bg:#060914;--elev:#0b1120;--ink:#d5e2f0;--strong:#f2f7fd;
 --mut:#8598b3;--rule:#1d2940;--cy:#6cd8e8;--mint:#5fdca3;--amb:#e0a86b}
@@ -24,7 +25,9 @@
 body{background:var(--bg);color:var(--ink);
 font:16px/1.65 ui-sans-serif,Geist,system-ui,sans-serif;padding:0 0 5rem}
 .num,code,pre,small.raw{font-family:ui-monospace,"Geist Mono",Menlo,monospace}
-.wrap{max-width:46rem;margin:0 auto;padding:0 1.1rem}
+.wrap{max-width:var(--container-frame);margin:0 auto;padding:0 1.75rem}
+.wrap>h1,.wrap>p,.wrap>.lede,.wrap>.tour{max-width:46rem}
+@media (max-width:46rem){.wrap{padding:0 1.1rem}}
 .plate{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
 padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:11px;
 letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
@@ -39,7 +42,7 @@ flex-wrap:wrap}
 .tour b{color:var(--cy)}
 .bigN{margin:1.2rem 0 .2rem}
 .bigN .num{font-size:clamp(1.15rem,4.6vw,1.7rem);color:var(--amb);
-word-break:break-all}
+overflow-wrap:anywhere;word-break:normal}
 .bigN .l{font-size:12.5px;color:var(--mut)}
 .card{border:1px solid var(--rule);background:var(--elev);
 border-radius:2px;padding:1.1rem 1.15rem;margin:1rem 0}
@@ -91,19 +94,20 @@ h1 .turn{color:var(--cy)}
 </style><style>.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;color:#000;padding:.5rem;z-index:99}.replay-control{display:inline-flex;gap:.5rem;align-items:center}:focus-visible{outline:2px solid #37e6b4;outline-offset:2px}</style>
 </head><body>
 <a href="#oracle-main" id="skip" class="skip">Skip to content</a>
-<div style="position:sticky;top:0;z-index:50;background:var(--elev);
-border-bottom:1px solid var(--rule);padding:.55rem 1rem;
-display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;
-font-size:.82rem;letter-spacing:.02em">
-<a href="./" style="color:var(--strong);text-decoration:none;font-weight:650">
-ARCIFACT<span style="color:var(--mint)">.</span></a>
-<a href="method" style="color:var(--mut);text-decoration:none">Method</a>
-<a href="gate" style="color:var(--mut);text-decoration:none">Gate</a>
-<a href="model-evidence" style="color:var(--mut);text-decoration:none">Model Evidence</a>
-<span style="color:var(--cy)">Oracle</span>
-<a href="verify" style="color:var(--mut);text-decoration:none">Verify</a>
-<a href="pilot" style="color:var(--mut);text-decoration:none">Pilot</a>
-</div>
+<header class="nav">
+  <div class="nav-inner frame">
+    <a class="nav-brand" href="./" aria-label="Arcifact home">
+      <span aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M 17.54,4.91 A 9 9 0 1 0 17.54,19.09"
+      fill="none" stroke="currentColor" stroke-width="2.3"
+      stroke-linecap="round"/>
+<circle cx="21" cy="12" r="2.7" fill="#5fdca3" stroke="none"/>
+</svg></span> <span class="wm">ARCIFACT<span class="wm-dot">.</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="bars"><span></span></span>Menu</button>
+<nav class="nav-links" id="site-nav" aria-label="Site"><a href="method">Method</a><a href="gate">Gate</a><a href="model-evidence">Model Evidence</a><a href="oracle" aria-current="page">Oracle</a><a href="verify">Verify</a><a href="pilot">Pilot</a><a class="nav-cta" href="./#contact">Request a private read</a></nav>
+  </div>
+</header>
 
 <main id="oracle-main" class="wrap">
 <div class="plate"><span>ARCIFACT &middot; live demonstration</span></div>
@@ -512,4 +516,33 @@ build();
     </div>
   
 </footer>
+<script>
+(function(){
+  var nav=document.querySelector('.nav');
+  var btn=nav&&nav.querySelector('.nav-toggle');
+  var links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!btn||!links)return;
+  nav.classList.add('js');           /* collapse only once JS is present */
+  function set(open){
+    nav.setAttribute('data-open',open?'true':'false');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  set(false);
+  btn.addEventListener('click',function(){
+    set(nav.getAttribute('data-open')!=='true');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A')set(false);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')set(false);
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target))set(false);
+  });
+  var mq=window.matchMedia('(min-width: 46.01rem)');
+  (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(function(){set(false);});
+})();
+</script>
 </body></html>
