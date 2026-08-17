@@ -2,17 +2,14 @@
  "schema": "arcifact-commitments/1",
  "note": "Append-only. Each entry carries the hash of the one before it. The log proves nothing about events before entry 1.",
  "anchor": {
-  "kind": "github-push-event",
-  "repository": "https://github.com/arcifact/arcifact-site",
-  "path": "commitments.json",
-  "how_to_check": "Fetch /repos/arcifact/arcifact-site/events, find the PushEvent whose payload.head is the commit that introduced the head you care about, and read its created_at. GitHub sets that when it accepts the push. Then fetch commitments.json at that exact commit and confirm its signed head matches. verify_report.py --online does all of this and fails if any part does not bind.",
-  "why_not_git_dates": "A commit's author and committer dates are set by whoever makes the commit and evidence nothing about publication. An earlier version of this file recommended reading them. That was wrong; do not use them.",
+  "kind": "rfc3161-timestamp",
+  "subject": "this log's signed head",
+  "how_to_check": "Take the head from signature.head, write it to a file with no trailing newline, and verify the timestamp tokens distributed with any Arcifact record: openssl ts -verify -data commitment-head.txt -in anchor-digicert.tsr -CApath /etc/ssl/certs. Two independent authorities sign it.",
+  "why": "The head is the terminus of a hash chain over every entry, so a head that existed at a moment could only have come from a log that existed then. No Arcifact key is involved: the signatures are the authorities' own.",
   "limits": [
-   "GitHub exposes repository events for up to 30 days and at most 300 events, so this is a time-limited independent check rather than a durable one",
-   "it evidences when the push was received, not who authored the commit: these commits are unsigned",
-   "every timestamp inside this file is issuer-stated. Only the push event is third party",
-   "a durable anchor would be a signed commit carrying GitHub's persistent verified_at. That is not in place: the credential in use cannot register a signing key, and commits made through the API were tested and come back unsigned",
-   "checking it needs network access, so offline verification reports the public chronology as not checked rather than as passed"
+   "every timestamp INSIDE this file is issuer-stated; only the RFC 3161 tokens are independent",
+   "the tokens prove the head existed, not that any particular entry is meaningful",
+   "verifying them needs the token files, which ship with each record, and openssl"
   ]
  },
  "entries": [
@@ -485,13 +482,153 @@
    "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
    "prev": "57c7a06c1ab19b6db02b4f9331af0c58158fa41da10dadc5bb45cdb68d556a20",
    "entry_hash": "24aff392f26cf572804a27a2822998effef52f2991e9cdcbc05cea9d8b38697e"
+  },
+  {
+   "n": 48,
+   "utc": "2026-08-17T21:22:40Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest v4 (frozen)",
+   "claim": "Import closure over analyser and release pipeline including the release gate. Frozen at this entry; every surface generated afterwards binds this digest.",
+   "digest": "93ba204fcf7e1e60a9ad0f7747be7008d772439eee855a2205d533f8f27b3d46",
+   "prev": "24aff392f26cf572804a27a2822998effef52f2991e9cdcbc05cea9d8b38697e",
+   "entry_hash": "e53bbd59e3d3a2dd46fac040ef64c83585ce39874231df1c377daaec3257c4e9"
+  },
+  {
+   "n": 49,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 epistemic-eval/exact_engine.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "5dd9ed89adeb504e1dac6f3927e68d85451de0bb2b74c7157982e3dd90cc560f",
+   "prev": "e53bbd59e3d3a2dd46fac040ef64c83585ce39874231df1c377daaec3257c4e9",
+   "entry_hash": "5c239022b4013b215d8fc52f5aa294bcd2a84cbd5cbc95438bc3a8d4a123173d"
+  },
+  {
+   "n": 50,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/emails.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "66a854c3d415abed167baa01278cdd48d8ba297fbae604186a11fce445ec56e0",
+   "prev": "5c239022b4013b215d8fc52f5aa294bcd2a84cbd5cbc95438bc3a8d4a123173d",
+   "entry_hash": "10dee929c589aaf92688faf0545b42e440e9337101bb15e006dd9311dfb9f53b"
+  },
+  {
+   "n": 51,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/gate.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "5095754e990062686c450099beee06ab17b50b687de09850a2b508d0f3cea9f4",
+   "prev": "10dee929c589aaf92688faf0545b42e440e9337101bb15e006dd9311dfb9f53b",
+   "entry_hash": "cc870464b0de43dee475b1f3c048ad375230c6552386865dff41f766901a132a"
+  },
+  {
+   "n": 52,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/regen_pdfs.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "28b3a40846e42ab744cbb181c9f8cad052ec30db611f9736fc394e4bfe339f26",
+   "prev": "cc870464b0de43dee475b1f3c048ad375230c6552386865dff41f766901a132a",
+   "entry_hash": "a6e05fc24d7b9afa9b95139b81f1abd9adabf01b6f875d02546dc681d46fcca8"
+  },
+  {
+   "n": 53,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/release.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "68cda25588ab94c56ab4f28b413b14ceeae9da7c19cd9fd604d7d3324478996e",
+   "prev": "a6e05fc24d7b9afa9b95139b81f1abd9adabf01b6f875d02546dc681d46fcca8",
+   "entry_hash": "d929fcb8cd101bd4b2e32c9c191b44f39dc6c083e2d515b14b1d725d5099d79d"
+  },
+  {
+   "n": 54,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/render.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "d4f7a2041885a2fc65c1a762034da6f882965696f0caefad4267f8471852dda2",
+   "prev": "d929fcb8cd101bd4b2e32c9c191b44f39dc6c083e2d515b14b1d725d5099d79d",
+   "entry_hash": "c3ee8aeb1c8f89d3fe89a4ca0d8b7cf2870d8fe8a19417ba72abe6b2041985cd"
+  },
+  {
+   "n": 55,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 packbuild/specs.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "8020959a9a3e05f74d8f21fd4fadbd6a20b25d694e61155b9f729192c4d7a557",
+   "prev": "c3ee8aeb1c8f89d3fe89a4ca0d8b7cf2870d8fe8a19417ba72abe6b2041985cd",
+   "entry_hash": "d796b62e90c97322ac664f9f2563e62d7d918553726b780f955397b7fc7c3310"
+  },
+  {
+   "n": 56,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/cli.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "9d39e459dc657b361ab501f75bf6cc619d530799c382b05865561e16ecb2a748",
+   "prev": "d796b62e90c97322ac664f9f2563e62d7d918553726b780f955397b7fc7c3310",
+   "entry_hash": "04bab8d57f0f6f455e593dff76de1d06a1b880c72728d2ee61b4a1fa0444e6ec"
+  },
+  {
+   "n": 57,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/core.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "04bab8d57f0f6f455e593dff76de1d06a1b880c72728d2ee61b4a1fa0444e6ec",
+   "entry_hash": "0292a9c1cfad4eabcf4940998f1e456db706f80636d2863882a77306c63af52c"
+  },
+  {
+   "n": 58,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/counterexample.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "0292a9c1cfad4eabcf4940998f1e456db706f80636d2863882a77306c63af52c",
+   "entry_hash": "35fdc03fd497dafc1b370c76cb0f0576f50f5fec8874ead218566bdee1daef77"
+  },
+  {
+   "n": 59,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/gexpr.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "35fdc03fd497dafc1b370c76cb0f0576f50f5fec8874ead218566bdee1daef77",
+   "entry_hash": "536818e5f3101505b35a7a2542424f20095a972926d6f00ba3b14273a501013e"
+  },
+  {
+   "n": 60,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/repo.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "536818e5f3101505b35a7a2542424f20095a972926d6f00ba3b14273a501013e",
+   "entry_hash": "bd37ea9deb8f8e5edeb700674dd1d572434f81329274bdf83cde05dac2523c8e"
+  },
+  {
+   "n": 61,
+   "utc": "2026-08-17T21:22:41Z",
+   "kind": "artifact",
+   "subject": "build v4 witness/sensitivity.py",
+   "claim": "Component of build manifest v4.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "bd37ea9deb8f8e5edeb700674dd1d572434f81329274bdf83cde05dac2523c8e",
+   "entry_hash": "648c532ddd06fb5e80ee5aef560eeeb4f0409802ae1a234c6d810f83a679b70c"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "24aff392f26cf572804a27a2822998effef52f2991e9cdcbc05cea9d8b38697e",
-  "count": 47,
-  "sig": "cd63627dea1067b9746ca2c04e1352a5e57a309a270c8bcbb6f5f8fdefd1dc19a5dbd820832693f52b6f0e827c911e4d305b147ad2db0acf663943931fddbf02"
+  "head": "648c532ddd06fb5e80ee5aef560eeeb4f0409802ae1a234c6d810f83a679b70c",
+  "count": 61,
+  "sig": "96cd29152d9b753d987d9e8674a7f6648a7cffa4693f80d6f306bdda492cd26c9b1518b7490741c3ff2e9a6ede017bcb4796361a4d6170a13992f8795f0ae009"
  }
 }
