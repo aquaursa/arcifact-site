@@ -210,9 +210,13 @@ not involve me. Distrust is the intended first response. The material below
         <p class="step-n">C</p>
         <p class="step-t">Check it without me</p>
         <p class="step-d">Run the verifier for the chain and the
-          signature, then date any head against the public git history:
-          <span style="font-family:var(--mono,monospace)">git log -S&lt;head&gt;
-          -- commitments.json</span>. That check does not involve Arcifact at all.</p>
+          signature, then date any head against the receipt GitHub
+          recorded when it accepted the push that published it. A
+          commit's own author and committer dates are set by whoever
+          makes the commit, so they evidence nothing; the receipt is
+          not mine to set. It retains roughly ninety days and needs
+          network access, so an offline check reports the chronology as
+          not checked rather than as passed.</p>
       </div>
     </div>
     <div class="actions">
