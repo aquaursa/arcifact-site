@@ -355,13 +355,143 @@
    "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
    "prev": "66dd7d251f4956ad006e27e91774603e674647eb8e280eb12b88781d44aaf253",
    "entry_hash": "a8047bc234106dc63c61e000828f30a67e375efd5c6407fc7f30938fca9caa69"
+  },
+  {
+   "n": 35,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest v3 (frozen for this release)",
+   "claim": "Import closure over analyser and release pipeline, including exact_engine.py and the scripts that assemble every recipient-visible surface. Code is frozen at this entry; anything generated afterwards binds this digest.",
+   "digest": "563daefce5534d000f61f060f6bddde7bd5e9d93792e3c870eb619e577f097af",
+   "prev": "a8047bc234106dc63c61e000828f30a67e375efd5c6407fc7f30938fca9caa69",
+   "entry_hash": "6f820edd70646c28a861d060f7f6c5e1e19fa5da680f1b2527355a286e497f9e"
+  },
+  {
+   "n": 36,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 epistemic-eval/exact_engine.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "5dd9ed89adeb504e1dac6f3927e68d85451de0bb2b74c7157982e3dd90cc560f",
+   "prev": "6f820edd70646c28a861d060f7f6c5e1e19fa5da680f1b2527355a286e497f9e",
+   "entry_hash": "8c8c0b0f50303e1167e3b84bc99b9780c4d336e1a7d07b44d175bd7a3630a857"
+  },
+  {
+   "n": 37,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 packbuild/emails.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "07978125ef3289cc37619c71774c605937c7a967c0aeb190499f7ac9b66f5062",
+   "prev": "8c8c0b0f50303e1167e3b84bc99b9780c4d336e1a7d07b44d175bd7a3630a857",
+   "entry_hash": "cd0d9cf811c0811cdd3f2cedc7476eac8ae6c74d9e981e6cd0f6c6f881a91cca"
+  },
+  {
+   "n": 38,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 packbuild/regen_pdfs.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "6984521430fc772ee04a4303bec333447fa53cd1090eaeb95398d9ebb4214cb5",
+   "prev": "cd0d9cf811c0811cdd3f2cedc7476eac8ae6c74d9e981e6cd0f6c6f881a91cca",
+   "entry_hash": "403c42849d72d9fb660ba6160e239bff2b1b531a8eb17cd54908d31d7de3235d"
+  },
+  {
+   "n": 39,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 packbuild/release.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "f3eeadc05028698d3d61f7be99d69c273a1f491cbf7b32173d981fa552467042",
+   "prev": "403c42849d72d9fb660ba6160e239bff2b1b531a8eb17cd54908d31d7de3235d",
+   "entry_hash": "986ccf74066ca6b7c7c0103f4174cf63f42868ea8112672d67d92f84fedd95f5"
+  },
+  {
+   "n": 40,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 packbuild/render.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "d4f7a2041885a2fc65c1a762034da6f882965696f0caefad4267f8471852dda2",
+   "prev": "986ccf74066ca6b7c7c0103f4174cf63f42868ea8112672d67d92f84fedd95f5",
+   "entry_hash": "e232652cab96bc685a16c1b98dfef2abb3d4c18ffc979e3101f5fa2360817053"
+  },
+  {
+   "n": 41,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 packbuild/specs.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "dedaf8818b2e702137c060dbebf928de4b07190d1c230967bb9170df5dd7b099",
+   "prev": "e232652cab96bc685a16c1b98dfef2abb3d4c18ffc979e3101f5fa2360817053",
+   "entry_hash": "93f95e13a8cf659e34cf3579947dad432f53be6726e97796e4d37f9e4adff958"
+  },
+  {
+   "n": 42,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/cli.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "9d39e459dc657b361ab501f75bf6cc619d530799c382b05865561e16ecb2a748",
+   "prev": "93f95e13a8cf659e34cf3579947dad432f53be6726e97796e4d37f9e4adff958",
+   "entry_hash": "06d13ff7ce7ce558670b5f321cd7bbf37c9e53d38d324369a87e8c3a1a0708ba"
+  },
+  {
+   "n": 43,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/core.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "06d13ff7ce7ce558670b5f321cd7bbf37c9e53d38d324369a87e8c3a1a0708ba",
+   "entry_hash": "297f996abfe9b342a2095f90aa3433b11e104cdf2e0009532dbad739bd35167d"
+  },
+  {
+   "n": 44,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/counterexample.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "297f996abfe9b342a2095f90aa3433b11e104cdf2e0009532dbad739bd35167d",
+   "entry_hash": "8af27a2d8ec0d4da2df223cfc09b5ff4b4bac06e03a2d715c32a171f88cb2834"
+  },
+  {
+   "n": 45,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/gexpr.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "8af27a2d8ec0d4da2df223cfc09b5ff4b4bac06e03a2d715c32a171f88cb2834",
+   "entry_hash": "0930b62f3c113d08c80cbfe4609557db5b0c685be4078b7910c81085b9c966d9"
+  },
+  {
+   "n": 46,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/repo.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "0930b62f3c113d08c80cbfe4609557db5b0c685be4078b7910c81085b9c966d9",
+   "entry_hash": "57c7a06c1ab19b6db02b4f9331af0c58158fa41da10dadc5bb45cdb68d556a20"
+  },
+  {
+   "n": 47,
+   "utc": "2026-08-17T20:36:48Z",
+   "kind": "artifact",
+   "subject": "build v3 witness/sensitivity.py",
+   "claim": "Component of build manifest v3.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "57c7a06c1ab19b6db02b4f9331af0c58158fa41da10dadc5bb45cdb68d556a20",
+   "entry_hash": "24aff392f26cf572804a27a2822998effef52f2991e9cdcbc05cea9d8b38697e"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "a8047bc234106dc63c61e000828f30a67e375efd5c6407fc7f30938fca9caa69",
-  "count": 34,
-  "sig": "e42467289b6c5e36ae6ef3366d1fad392bc3cb03a3a0e76cbf92696c6eb246c86d500ccd77b98b361323be3898c926cc74f717993b3a56ad297cb452dfd8410c"
+  "head": "24aff392f26cf572804a27a2822998effef52f2991e9cdcbc05cea9d8b38697e",
+  "count": 47,
+  "sig": "cd63627dea1067b9746ca2c04e1352a5e57a309a270c8bcbb6f5f8fdefd1dc19a5dbd820832693f52b6f0e827c911e4d305b147ad2db0acf663943931fddbf02"
  }
 }
