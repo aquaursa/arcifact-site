@@ -86,13 +86,83 @@
    "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
    "prev": "edaba81a4dc8e6ac31d2921c09c8af1ebf153debaf4a9fea18f3ddf82045277a",
    "entry_hash": "130ff051330df6736663f1e65f776bc75082209536f139b708d0c6bc48c2650a"
+  },
+  {
+   "n": 9,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate cli.py",
+   "claim": "Analyser bytes in force from this entry. Supersedes entry 6. Adds inert gates, tolerant comparisons, status-function misuse, gates inspecting nothing, fail-fast compounds, orphan contexts, matrix naming and unread subgraphs.",
+   "digest": "9d39e459dc657b361ab501f75bf6cc619d530799c382b05865561e16ecb2a748",
+   "prev": "130ff051330df6736663f1e65f776bc75082209536f139b708d0c6bc48c2650a",
+   "entry_hash": "d0fd5445c76856e8349e88197715e7da8aa198684ec775479cacdcf41781626c"
+  },
+  {
+   "n": 10,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate counterexample.py",
+   "claim": "Counterexample synthesiser. Constructs a concrete world in which the uncovered job fails and the gate is green, then evaluates the gate's own condition under it and emits nothing if the gate would go red.",
+   "digest": "fe3c7d0dafb34a7362e32d02f47d6431bc4082e8756e27df4295f2fcf7e4d2c1",
+   "prev": "d0fd5445c76856e8349e88197715e7da8aa198684ec775479cacdcf41781626c",
+   "entry_hash": "b6dfec5d21f0edc1255dbd6682de1d6e27d0a989f41a31a53ec195f2d0413871"
+  },
+  {
+   "n": 11,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate sensitivity.py",
+   "claim": "Sensitivity prober. Injects known faults into a workflow and checks each is reported, with negative controls that must produce no false gap.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "b6dfec5d21f0edc1255dbd6682de1d6e27d0a989f41a31a53ec195f2d0413871",
+   "entry_hash": "42cba109a79d9200dd0454b8d76d6e8cbd7a6909ed92dc28587056f160bf3dbf"
+  },
+  {
+   "n": 12,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate repo.py",
+   "claim": "Repository-level closure. Expands local reusable workflows, finds callee jobs that cannot fail their caller, and resolves required contexts across all workflows.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "42cba109a79d9200dd0454b8d76d6e8cbd7a6909ed92dc28587056f160bf3dbf",
+   "entry_hash": "de562da18ed1b340ad6736aab439df5f8d079892cec26c7a980b130d741bd46a"
+  },
+  {
+   "n": 13,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate core.py",
+   "claim": "Engine bytes in force from this entry.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "de562da18ed1b340ad6736aab439df5f8d079892cec26c7a980b130d741bd46a",
+   "entry_hash": "f2e72a0224c681ddb46c33a9686f1eb24a77401fa126d7ca04f99e7c80606d69"
+  },
+  {
+   "n": 14,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "artifact",
+   "subject": "Gate gexpr.py",
+   "claim": "Engine bytes in force from this entry.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "f2e72a0224c681ddb46c33a9686f1eb24a77401fa126d7ca04f99e7c80606d69",
+   "entry_hash": "8596252724b759c938acde5dbf654f6fe0d1f09697e0684563ee2b704b324444"
+  },
+  {
+   "n": 15,
+   "utc": "2026-08-17T09:41:27Z",
+   "kind": "bar",
+   "subject": "Counterexample bar, from this entry",
+   "claim": "A counterexample is emitted only when the gate's own condition, evaluated under the constructed world by the expression engine, leaves the gate green. If the gate would go red, or the condition cannot be modelled, nothing is emitted. Assumptions about other jobs' outputs are recorded in the counterexample itself.",
+   "digest": "",
+   "prev": "8596252724b759c938acde5dbf654f6fe0d1f09697e0684563ee2b704b324444",
+   "entry_hash": "cdceb61000bb0c9e5319dbb377711eaa16562b3c40bde2fafbfc0ed76ffaf95e"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "130ff051330df6736663f1e65f776bc75082209536f139b708d0c6bc48c2650a",
-  "count": 8,
-  "sig": "36bea235ddde245a0ae0977245a5d06620448c1be999ab38bda2ea2a119803cf8c3536f4b9e78a828e9561989f4b7585d138d1f01a0eab5aa2ca76050d820909"
+  "head": "cdceb61000bb0c9e5319dbb377711eaa16562b3c40bde2fafbfc0ed76ffaf95e",
+  "count": 15,
+  "sig": "4003859d75bac05552fe2333394effcea35e483870509cb09880b2b637b5c707ed146efed8428f95786b8277a8025f605ed7a6eefa7132eed4ea87412ebd590b"
  }
 }

@@ -87,9 +87,9 @@
       GitHub Actions can run dozens of validations while branch
       protection requires one aggregate status. Arcifact Gate reads the
       declared workflow and finds the ways that status can turn green
-      without the validation behind its claim succeeding: a missing
-      dependency, an ignored result, a conditional gap, or a failure
-      step suppressed by a predicate an upstream job never produced.
+      without the validation behind its claim succeeding: what it
+      misses, whether it can fail at all, what it accepts as passing, and
+      what it cannot see because the work is in another file.
       Every finding is bound to your exact file bytes and ships with a
       verifier that recomputes it from your copy, with no network
       access and none of my code.
@@ -101,7 +101,7 @@
     </p>
     <div class="actions">
       <a class="btn" href="gate">See Arcifact Gate</a>
-      <a class="btn btn-quiet" href="downloads/arcifact-gate-sample-report-v1.2.0.tar.gz">Download a sample report</a>
+      <a class="btn btn-quiet" href="downloads/arcifact-gate-sample-report-v1.3.0.tar.gz">Download a sample report</a>
     </div>
   </div>
 </section>

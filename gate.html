@@ -74,53 +74,100 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 01 &middot; four ways a gate lies</p>
+    <p class="sec-label">// &sect; 01 &middot; four families of failure</p>
     <div class="steps">
       <div class="step">
         <p class="step-n">01</p>
-        <p class="step-t">Missing dependency</p>
+        <p class="step-t">What the gate misses</p>
         <p class="step-d">A job runs in parallel with the gate and is
-          not in its needs at all, so its failure cannot reach the
-          gate.</p>
+          not in its needs. Or it sits in needs while the gate never
+          inspects its result. Or a path-gated validator sits outside
+          the closure, which is often deliberate and so is raised as a
+          question.</p>
       </div>
       <div class="step">
         <p class="step-n">02</p>
-        <p class="step-t">Ignored result</p>
-        <p class="step-d">The job is in needs, but the gate runs under
-          always() and never inspects its result. GitHub does not block
-          an always() gate on a failed dependency, so nothing does.</p>
+        <p class="step-t">Whether the gate can fail at all</p>
+        <p class="step-d">The subtlest family. A failure step guarded by
+          a predicate an upstream job never produced. A step marked
+          continue-on-error, so its exit is absorbed. A step guarded by
+          <span style="font-family:var(--mono,monospace)">failure()</span>,
+          which reports on the gate's own earlier steps and not on its
+          needs, so it never fires. A gate under
+          <span style="font-family:var(--mono,monospace)">always()</span>
+          with no failing step at all. Each means the gate reports
+          success unconditionally, and its needs are covered in
+          name only.</p>
       </div>
       <div class="step">
         <p class="step-n">03</p>
-        <p class="step-t">Conditional gap</p>
-        <p class="step-d">A validator that runs only on certain paths
-          sits outside the required closure. Teams often do this on purpose, so it is raised as a question and
-          not called a defect.</p>
+        <p class="step-t">What the gate accepts as passing</p>
+        <p class="step-d">A gate that rejects only outright failure lets
+          a cancelled job through, and a cancelled job ran nothing to
+          completion. Worse in combination: matrix fail-fast cancels the
+          siblings of a failing leg, so one real failure arrives as one
+          failure and several cancellations.</p>
       </div>
       <div class="step">
         <p class="step-n">04</p>
-        <p class="step-t">Fail-open predicate</p>
-        <p class="step-d">The subtlest of the four. The dependency is present and
-          the results are inspected, but the gate's failure step is
-          guarded by a condition an upstream job produces. When that job
-          fails its outputs are unset, the guard cannot be satisfied,
-          the step is skipped, and the gate reports success with the
-          suite unrun.</p>
+        <p class="step-t">What the gate cannot see</p>
+        <p class="step-d">A job that delegates to a reusable workflow is
+          one node here and a whole graph elsewhere, and its success does
+          not mean everything in that graph passed: a job inside it
+          marked continue-on-error fails while the caller stays green.
+          Required contexts are repository facts too, so whether any
+          workflow produces one, or two do, is only answerable across
+          the whole set.</p>
       </div>
     </div>
     <p class="muted" style="max-width:44rem;margin-top:1rem">
-      The fourth is decided by evaluating the condition, not by matching
-      it. A guard written with <span style="font-family:var(--mono,monospace)">!=</span>
+      These are decided by evaluating the workflow, not by matching it. A
+      guard written <span style="font-family:var(--mono,monospace)">!=</span>
       rather than <span style="font-family:var(--mono,monospace)">==</span>
-      fails closed and is not reported. A condition the analyser does not
-      model is returned as not analysed rather than assumed safe.
+      fails closed and is not reported. A job whose failure already
+      reaches the gate through something it does inspect is not a gap. A
+      condition the analyser cannot model is returned as not analysed,
+      never as safe.
     </p>
   </div>
 </section>
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 02 &middot; what it refuses to claim</p>
+    <p class="sec-label">// &sect; 02 &middot; a finding you can argue with</p>
+    <h2>Not an assertion. A world.</h2>
+    <p class="muted" style="max-width:44rem">
+      Saying a job sits outside your gate is a statement about a graph.
+      Every finding also carries a counterexample: one result per job, in
+      which that job fails and the gate still reports success. It reads
+      in ten seconds and you can disagree with it.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      Each world is constructed and then checked, by evaluating your
+      gate's own condition under it. If your gate would go red, nothing
+      is emitted. A tool that can always produce a counterexample is
+      producing decoration.
+    </p>
+    <h2 style="margin-top:2rem">And a check on the instrument itself.</h2>
+    <p class="muted" style="max-width:44rem">
+      A clean report is the least informative thing an assurance tool can
+      give you. It looks identical to a tool that is broken, misconfigured
+      or pointed at the wrong file. So the review injects faults into your
+      workflow, one at a time, and reports whether each was caught: remove
+      a job from the gate's needs, absorb its failure step, weaken its
+      comparison, blind it entirely. Then it applies changes that should
+      raise nothing and checks that nothing is raised.
+    </p>
+    <p class="muted" style="max-width:44rem">
+      You get a sentence like <i>on this workflow, 6 of 6 injected faults
+      were detected and 3 of 3 harmless changes produced no false
+      gap</i>. It is a measurement on your file, not a claim about the
+      analyser in general.
+    </p>
+  </div>
+</section>
+
+<p class="sec-label">// &sect; 03 &middot; what it refuses to claim</p>
     <p class="muted" style="max-width:44rem">
       Most of the work in this instrument went into not overstating.
       A finding is useless to you if you have to audit my confidence
@@ -159,7 +206,7 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 03 &middot; what you get</p>
+    <p class="sec-label">// &sect; 04 &middot; what you get</p>
     <div class="steps">
       <div class="step">
         <p class="step-n">A</p>
@@ -198,7 +245,7 @@
 
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 04 &middot; see it before you share anything</p>
+    <p class="sec-label">// &sect; 05 &middot; see it before you share anything</p>
     <h2>The deliverable, downloadable now.</h2>
     <p class="muted" style="max-width:44rem">
       A complete sample review of a synthetic workflow: the one-page
@@ -249,20 +296,25 @@
       </div>
     </div>
     <p class="muted" style="max-width:44rem;font-size:var(--text-sm)">
-      arcifact-gate-sample-report-v1.2.0.tar.gz &middot; sha256
-      <span style="font-family:var(--mono,monospace);word-break:break-all">ad92f665daf94363947ba7b961bcabc6162ceac2354917ab2a73ce56ee31a1f2</span>
+      arcifact-gate-sample-report-}51a914537b843769165d9fa435523e380e12aa2454529ccb70b9fed3a25c95</span>
       &middot; versioned, so a future sample never silently replaces the one
       you checked.
     </p>
-    <div class="actions">
-      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.2.0.tar.gz">Download the sample report</a>
+    <p class="muted" style="max-width:44rem;font-size:var(--text-sm)">
+      arcifact-gate-sample-report-v1.3.0.tar.gz &middot; sha256
+      <span style="font-family:var(--mono,monospace);word-break:break-all">982e65fa3d82c040ec736d3070d5ac8c1037dd8a354379feda565d51c6da55d6</span>
+      &middot; versioned, so a later sample never silently replaces the
+      one you checked.
+    </p>
+<div class="actions">
+      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.3.0.tar.gz">Download the sample report</a>
       <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
     </div>
   </div>
 </section>
 <section class="section">
   <div class="frame">
-    <p class="sec-label">// &sect; 05 &middot; why this sits here</p>
+    <p class="sec-label">// &sect; 06 &middot; why this sits here</p>
     <p class="muted" style="max-width:44rem">
       Arcifact exists to stop systems asserting past their evidence.
       That problem is usually posed about language models, and most
@@ -272,7 +324,7 @@ of my work is there. Continuous integration has the same problem. A green requir
       rounding it up.
     </p>
     <div class="actions">
-      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.2.0.tar.gz">See a sample report</a>
+      <a class="btn" href="downloads/arcifact-gate-sample-report-v1.3.0.tar.gz">See a sample report</a>
       <a class="btn btn-quiet" href="./#contact">Request a workflow review</a>
       <a class="btn btn-quiet" href="method">See the method behind it</a>
     </div>
