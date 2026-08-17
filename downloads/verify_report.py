@@ -45,7 +45,13 @@ import sys
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCHEMA = os.path.join(HERE, "..", "manifests", "report.schema.v1.json")
+# The schema sits beside the verifier in a disclosure package and in
+# ../manifests in the kit. Looking in only one place made the advertised
+# command return INCOMPLETE and exit 1 in every package shipped.
+_CANDIDATES = (os.path.join(HERE, "report.schema.v1.json"),
+               os.path.join(HERE, "..", "manifests", "report.schema.v1.json"),
+               os.path.join(HERE, "manifests", "report.schema.v1.json"))
+SCHEMA = next((p for p in _CANDIDATES if os.path.exists(p)), _CANDIDATES[0])
 
 PROFILE_RANK = {"draft": 0, "report": 1, "issued": 2}
 
@@ -269,6 +275,26 @@ def check_issued(rec, res, issuer_keys):
 
 
 
+FEATURE_COMPONENTS = {"counterexamples": "counterexample.py",
+                      "sensitivity": "sensitivity.py",
+                      "repository_level": "repo.py"}
+
+
+def check_feature_bindings(rec, res):
+    """A record that carries evidence from a component must name that
+    component's digest. Otherwise it asserts newer evidence under an
+    older instrument, which is the one thing the commitment log exists
+    to prevent, and which a shipped record did."""
+    tools = set((rec.get("provenance") or {}).get("tool_digests") or {})
+    payload = rec.get("payload") or {}
+    env = rec.get("envelope") or {}
+    for key, comp in FEATURE_COMPONENTS.items():
+        present = bool(payload.get(key) or env.get(key))
+        if present and comp not in tools:
+            res.fail(f"record carries {key!r} but does not bind {comp}: "
+                     f"the evidence post-dates the instrument it names")
+
+
 def check_analyser_commitment(rec, res, commitments_path):
     """Was the instrument that produced this record committed BEFORE the
     record was issued?
@@ -299,6 +325,12 @@ def check_analyser_commitment(rec, res, commitments_path):
         res.fail(f"cannot read commitment log: {str(exc)[:60]}")
         return
     entries = log.get("entries") or []
+    declared = (rec.get("provenance") or {}).get("commitment_log_head")
+    actual = (log.get("signature") or {}).get("head")
+    if declared and actual and declared != actual:
+        res.fail(f"record declares commitment head {declared[:16]} but the "
+                 f"supplied log's head is {actual[:16]}: the record was not "
+                 f"issued against this log")
     by_digest = {}
     for e in entries:
         if e.get("digest"):
@@ -351,6 +383,7 @@ def verify(path, sources_dir=None, want_profile=None, issuer_keys=None,
         handler(rec, res)
 
     check_issued(rec, res, issuer_keys)
+    check_feature_bindings(rec, res)
     check_analyser_commitment(rec, res, commitments)
 
     profile = rec.get("profile", "draft")

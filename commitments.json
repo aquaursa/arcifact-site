@@ -156,13 +156,83 @@
    "digest": "",
    "prev": "8596252724b759c938acde5dbf654f6fe0d1f09697e0684563ee2b704b324444",
    "entry_hash": "cdceb61000bb0c9e5319dbb377711eaa16562b3c40bde2fafbfc0ed76ffaf95e"
+  },
+  {
+   "n": 16,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest (all producing modules)",
+   "claim": "A single digest over the sha256 of every module that can produce a Gate record: cli.py, core.py, gexpr.py, counterexample.py, repo.py, sensitivity.py. Listing two files by hand let a record carry evidence from components it did not name. A record issued after this entry binds this manifest.",
+   "digest": "ce19754c3b5fc0d858474bbf7fb9c96d619e2b2bcffbaa19bce7e79166b5034f",
+   "prev": "cdceb61000bb0c9e5319dbb377711eaa16562b3c40bde2fafbfc0ed76ffaf95e",
+   "entry_hash": "3ee0433c1df11d47256a9bdd06de5d96597bcffafff0ec2ea8240118918cf498"
+  },
+  {
+   "n": 17,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate cli.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "9d39e459dc657b361ab501f75bf6cc619d530799c382b05865561e16ecb2a748",
+   "prev": "3ee0433c1df11d47256a9bdd06de5d96597bcffafff0ec2ea8240118918cf498",
+   "entry_hash": "85073bcc6062ec9ffd7335f7684de19060d18a62285b26dcf5f53d31c4916b64"
+  },
+  {
+   "n": 18,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate counterexample.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "85073bcc6062ec9ffd7335f7684de19060d18a62285b26dcf5f53d31c4916b64",
+   "entry_hash": "4dc280a0d52b6308e8b69887c4bcb0bef39a357dbf211e189575c78c44a0ecaf"
+  },
+  {
+   "n": 19,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate repo.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "4dc280a0d52b6308e8b69887c4bcb0bef39a357dbf211e189575c78c44a0ecaf",
+   "entry_hash": "59036627e6c609eb74acffc162eb392c1d5717a53654aea388012adfff77d25c"
+  },
+  {
+   "n": 20,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate sensitivity.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "59036627e6c609eb74acffc162eb392c1d5717a53654aea388012adfff77d25c",
+   "entry_hash": "3ab1b945a44673d32a0c1c280fcc43c0ad212b88cdc9bbd3ac7cde6c82ffaf10"
+  },
+  {
+   "n": 21,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate gexpr.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "3ab1b945a44673d32a0c1c280fcc43c0ad212b88cdc9bbd3ac7cde6c82ffaf10",
+   "entry_hash": "0f9665d28c2de51c3914f115bb5059355a0b6d48fa84910b15c45a0d77c4db9c"
+  },
+  {
+   "n": 22,
+   "utc": "2026-08-17T11:29:36Z",
+   "kind": "artifact",
+   "subject": "Gate core.py (build ce19754c)",
+   "claim": "Component of the build manifest committed in the preceding entry.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "0f9665d28c2de51c3914f115bb5059355a0b6d48fa84910b15c45a0d77c4db9c",
+   "entry_hash": "7596f25269b3e0d614973507fcd9c73a5d1fda83c2b9ec038b068833788688f1"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "cdceb61000bb0c9e5319dbb377711eaa16562b3c40bde2fafbfc0ed76ffaf95e",
-  "count": 15,
-  "sig": "4003859d75bac05552fe2333394effcea35e483870509cb09880b2b637b5c707ed146efed8428f95786b8277a8025f605ed7a6eefa7132eed4ea87412ebd590b"
+  "head": "7596f25269b3e0d614973507fcd9c73a5d1fda83c2b9ec038b068833788688f1",
+  "count": 22,
+  "sig": "4d1b1fb431f4a572471e60fd96ab80349da933439b41f6242f2d125bcf7668c9db5be3d2b3b6a4f6ce8bcf7576f8176dec01fb73e96a660a07a29c7221d6fa0a"
  }
 }
