@@ -2,9 +2,18 @@
  "schema": "arcifact-commitments/1",
  "note": "Append-only. Each entry carries the hash of the one before it. The log proves nothing about events before entry 1.",
  "anchor": {
-  "kind": "public-git",
+  "kind": "github-push-event",
   "repository": "https://github.com/arcifact/arcifact-site",
-  "how_to_check": "Each head hash below is published in this file, which is committed to a public git repository. Find the commit that introduced a given head and read its server-side timestamp. That timestamp is not under the issuer's control."
+  "path": "commitments.json",
+  "how_to_check": "Fetch /repos/arcifact/arcifact-site/events, find the PushEvent whose payload.head is the commit that introduced the head you care about, and read its created_at. GitHub sets that when it accepts the push. Then fetch commitments.json at that exact commit and confirm its signed head matches. verify_report.py --online does all of this and fails if any part does not bind.",
+  "why_not_git_dates": "A commit's author and committer dates are set by whoever makes the commit and evidence nothing about publication. An earlier version of this file recommended reading them. That was wrong; do not use them.",
+  "limits": [
+   "GitHub exposes repository events for up to 30 days and at most 300 events, so this is a time-limited independent check rather than a durable one",
+   "it evidences when the push was received, not who authored the commit: these commits are unsigned",
+   "every timestamp inside this file is issuer-stated. Only the push event is third party",
+   "a durable anchor would be a signed commit carrying GitHub's persistent verified_at. That is not in place: the credential in use cannot register a signing key, and commits made through the API were tested and come back unsigned",
+   "checking it needs network access, so offline verification reports the public chronology as not checked rather than as passed"
+  ]
  },
  "entries": [
   {

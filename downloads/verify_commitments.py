@@ -40,15 +40,30 @@ signed, in that order, and that none has been edited or dropped.
 Does NOT: that any timestamp is honest. The issuer controls the clock.
 A signed chain can be produced all at once and dated freely.
 
-The timestamps become hard to fake only through the ANCHOR. This file
-is committed to a public git repository, so each head hash appears in a
-commit hosted by a third party with a server-side date. To check that a
-commitment really predates something, find the commit that introduced
-that head and read ITS timestamp, not the one in this file:
+The timestamps become independent only through the ANCHOR, and the
+anchor is NOT a git date. A commit's author and committer dates are set
+by whoever makes the commit, so they evidence nothing about publication.
+An earlier version of this file recommended reading them, which was
+wrong.
 
-    git log --oneline -S<head-hash> -- commitments.json
+What is not the issuer's to set is GitHub's record of receiving the
+push:
 
-That check does not involve Arcifact at all, which is the point.
+    GET /repos/arcifact/arcifact-site/events
+      -> find the PushEvent whose payload.head is the commit that
+         introduced the head you care about
+      -> read its created_at
+    GET /repos/arcifact/arcifact-site/contents/commitments.json?ref=<that commit>
+      -> confirm the signed head matches
+
+Limits, stated rather than left to be discovered:
+  - GitHub exposes repository events for up to 30 days, capped at 300
+    events. This is a time-limited independent check, not a durable one.
+  - It evidences when the push was received, not who authored the
+    commit. These commits are unsigned.
+  - A durable anchor would be a signed commit carrying GitHub's
+    persistent verified_at. That is not in place.
+  - The check needs network access. Offline, chronology is NOT CHECKED.
 
 Requires Python 3.9+. pynacl only for the signature check.
 """
@@ -158,7 +173,7 @@ def main():
               "issuer signed, in")
         print("                   order and unaltered. Timestamps remain the "
               "issuer's word:")
-        print("                   date the head against public git history.")
+        print("                   ")
     elif verdict == "SELF_CONSISTENT_CHAIN":
         print("                   The chain is internally consistent. NOTHING "
               "is claimed about")
