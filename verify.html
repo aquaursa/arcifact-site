@@ -210,13 +210,11 @@ not involve me. Distrust is the intended first response. The material below
         <p class="step-n">C</p>
         <p class="step-t">Check it without me</p>
         <p class="step-d">Run the verifier for the chain and the
-          signature, then date any head against the receipt GitHub
-          recorded when it accepted the push that published it. A
-          commit's own author and committer dates are set by whoever
-          makes the commit, so they evidence nothing; the receipt is
-          not mine to set. It retains roughly ninety days and needs
-          network access, so an offline check reports the chronology as
-          not checked rather than as passed.</p>
+          signature, then date any head against the RFC 3161 timestamp tokens over it.
+          Two independent authorities sign that the head existed at a
+          stated time, and both verify offline from the token files. No Arcifact key is involved: the signatures are the
+          authorities' own, and nothing about the check depends on a
+          hosting provider or on a timestamp Arcifact could choose.</p>
       </div>
     </div>
     <div class="actions">

@@ -4362,13 +4362,23 @@
    "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
    "prev": "c66245c7f29caf26ebb376e2f1364c5d49c47b90a4e6bda7c8ce4bee199ea5e4",
    "entry_hash": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52"
+  },
+  {
+   "n": 436,
+   "utc": "2026-08-18T13:21:00Z",
+   "kind": "bar",
+   "subject": "Public surface separation, from this entry",
+   "claim": "No public repository, page or log entry names a disclosure recipient, their repository, or a finding, while a disclosure is unanswered or thereafter without that party's agreement. Test fixtures derived from a real third party's configuration are replaced with synthetic equivalents of the same shape.",
+   "digest": "",
+   "prev": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52",
+   "entry_hash": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52",
-  "count": 435,
-  "sig": "38497df1bafcd334d78f5bab031002bd3dcaeb6a332055e3d32b40995ca11e5b8c2aa851e309cd8be458c063acbb31fbedc52b75d58728b8152c734670847503"
+  "head": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625",
+  "count": 436,
+  "sig": "f0a6e6c492f0971939281a5eb187d85e1fd849a9655c4c3f9c2daaafc1d4a26b03135eda262724110abf0cab21bb6f45a37ab1fd64da3114754ef554a9adc109"
  }
 }
