@@ -4372,13 +4372,23 @@
    "digest": "",
    "prev": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52",
    "entry_hash": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625"
+  },
+  {
+   "n": 437,
+   "utc": "2026-08-18T13:21:59Z",
+   "kind": "policy",
+   "subject": "First disclosure batch dispatched, 2026-08-18",
+   "claim": "Five private CI correctness disclosures were sent to published security role addresses. No public disclosure is planned for any of them. No recipient, repository or finding is named in this log or on any public surface. This entry records that the batch was sent and nothing about its contents.",
+   "digest": "",
+   "prev": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625",
+   "entry_hash": "4c3f52c3ba740fd673cac0205b7a48eca59c98f44e9f1556e123ce99148be3cb"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625",
-  "count": 436,
-  "sig": "f0a6e6c492f0971939281a5eb187d85e1fd849a9655c4c3f9c2daaafc1d4a26b03135eda262724110abf0cab21bb6f45a37ab1fd64da3114754ef554a9adc109"
+  "head": "4c3f52c3ba740fd673cac0205b7a48eca59c98f44e9f1556e123ce99148be3cb",
+  "count": 437,
+  "sig": "cd7b1dcf25ff700fc1ba306e919b2df436d57d0e4ce3f69cf39b5d68c8401c401682bc273a057746a6c7899e2e6cba35a19cf11717298000d5bba6be96803f0a"
  }
 }
