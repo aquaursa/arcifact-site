@@ -4402,13 +4402,33 @@
    "digest": "",
    "prev": "588b7735e6c8709651aec42efb6e36653434f5149cba1b5c5787a01efbd43647",
    "entry_hash": "f4ab7e1db9465877803561152190b8b1380db31b225c0dd6dbaef8ac9e85c6a5"
+  },
+  {
+   "n": 440,
+   "utc": "2026-08-18T13:51:07Z",
+   "kind": "policy",
+   "subject": "Correction to entry 438",
+   "claim": "Entry 438 stated that docs/packets/dispatched-2026-08-18/ contained the dispatched packs. At the time it was signed, it did not: an unqualified *.tar.gz in .gitignore excluded the five tarballs from the commit, so the folder held only the attachments and three text files. The claim was published before it was verified against the repository. It is now true: the five packs are committed, verified by reading them back from a fresh clone of the remote rather than from the working tree, and their checksums match the published list. The superseded undated pack directories have been removed, and the ignore rule now exempts dated dispatch archives. Entries 437 and the substance of 438 stand; the assertion about repository contents was premature and is corrected here.",
+   "digest": "",
+   "prev": "f4ab7e1db9465877803561152190b8b1380db31b225c0dd6dbaef8ac9e85c6a5",
+   "entry_hash": "6b3d93d4565f5bcb4e80c71fe83731bf5390f7e0286c517ba1358b4094608e70"
+  },
+  {
+   "n": 441,
+   "utc": "2026-08-18T13:51:07Z",
+   "kind": "bar",
+   "subject": "Publication bar, from this entry",
+   "claim": "No claim about the contents of a repository, a published file or a deployed page is committed to this log until it has been verified against that surface as a reader would reach it: a fresh clone or a fetch of the live URL, never the local working tree. Three failures in this project were a working tree and a published surface disagreeing while only the working tree was checked.",
+   "digest": "",
+   "prev": "6b3d93d4565f5bcb4e80c71fe83731bf5390f7e0286c517ba1358b4094608e70",
+   "entry_hash": "f1d2106a65f904524d716609f23391a2c5327d43f4b585f0032aa19df3168b5f"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "f4ab7e1db9465877803561152190b8b1380db31b225c0dd6dbaef8ac9e85c6a5",
-  "count": 439,
-  "sig": "cb998f970bed3dc2e0f3a740e9c95c77807cce646702478761611cdf237c30a3fd59ff7de85a25cecac5eebdd001fa9802755e6349e111e8a54852216d48f20e"
+  "head": "f1d2106a65f904524d716609f23391a2c5327d43f4b585f0032aa19df3168b5f",
+  "count": 441,
+  "sig": "e34801d7d2fbeb2a0587a6fbfec04b0c81b713a76101d1f2e0d37256afa30d37c1b94bed0b944a88a79e66579c746c9d1555b0a4ce099014b58c1a96029a8e09"
  }
 }
