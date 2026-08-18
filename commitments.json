@@ -2732,13 +2732,243 @@
    "digest": "",
    "prev": "adc312e910975b7836de5625fb59622ea690b30c3854f5e39fdf3a531b50cdfb",
    "entry_hash": "251a65f16040f567cc0aa53fb10e006f59537011017bca0f3f11509f12b6a643"
+  },
+  {
+   "n": 273,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest v15 (dispatch)",
+   "claim": "Canonical README bodies hold only pack-specific prose; generated sections are produced from the record.",
+   "digest": "41ff2ae0e015baea38ef48a8f15652b56563142a90798201b105fb7a1e70ac95",
+   "prev": "251a65f16040f567cc0aa53fb10e006f59537011017bca0f3f11509f12b6a643",
+   "entry_hash": "c170bf7eaeaf08da11465676b02521ef8d41707ee8dbe5b574814ad7e11b7444"
+  },
+  {
+   "n": 274,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 epistemic-eval/exact_engine.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "5dd9ed89adeb504e1dac6f3927e68d85451de0bb2b74c7157982e3dd90cc560f",
+   "prev": "c170bf7eaeaf08da11465676b02521ef8d41707ee8dbe5b574814ad7e11b7444",
+   "entry_hash": "0632966a8da78118d022c2feca5e28db8ff0568228e1270e7971263f7554a90e"
+  },
+  {
+   "n": 275,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/adversarial.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "3541afd8fc98759ee89633bd03d9872a8791e48a5c27b6adba66c12530ab1f62",
+   "prev": "0632966a8da78118d022c2feca5e28db8ff0568228e1270e7971263f7554a90e",
+   "entry_hash": "83f9d184f6e18a042e3c456ede3affd6a52a7fd807c3b42da8f0dce2ccedd946"
+  },
+  {
+   "n": 276,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/assemble.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "351ff3267e49f6d8752f30cb964a8cd5c2c5884d83b9513a56d0a0618063e676",
+   "prev": "83f9d184f6e18a042e3c456ede3affd6a52a7fd807c3b42da8f0dce2ccedd946",
+   "entry_hash": "67017c533ff243b311b1bfdd0ddcbfe448094e19f6522e0d6f2a0e3bef4cfd43"
+  },
+  {
+   "n": 277,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/emails.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "79009313aed00142829b8ad987644b39064b20fb47e26b4c6e86546d08bccaa2",
+   "prev": "67017c533ff243b311b1bfdd0ddcbfe448094e19f6522e0d6f2a0e3bef4cfd43",
+   "entry_hash": "71b552178fd9814af397213e92accbde448696413d4dda650236c0f0d896a058"
+  },
+  {
+   "n": 278,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/freeze_build.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "5668eacee9eee507316b986bf8b78cd24a609bd6804040aa19806f94181501f6",
+   "prev": "71b552178fd9814af397213e92accbde448696413d4dda650236c0f0d896a058",
+   "entry_hash": "bf3b99a4165dd324c619c2a0ec5a74ad3dff98aca07654b05d549ca59f7c761a"
+  },
+  {
+   "n": 279,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/gate.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "25c4721cdb8ade1a65e6807251185e9662b6dcc4e3371aa168baa4aa32e06c5b",
+   "prev": "bf3b99a4165dd324c619c2a0ec5a74ad3dff98aca07654b05d549ca59f7c761a",
+   "entry_hash": "ff284729e9f955a809a2024e9734e477730517f78737cbe0f4b02b4e09822e95"
+  },
+  {
+   "n": 280,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/package.sh",
+   "claim": "Component of build manifest v15.",
+   "digest": "2a292cf11388feb8a0ad6b0be6c1f1aaeeb8965b11ca38f862500dfd3509b244",
+   "prev": "ff284729e9f955a809a2024e9734e477730517f78737cbe0f4b02b4e09822e95",
+   "entry_hash": "b781fc24488e99558bf7dcf6bbb84aad7efd1fea2ba3c116fb1b1072189f37fc"
+  },
+  {
+   "n": 281,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/preflight.sh",
+   "claim": "Component of build manifest v15.",
+   "digest": "9bf056da347b56a4174599b8c690fdb1db9336646ab11854a64f9e4f5e24b9e6",
+   "prev": "b781fc24488e99558bf7dcf6bbb84aad7efd1fea2ba3c116fb1b1072189f37fc",
+   "entry_hash": "6a1d4d77346c78722182751f440625ec3588dd20beda67bff6b2061cfa096d85"
+  },
+  {
+   "n": 282,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/readme_gen.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "89693ef480f46fc4e1147dddf1285d4d0872967ff44ccf4d33a4751cd4b7be70",
+   "prev": "6a1d4d77346c78722182751f440625ec3588dd20beda67bff6b2061cfa096d85",
+   "entry_hash": "8fb0629a0e596196cf0cfc4a192cb4ee0d435aa72ecabedb2baabd88049b1b21"
+  },
+  {
+   "n": 283,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/regen_pdfs.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "65a5aa02318eb77a7936ee5e2cb85f72da283d71825aecdb03a3a0624cf2920e",
+   "prev": "8fb0629a0e596196cf0cfc4a192cb4ee0d435aa72ecabedb2baabd88049b1b21",
+   "entry_hash": "ef56450df4e4d039e5c2aa30e7efe2030ac7a1ad0032b041f734eaa3d1540d13"
+  },
+  {
+   "n": 284,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/release.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "ddc726c3b4aef19df7c7e78c6bebaa097655832146e60c703dbf465279b77e73",
+   "prev": "ef56450df4e4d039e5c2aa30e7efe2030ac7a1ad0032b041f734eaa3d1540d13",
+   "entry_hash": "af0bf29831ac0a48bf85f95b500752467b6fc9d85109a203e8fbdbfb7f0501f1"
+  },
+  {
+   "n": 285,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/release_all.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "4305fd2c847a12a95c416aae05a76c40398849d9c98bbc2e4767b8e7afeed800",
+   "prev": "af0bf29831ac0a48bf85f95b500752467b6fc9d85109a203e8fbdbfb7f0501f1",
+   "entry_hash": "a68b40a4b97629da84162d5e407757205181adb1a1bd76f84079bba122a0d2e2"
+  },
+  {
+   "n": 286,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/render.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "b78a96420c66698c794bd9c0a9bd25f75a600f1eb548dd6f9f1cc64ba8953444",
+   "prev": "a68b40a4b97629da84162d5e407757205181adb1a1bd76f84079bba122a0d2e2",
+   "entry_hash": "cda90493625e4177e6721ac8212e8dc4e6a26e64fa3d28d85b17af084692f4b7"
+  },
+  {
+   "n": 287,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/reproduce.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "81a62bc7a0afd613d4ccf8ea6e0fb4cfec20adba66085187536fc93248ab5d63",
+   "prev": "cda90493625e4177e6721ac8212e8dc4e6a26e64fa3d28d85b17af084692f4b7",
+   "entry_hash": "73240a31aa0f057d526a3990d8d7015f0600bdbb399c7b41e1780824139bdbd4"
+  },
+  {
+   "n": 288,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/requirements-review.txt",
+   "claim": "Component of build manifest v15.",
+   "digest": "9b70ecd79e56aef7eff97fc1b6ceee779a42fb80ce210350ff23fa24ff38778a",
+   "prev": "73240a31aa0f057d526a3990d8d7015f0600bdbb399c7b41e1780824139bdbd4",
+   "entry_hash": "0bb469c1f5c02b928235c60978b9a1342e1316257d1c6e7851434465e2e23154"
+  },
+  {
+   "n": 289,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 packbuild/specs.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "d79fa1dda32d8c2e28775fcc43e7d67d2cdcbbafeb60624ab96580b2ef7b0527",
+   "prev": "0bb469c1f5c02b928235c60978b9a1342e1316257d1c6e7851434465e2e23154",
+   "entry_hash": "a6976bf4a424785cdd76bd8f76951e42b058d1fc8849906b1b8c9eb8c18c23e3"
+  },
+  {
+   "n": 290,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/cli.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "a219d82f2c2f40bb1c1142e6ad6d71f1c22b63519a6b6c905d253c21b4db86eb",
+   "prev": "a6976bf4a424785cdd76bd8f76951e42b058d1fc8849906b1b8c9eb8c18c23e3",
+   "entry_hash": "e5f5a983e6fc94b9228e6c11eda8b845b75a8c70430a3cc7e05fbe17ff010ba3"
+  },
+  {
+   "n": 291,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/core.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "e5f5a983e6fc94b9228e6c11eda8b845b75a8c70430a3cc7e05fbe17ff010ba3",
+   "entry_hash": "b97130bf1d69c0266ef7b4ffac966e42eb1725025e8c0828ebb62be931fc8296"
+  },
+  {
+   "n": 292,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/counterexample.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "b97130bf1d69c0266ef7b4ffac966e42eb1725025e8c0828ebb62be931fc8296",
+   "entry_hash": "46af3e7edaa714be325b5dbd3bd81c697f10c2e50e1a1206368febd8bc5dbbc9"
+  },
+  {
+   "n": 293,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/gexpr.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "46af3e7edaa714be325b5dbd3bd81c697f10c2e50e1a1206368febd8bc5dbbc9",
+   "entry_hash": "74c064b7d54ca74051963fc6069b5245ff2cc715797007bf97465d550481c96c"
+  },
+  {
+   "n": 294,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/repo.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "74c064b7d54ca74051963fc6069b5245ff2cc715797007bf97465d550481c96c",
+   "entry_hash": "84d4384d306d9512fa16ac9c103a23561b63cfe061ad08bf464712339baf43e1"
+  },
+  {
+   "n": 295,
+   "utc": "2026-08-18T09:50:11Z",
+   "kind": "artifact",
+   "subject": "build v15 witness/sensitivity.py",
+   "claim": "Component of build manifest v15.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "84d4384d306d9512fa16ac9c103a23561b63cfe061ad08bf464712339baf43e1",
+   "entry_hash": "af7ecd46abe5667260b6a0f4dc69a2960a4351b9acf82062586bae2414e7985e"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "251a65f16040f567cc0aa53fb10e006f59537011017bca0f3f11509f12b6a643",
-  "count": 272,
-  "sig": "4aa901109aeb76fd41020c8795334f05c0d6cf764f571c210526448f1a80f1849fd59b768c73443a73aa14f631079ee0a48a4982f8770b0edc589e598d528909"
+  "head": "af7ecd46abe5667260b6a0f4dc69a2960a4351b9acf82062586bae2414e7985e",
+  "count": 295,
+  "sig": "9e38f77f8d21eb5eb38da1040d51c6142669f27f8dfc2a00d4a4451f6ac9878f1cfa4e2d11c443781decc1b33dd06ed036b539def143f3634edf148f8cf45c0e"
  }
 }
