@@ -4422,13 +4422,283 @@
    "digest": "",
    "prev": "6b3d93d4565f5bcb4e80c71fe83731bf5390f7e0286c517ba1358b4094608e70",
    "entry_hash": "f1d2106a65f904524d716609f23391a2c5327d43f4b585f0032aa19df3168b5f"
+  },
+  {
+   "n": 442,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest v22 (freshness gate)",
+   "claim": "Adds freshness.py, a sixth release gate. A log head, entry count, build digest or issuance time restated in any tracked document is a build error unless it matches the live source, is a digest of a file in that repository, is a commit-pinned upstream identifier, or is explicitly marked pinned. It cannot check without a network and reports that rather than passing.",
+   "digest": "8ef296851401668a3dd0beef57994b65335f2a016c340f9f32be16a4afcacd24",
+   "prev": "f1d2106a65f904524d716609f23391a2c5327d43f4b585f0032aa19df3168b5f",
+   "entry_hash": "62b8611ce7a02b80850fe7b353a9faec84d033844c28684c000f4c3c6718d8c9"
+  },
+  {
+   "n": 443,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 epistemic-eval/exact_engine.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "5dd9ed89adeb504e1dac6f3927e68d85451de0bb2b74c7157982e3dd90cc560f",
+   "prev": "62b8611ce7a02b80850fe7b353a9faec84d033844c28684c000f4c3c6718d8c9",
+   "entry_hash": "38a140718475ce984edcf6694c4d3be7154e5fbb9433df66528a0a3a6709c420"
+  },
+  {
+   "n": 444,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/adversarial.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "3541afd8fc98759ee89633bd03d9872a8791e48a5c27b6adba66c12530ab1f62",
+   "prev": "38a140718475ce984edcf6694c4d3be7154e5fbb9433df66528a0a3a6709c420",
+   "entry_hash": "3f2b57cb0729fe21ee82b51fbb9754a035102651dea376d28f55833f6c9d0d3c"
+  },
+  {
+   "n": 445,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/assemble.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "351ff3267e49f6d8752f30cb964a8cd5c2c5884d83b9513a56d0a0618063e676",
+   "prev": "3f2b57cb0729fe21ee82b51fbb9754a035102651dea376d28f55833f6c9d0d3c",
+   "entry_hash": "db3b000c66dc08d1d3654e4e11a61d4c7bec186fb7eb01a198230f22f5316e1f"
+  },
+  {
+   "n": 446,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/emails.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "79009313aed00142829b8ad987644b39064b20fb47e26b4c6e86546d08bccaa2",
+   "prev": "db3b000c66dc08d1d3654e4e11a61d4c7bec186fb7eb01a198230f22f5316e1f",
+   "entry_hash": "caeb79c3e0e85ecb8446a2a4ea6c7bc68574ef7f90e57739aba529b4e6eead29"
+  },
+  {
+   "n": 447,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/freeze_build.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "ea94e3fce9b123e7e0356cd35ec1437f796e29a3982a194f38797f29986db44a",
+   "prev": "caeb79c3e0e85ecb8446a2a4ea6c7bc68574ef7f90e57739aba529b4e6eead29",
+   "entry_hash": "284a5215454749f2b10603e2ee71825cdf85e18bbfeece8f8432d5b4c27d6179"
+  },
+  {
+   "n": 448,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/freshness.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "06d9d3d8a4a2364b7b0b93bf4e138c863c8f8872ba548c64b577eccbce474f69",
+   "prev": "284a5215454749f2b10603e2ee71825cdf85e18bbfeece8f8432d5b4c27d6179",
+   "entry_hash": "726f05a67254f64db2dcb6756b3592e7aee54ae671fef2cc630db3354c2ad627"
+  },
+  {
+   "n": 449,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/gate.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "25c4721cdb8ade1a65e6807251185e9662b6dcc4e3371aa168baa4aa32e06c5b",
+   "prev": "726f05a67254f64db2dcb6756b3592e7aee54ae671fef2cc630db3354c2ad627",
+   "entry_hash": "2e04699d3ba6679cab436b4ebb68266ca1071079af72d796a6b6d7ae49dde87b"
+  },
+  {
+   "n": 450,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/manifest_gen.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "3391397152431c53da70fef1fab0fbdb95b8ce1d1ba61bdbeb869991433f8dfb",
+   "prev": "2e04699d3ba6679cab436b4ebb68266ca1071079af72d796a6b6d7ae49dde87b",
+   "entry_hash": "2340885c6396d2d4c21eea4b925dedacc763528c16fb9575495f1fba59d65127"
+  },
+  {
+   "n": 451,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/negative_control.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "134ccbcb01a15759af1c2c96be8697f6cc165f70fc25588553cdb053c514a0e8",
+   "prev": "2340885c6396d2d4c21eea4b925dedacc763528c16fb9575495f1fba59d65127",
+   "entry_hash": "6422c30b01d2c10b5e75777f700d9ccca93c3747c863131916845e8f2f59b1a5"
+  },
+  {
+   "n": 452,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/package.sh",
+   "claim": "Component of build manifest v22.",
+   "digest": "2a292cf11388feb8a0ad6b0be6c1f1aaeeb8965b11ca38f862500dfd3509b244",
+   "prev": "6422c30b01d2c10b5e75777f700d9ccca93c3747c863131916845e8f2f59b1a5",
+   "entry_hash": "7b6afc3968f59ee9aaaf0d46efa94e5a9c747fac2e6e4f99ab0882f264e16b50"
+  },
+  {
+   "n": 453,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/preflight.sh",
+   "claim": "Component of build manifest v22.",
+   "digest": "9bf056da347b56a4174599b8c690fdb1db9336646ab11854a64f9e4f5e24b9e6",
+   "prev": "7b6afc3968f59ee9aaaf0d46efa94e5a9c747fac2e6e4f99ab0882f264e16b50",
+   "entry_hash": "ba709ca03deb69ee118c48bb8417fe55c0bf29999dad3855f7fbc79acce94453"
+  },
+  {
+   "n": 454,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/readme_gen.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "5bc73bfe1c071a36b7f26dfbcce50104f2a2aebe182bc2c8cb8e40186fb43dee",
+   "prev": "ba709ca03deb69ee118c48bb8417fe55c0bf29999dad3855f7fbc79acce94453",
+   "entry_hash": "eba19cbdff3c29f9b158c05f982a8c804ea3d33182504aaff9a2d07ddf18bb3d"
+  },
+  {
+   "n": 455,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/regen_pdfs.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "65a5aa02318eb77a7936ee5e2cb85f72da283d71825aecdb03a3a0624cf2920e",
+   "prev": "eba19cbdff3c29f9b158c05f982a8c804ea3d33182504aaff9a2d07ddf18bb3d",
+   "entry_hash": "0f3440866a00cd5168d6b10b17de47a898c7508807357f9834e62dc26d9cd44c"
+  },
+  {
+   "n": 456,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/release.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "ddc726c3b4aef19df7c7e78c6bebaa097655832146e60c703dbf465279b77e73",
+   "prev": "0f3440866a00cd5168d6b10b17de47a898c7508807357f9834e62dc26d9cd44c",
+   "entry_hash": "522751af2e6b8e4d5cd2225a192570fb8f4ed9a68d5dc7612c58d4740b6a4359"
+  },
+  {
+   "n": 457,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/release_all.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "30f6dc0b632d703591ca0985dd484af0ec5ccf5f8162eb92ad6370a07f2f6424",
+   "prev": "522751af2e6b8e4d5cd2225a192570fb8f4ed9a68d5dc7612c58d4740b6a4359",
+   "entry_hash": "f0095fe026fa7d2bf821fe0c14fe3109e65b614f3095e820630ccc54fb656a0a"
+  },
+  {
+   "n": 458,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/render.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "b78a96420c66698c794bd9c0a9bd25f75a600f1eb548dd6f9f1cc64ba8953444",
+   "prev": "f0095fe026fa7d2bf821fe0c14fe3109e65b614f3095e820630ccc54fb656a0a",
+   "entry_hash": "ae4459b9806100b888b8378588c76d45da7300a3c3de6297f93caaaaa46d5673"
+  },
+  {
+   "n": 459,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/reproduce.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "2dc241d2ac53209230f7b6d63e40c6d2003e1cd059139f70eec2c2a979b5b068",
+   "prev": "ae4459b9806100b888b8378588c76d45da7300a3c3de6297f93caaaaa46d5673",
+   "entry_hash": "de5924dcf90ca15e7d06fda4f613375012a1b2fc19639fced8b1e657a406ec33"
+  },
+  {
+   "n": 460,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/requirements-review.txt",
+   "claim": "Component of build manifest v22.",
+   "digest": "9b70ecd79e56aef7eff97fc1b6ceee779a42fb80ce210350ff23fa24ff38778a",
+   "prev": "de5924dcf90ca15e7d06fda4f613375012a1b2fc19639fced8b1e657a406ec33",
+   "entry_hash": "c4dd5670a6ccb7f6ece13cc283d885fdb55ac09e55facd34a523c3f7fbf4913a"
+  },
+  {
+   "n": 461,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 packbuild/specs.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "d79fa1dda32d8c2e28775fcc43e7d67d2cdcbbafeb60624ab96580b2ef7b0527",
+   "prev": "c4dd5670a6ccb7f6ece13cc283d885fdb55ac09e55facd34a523c3f7fbf4913a",
+   "entry_hash": "64c857aa0cbbdf1240a7dffdad1a68a38c9ed35b7548ee7ea678daef4828ab63"
+  },
+  {
+   "n": 462,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/cli.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "a219d82f2c2f40bb1c1142e6ad6d71f1c22b63519a6b6c905d253c21b4db86eb",
+   "prev": "64c857aa0cbbdf1240a7dffdad1a68a38c9ed35b7548ee7ea678daef4828ab63",
+   "entry_hash": "22c962923eb55f2be7894b5b2c532ab61a79de4150056f2a8d889a0258782ba1"
+  },
+  {
+   "n": 463,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/core.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "22c962923eb55f2be7894b5b2c532ab61a79de4150056f2a8d889a0258782ba1",
+   "entry_hash": "3713ee833521a0897b2dded4a004d469ab23fa42b7403b77f06a7bcc1c1587f1"
+  },
+  {
+   "n": 464,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/counterexample.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "3713ee833521a0897b2dded4a004d469ab23fa42b7403b77f06a7bcc1c1587f1",
+   "entry_hash": "3a69a30c81bc88acc2d09e2f4a875841bfb48b214936ca5c3910a9397019df5d"
+  },
+  {
+   "n": 465,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/gexpr.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "3a69a30c81bc88acc2d09e2f4a875841bfb48b214936ca5c3910a9397019df5d",
+   "entry_hash": "a2bc6d62410f3b1b765a1c895fa57009226c13843d37632a3d1c2bfd15f2b011"
+  },
+  {
+   "n": 466,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/repo.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "a2bc6d62410f3b1b765a1c895fa57009226c13843d37632a3d1c2bfd15f2b011",
+   "entry_hash": "7099866d9fbea7943eedc124955f1bedbbb4cca99dfbbd8ad940f1e47bf60d6f"
+  },
+  {
+   "n": 467,
+   "utc": "2026-08-18T14:05:24Z",
+   "kind": "artifact",
+   "subject": "build v22 witness/sensitivity.py",
+   "claim": "Component of build manifest v22.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "7099866d9fbea7943eedc124955f1bedbbb4cca99dfbbd8ad940f1e47bf60d6f",
+   "entry_hash": "cd14a1d437b0d596385072999eb554fb1f18ecaad7b99dab8e99fb6528582cf2"
+  },
+  {
+   "n": 468,
+   "utc": "2026-08-18T14:05:25Z",
+   "kind": "bar",
+   "subject": "No derived fact in prose, from this entry",
+   "claim": "A fact that is derived from a source is not written down anywhere else. Documents point at the source instead. Four failures in this project shared this shape: a send note stating a schedule, an archive holding a superseded generation, a log entry claiming repository contents, and a handover stating a count and head that went stale within hours. Each was corrected by hand and the next document repeated it, so the rule is enforced by freshness.py as a release gate rather than by care. A restated digest of a file in the same repository is checked rather than banned, since that is a verifiable claim; a commit-pinned upstream identifier is a pin by design.",
+   "digest": "",
+   "prev": "cd14a1d437b0d596385072999eb554fb1f18ecaad7b99dab8e99fb6528582cf2",
+   "entry_hash": "a08a56cc22283c174d72c3b6b77daad9fdf52683dfe2be1ce9c9f00bb6566d4c"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "f1d2106a65f904524d716609f23391a2c5327d43f4b585f0032aa19df3168b5f",
-  "count": 441,
-  "sig": "e34801d7d2fbeb2a0587a6fbfec04b0c81b713a76101d1f2e0d37256afa30d37c1b94bed0b944a88a79e66579c746c9d1555b0a4ce099014b58c1a96029a8e09"
+  "head": "a08a56cc22283c174d72c3b6b77daad9fdf52683dfe2be1ce9c9f00bb6566d4c",
+  "count": 468,
+  "sig": "615c0f02d495b5875f11a1ba58ac8817c27826d9ea15047dcf6114a851b8820cb5651bddbfc4dd6a039e1028275575a5dbf91d85d7ab1d718073912cc008ec08"
  }
 }
