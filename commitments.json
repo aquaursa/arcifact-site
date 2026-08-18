@@ -4112,13 +4112,263 @@
    "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
    "prev": "7f60d8839bf0d23636ae8a014bfc4305547b76d4281c5a094c35a1c4638a8755",
    "entry_hash": "099c53f9c42b42f3fc2213084778f6e18a92d408bd2514e64b4f247983e7a51d"
+  },
+  {
+   "n": 411,
+   "utc": "2026-08-18T10:00:52Z",
+   "kind": "artifact",
+   "subject": "Gate build manifest v21 (dispatch)",
+   "claim": "Every gate is bound, including the negative control. The manifest is the shipping list: a gate absent from it does not travel with the bundle, and the documented command then fails.",
+   "digest": "d91146c06bd60f25965d8d42341edb9d3ad5122ee57e75cb8c9349f30677c730",
+   "prev": "099c53f9c42b42f3fc2213084778f6e18a92d408bd2514e64b4f247983e7a51d",
+   "entry_hash": "726e3cb3a4c3a7741bc132c0c6ffa8f0e34fd432899dc3a9093eee7196918f14"
+  },
+  {
+   "n": 412,
+   "utc": "2026-08-18T10:00:52Z",
+   "kind": "artifact",
+   "subject": "build v21 epistemic-eval/exact_engine.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "5dd9ed89adeb504e1dac6f3927e68d85451de0bb2b74c7157982e3dd90cc560f",
+   "prev": "726e3cb3a4c3a7741bc132c0c6ffa8f0e34fd432899dc3a9093eee7196918f14",
+   "entry_hash": "fbe5d4f8ca41661599c05f65f00864f80b8407c2fe2c11fc36deb8af99a34ad8"
+  },
+  {
+   "n": 413,
+   "utc": "2026-08-18T10:00:52Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/adversarial.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "3541afd8fc98759ee89633bd03d9872a8791e48a5c27b6adba66c12530ab1f62",
+   "prev": "fbe5d4f8ca41661599c05f65f00864f80b8407c2fe2c11fc36deb8af99a34ad8",
+   "entry_hash": "f9c2091b38b2c9a549eb63c33694e228fb1ef91cbc46513920863ba9bba4f385"
+  },
+  {
+   "n": 414,
+   "utc": "2026-08-18T10:00:52Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/assemble.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "351ff3267e49f6d8752f30cb964a8cd5c2c5884d83b9513a56d0a0618063e676",
+   "prev": "f9c2091b38b2c9a549eb63c33694e228fb1ef91cbc46513920863ba9bba4f385",
+   "entry_hash": "51c5264b164b3f9fce336abae5845b90ac06fffb51adf93776050e659e1bba8d"
+  },
+  {
+   "n": 415,
+   "utc": "2026-08-18T10:00:52Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/emails.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "79009313aed00142829b8ad987644b39064b20fb47e26b4c6e86546d08bccaa2",
+   "prev": "51c5264b164b3f9fce336abae5845b90ac06fffb51adf93776050e659e1bba8d",
+   "entry_hash": "17c3c632d483f7ff110cf80448e62bc511a5f411f7b28cc9a6aa1a68f9630715"
+  },
+  {
+   "n": 416,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/freeze_build.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "38bfb28506e68225142ae4f063c5c17e7ddbad21ccebf39f6a5dd2a6a222109d",
+   "prev": "17c3c632d483f7ff110cf80448e62bc511a5f411f7b28cc9a6aa1a68f9630715",
+   "entry_hash": "76e7e34e524841ef59f0a47bb541765430aaf6104ebb09003420d77c07ea2c44"
+  },
+  {
+   "n": 417,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/gate.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "25c4721cdb8ade1a65e6807251185e9662b6dcc4e3371aa168baa4aa32e06c5b",
+   "prev": "76e7e34e524841ef59f0a47bb541765430aaf6104ebb09003420d77c07ea2c44",
+   "entry_hash": "aaa0f38648183c705f2db6269b7f7d637459af7942f9d3e4841e11fd07dd04d6"
+  },
+  {
+   "n": 418,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/manifest_gen.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "3391397152431c53da70fef1fab0fbdb95b8ce1d1ba61bdbeb869991433f8dfb",
+   "prev": "aaa0f38648183c705f2db6269b7f7d637459af7942f9d3e4841e11fd07dd04d6",
+   "entry_hash": "c323963d55d336026047c03083db3ec47e07bcfeed6efa01d7e08c7414978580"
+  },
+  {
+   "n": 419,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/negative_control.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "134ccbcb01a15759af1c2c96be8697f6cc165f70fc25588553cdb053c514a0e8",
+   "prev": "c323963d55d336026047c03083db3ec47e07bcfeed6efa01d7e08c7414978580",
+   "entry_hash": "66d585481863dcda2008699f06a9f02c9236f384657bd24ae626dca5796af7f6"
+  },
+  {
+   "n": 420,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/package.sh",
+   "claim": "Component of build manifest v21.",
+   "digest": "2a292cf11388feb8a0ad6b0be6c1f1aaeeb8965b11ca38f862500dfd3509b244",
+   "prev": "66d585481863dcda2008699f06a9f02c9236f384657bd24ae626dca5796af7f6",
+   "entry_hash": "72a540534b24de0f28ad4a7982be68220445dabbbf1ef0e69982ecb46006a115"
+  },
+  {
+   "n": 421,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/preflight.sh",
+   "claim": "Component of build manifest v21.",
+   "digest": "9bf056da347b56a4174599b8c690fdb1db9336646ab11854a64f9e4f5e24b9e6",
+   "prev": "72a540534b24de0f28ad4a7982be68220445dabbbf1ef0e69982ecb46006a115",
+   "entry_hash": "4c63130fff23dcb458e75b24987d0936568d7d162fba5adca4ecc482c686c292"
+  },
+  {
+   "n": 422,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/readme_gen.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "5bc73bfe1c071a36b7f26dfbcce50104f2a2aebe182bc2c8cb8e40186fb43dee",
+   "prev": "4c63130fff23dcb458e75b24987d0936568d7d162fba5adca4ecc482c686c292",
+   "entry_hash": "ac5949ef4a9377404028f2210585e72f61c881aa29f98e77177b16ab33724ecb"
+  },
+  {
+   "n": 423,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/regen_pdfs.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "65a5aa02318eb77a7936ee5e2cb85f72da283d71825aecdb03a3a0624cf2920e",
+   "prev": "ac5949ef4a9377404028f2210585e72f61c881aa29f98e77177b16ab33724ecb",
+   "entry_hash": "be88d57f38fe10231575dd781da00dff060aa12b8219e436467615d23707f029"
+  },
+  {
+   "n": 424,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/release.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "ddc726c3b4aef19df7c7e78c6bebaa097655832146e60c703dbf465279b77e73",
+   "prev": "be88d57f38fe10231575dd781da00dff060aa12b8219e436467615d23707f029",
+   "entry_hash": "7ac57160edabd686948f4eb89693241708ac49078022907c7dd34541e9ca4bd7"
+  },
+  {
+   "n": 425,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/release_all.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "d1fb32e663d1fb3cf55bd55b57b6159bb63f45d37b005676592afbd9b4163729",
+   "prev": "7ac57160edabd686948f4eb89693241708ac49078022907c7dd34541e9ca4bd7",
+   "entry_hash": "a560b676139c356e57728d6f25414fc90740d7b48d68b2736699b942c775b15f"
+  },
+  {
+   "n": 426,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/render.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "b78a96420c66698c794bd9c0a9bd25f75a600f1eb548dd6f9f1cc64ba8953444",
+   "prev": "a560b676139c356e57728d6f25414fc90740d7b48d68b2736699b942c775b15f",
+   "entry_hash": "76e19dd76caca528b37869163eff5c8a49223bc8eb40b5010ee396b1f27f4208"
+  },
+  {
+   "n": 427,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/reproduce.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "2dc241d2ac53209230f7b6d63e40c6d2003e1cd059139f70eec2c2a979b5b068",
+   "prev": "76e19dd76caca528b37869163eff5c8a49223bc8eb40b5010ee396b1f27f4208",
+   "entry_hash": "9d5227cac552f14548b252dbc6cae3e65fa7672ac3c199748ac5be5affb5e3be"
+  },
+  {
+   "n": 428,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/requirements-review.txt",
+   "claim": "Component of build manifest v21.",
+   "digest": "9b70ecd79e56aef7eff97fc1b6ceee779a42fb80ce210350ff23fa24ff38778a",
+   "prev": "9d5227cac552f14548b252dbc6cae3e65fa7672ac3c199748ac5be5affb5e3be",
+   "entry_hash": "b00ed27f562f789378195df7e655ddc464ee9f096cb86bf5413125d541304f31"
+  },
+  {
+   "n": 429,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 packbuild/specs.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "d79fa1dda32d8c2e28775fcc43e7d67d2cdcbbafeb60624ab96580b2ef7b0527",
+   "prev": "b00ed27f562f789378195df7e655ddc464ee9f096cb86bf5413125d541304f31",
+   "entry_hash": "69c37c9e1c54b129ffaa82b65ba043b4a40833e2c5e5d4dd80afcae9c7138418"
+  },
+  {
+   "n": 430,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/cli.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "a219d82f2c2f40bb1c1142e6ad6d71f1c22b63519a6b6c905d253c21b4db86eb",
+   "prev": "69c37c9e1c54b129ffaa82b65ba043b4a40833e2c5e5d4dd80afcae9c7138418",
+   "entry_hash": "a51768379b14de2c5cfaca761e5652dc4aeff30396623fde752d9f22f3db52a1"
+  },
+  {
+   "n": 431,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/core.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "db87e4cd2c641ddae58f5819d6985b12b80eb41963eab73cfd3de35167b8ff4e",
+   "prev": "a51768379b14de2c5cfaca761e5652dc4aeff30396623fde752d9f22f3db52a1",
+   "entry_hash": "51aee686d8d4788a95c4c5fa073b3d75754d9d28063d74642863c0407f6181cb"
+  },
+  {
+   "n": 432,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/counterexample.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "186eaf3748918074ac5541484e8b572ff00507b46314be962f91744405056454",
+   "prev": "51aee686d8d4788a95c4c5fa073b3d75754d9d28063d74642863c0407f6181cb",
+   "entry_hash": "8a05922c332c4af9e6378fc284bb40604388c630e56464dbe85903129062007d"
+  },
+  {
+   "n": 433,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/gexpr.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "b9928a51a74699ab366dadf71446c744e14795a50bc094d0fbf3b87d9c76255c",
+   "prev": "8a05922c332c4af9e6378fc284bb40604388c630e56464dbe85903129062007d",
+   "entry_hash": "2d735f26f0807ab8f9795436ad0165cc8ef97d94c60dc46e0b72c00e45cd6314"
+  },
+  {
+   "n": 434,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/repo.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "1eac8b1eb9dabab4dce20c7be1b5b16e73874ea001c684b16b9ea44286e755da",
+   "prev": "2d735f26f0807ab8f9795436ad0165cc8ef97d94c60dc46e0b72c00e45cd6314",
+   "entry_hash": "c66245c7f29caf26ebb376e2f1364c5d49c47b90a4e6bda7c8ce4bee199ea5e4"
+  },
+  {
+   "n": 435,
+   "utc": "2026-08-18T10:00:53Z",
+   "kind": "artifact",
+   "subject": "build v21 witness/sensitivity.py",
+   "claim": "Component of build manifest v21.",
+   "digest": "684dfacea9d54a392a9ce8fc9b99a60c7b9ec9dc0ba378e4986f997039ac1ad5",
+   "prev": "c66245c7f29caf26ebb376e2f1364c5d49c47b90a4e6bda7c8ce4bee199ea5e4",
+   "entry_hash": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "099c53f9c42b42f3fc2213084778f6e18a92d408bd2514e64b4f247983e7a51d",
-  "count": 410,
-  "sig": "674be506314dcf7a6138e8b59a650d076b80152d83b7f4948ee49a1e72aa4c534cca70a9ab0c91a68f6d5428321ba9ee74e906f823009834b3ae37300ee0aa08"
+  "head": "45bb8ad806c61fd05ea3204653f74e82389d811995456e4be086add26e848a52",
+  "count": 435,
+  "sig": "38497df1bafcd334d78f5bab031002bd3dcaeb6a332055e3d32b40995ca11e5b8c2aa851e309cd8be458c063acbb31fbedc52b75d58728b8152c734670847503"
  }
 }
