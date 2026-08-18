@@ -4382,13 +4382,33 @@
    "digest": "",
    "prev": "325c7ba7c4faff45dd6f696674f2efe41322a592e11f4eb27b885097b0f5f625",
    "entry_hash": "4c3f52c3ba740fd673cac0205b7a48eca59c98f44e9f1556e123ce99148be3cb"
+  },
+  {
+   "n": 438,
+   "utc": "2026-08-18T13:40:09Z",
+   "kind": "policy",
+   "subject": "Archive correction, 2026-08-18",
+   "claim": "The private archive held a 2026-08-17T20:37:25Z generation of the five packs while the batch dispatched on 2026-08-18 was the 10:01:16Z set, bound to a different head and build. The correct packs were sent; the archive did not hold them. Corrected: docs/packets/dispatched-2026-08-18/ now contains the dispatched packs and the exact attachments, read-only. A superseded internal send note describing three tarballs on a staggered schedule, contradicting the dispatch record, has been removed. Entry 437 stands: five were sent on 2026-08-18.",
+   "digest": "",
+   "prev": "4c3f52c3ba740fd673cac0205b7a48eca59c98f44e9f1556e123ce99148be3cb",
+   "entry_hash": "588b7735e6c8709651aec42efb6e36653434f5149cba1b5c5787a01efbd43647"
+  },
+  {
+   "n": 439,
+   "utc": "2026-08-18T13:40:09Z",
+   "kind": "bar",
+   "subject": "Archive discipline, from this entry",
+   "claim": "The archive is taken from the tree the release has just verified, never from an earlier copy, and is written to a dated read-only folder that is never overwritten. A correction becomes a new dated folder. No internal note that contradicts a signed log entry is retained.",
+   "digest": "",
+   "prev": "588b7735e6c8709651aec42efb6e36653434f5149cba1b5c5787a01efbd43647",
+   "entry_hash": "f4ab7e1db9465877803561152190b8b1380db31b225c0dd6dbaef8ac9e85c6a5"
   }
  ],
  "signature": {
   "alg": "ed25519",
   "key_id": "arcifact-issuer-2026-08",
-  "head": "4c3f52c3ba740fd673cac0205b7a48eca59c98f44e9f1556e123ce99148be3cb",
-  "count": 437,
-  "sig": "cd7b1dcf25ff700fc1ba306e919b2df436d57d0e4ce3f69cf39b5d68c8401c401682bc273a057746a6c7899e2e6cba35a19cf11717298000d5bba6be96803f0a"
+  "head": "f4ab7e1db9465877803561152190b8b1380db31b225c0dd6dbaef8ac9e85c6a5",
+  "count": 439,
+  "sig": "cb998f970bed3dc2e0f3a740e9c95c77807cce646702478761611cdf237c30a3fd59ff7de85a25cecac5eebdd001fa9802755e6349e111e8a54852216d48f20e"
  }
 }
